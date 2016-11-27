@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box5">
+			<div id="box">
+				<div id="box1">
+					<div id="box2">
+						<strong>hello</strong>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+			<div id="box3">
+			</div>
+		
+		
+		
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//返回直接父级节点
+//			console.log($('#box2').parent('#box1'));
+
+			//返回所有的父级节点 
+//			var ps = $('strong').parents();
+//			console.log(ps[ps.length-3]);
+
+			//返回
+			console.log($('#box').parentsUntil('#box3'));
+			//$('#box').parentsUntil('#box3') 使用输出结果与 $('#box').parents() 一样
+
+		</script>
+	</body>
+</html>

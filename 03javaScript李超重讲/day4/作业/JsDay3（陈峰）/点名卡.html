@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p,div{margin: 0;
+				padding: 0;}
+			
+			#box{height: 500px;
+				width: 600px;
+				text-align: center;
+				margin: 100px auto;}
+				
+			#card{height: 300px;
+				width: 600px;
+				border: 1px solid black;
+				color: red;
+				text-align: left;
+				display: none;}
+				
+			#btnStart{width: 90px;
+					height: 50px;
+					border: 1px solid black;
+					line-height: 50px;
+					font-size: 20px;
+					margin: 5px;}
+					
+			#btnOver{width: 90px;
+					height: 50px;
+					border: 1px solid black;
+					line-height: 50px;
+					font-size: 20px;
+					margin: 5px;}
+			
+			span{width: 100px;
+			  height: 50px;
+			  text-align: center;
+			  font-size: 24px;
+			  line-height: 50px;
+			  display: inline-block;}		
+			  
+			#get{height: 100px;
+				width: 200px;
+				border: 1px solid black;
+				margin: 20px 200px;
+				background: yellowgreen;
+				line-height: 100px;
+				font-size: 40px;
+				color: red;
+				text-align: center;}  	
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			<h1>（0817班）点名册</h1>
+			<div id="card"></div>
+			<div id="get">点名册</div>
+			<input type="button" value="开始" id="btnStart" />
+			<input type="button" value="确定" id="btnOver" />
+		</div>
+		
+		
+		<script type="text/javascript">
+			//获取元素
+			var card=document.getElementById('card');
+			var start=document.getElementById('btnStart');
+			var over=document.getElementById('btnOver');
+			var get=document.getElementById('get');
+			var Span=document.getElementsByTagName('span');
+			
+			//定义数组并赋初值
+			var arr=['邓晓丰','陈健','吴闻','刘世颖','韦文会','冼瑞健','李家盛','程建政','俞钧龙',
+                     '周喜良','孙志亮','钟利民','张超凡','李君','樊占军','李城','朱何优','阳聪',
+                     '傅超军','刘驰誉','钟伟伟','刘志明','李为龙','马红亮','贾亚丽','陈峰',]
+			
+			//定义数组用于存放定时器
+			var times=[];
+			//条件变量
+			var flg=true;
+			
+			
+//			console.log(Span.length);
+            //开始按钮点击事件函数
+            start.onclick=function(){
+            	card.innerHTML='';
+            	//把班内成员存放在div中
+				for(num in arr){
+					card.style.display='block';
+					card.innerHTML+='<span>'+arr[num]+'</span>';
+				}
+            	if (flg) {
+            		//开启定时器函数
+            		var time=setInterval(function(){
+            		Span[num].style.backgroundColor='';
+            		//获取0~26的随机数
+					num=Math.floor(Math.random()*26);
+//					console.log(num);
+					Span[num].style.backgroundColor='yellowgreen';
+					get.innerHTML=arr[num];
+//					console.log(Span[num]);
+				},5);
+				times.push(time);
+				flg=false;
+				console.log(times.length);
+            	} else{
+            		alert('已经开始点名,请点击确定!');
+            	}
+            }
+            
+            //结束按钮点击事件，结束定时器
+			over.onclick=function(){
+				clearInterval(times.pop());
+				flg=true;
+				card.style.display='none';
+			}
+		</script>>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>动态反向</title>
+		<style type="text/css">
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+			#box {
+				height: 300px;
+				width: 300px;
+				/*background: yellow;*/
+				position:absolute;
+			}
+			#O {
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+			#Tr {
+				height: 100px;
+				width: 100px;
+				background: green;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			#Tw {
+				height: 100px;
+				width: 100px;
+				background: blue;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="O"></div>
+			<div id="Tw"></div>
+			<div id="Tr"></div>
+        </div>
+        
+        
+        <script type="text/javascript">
+        	var box =document.getElementById("box");
+        	
+        	var div=document.getElementsByTagName("div");
+        	
+        	
+        	var w=document.documentElement.clientWidth;        //兼容性
+		    var h=document.documentElement.clientHeight;
+		    
+		    
+		    console.log(h);
+		    console.log(w);
+		    
+		    
+
+
+            function CSS(obj,attr,value)
+			{
+				if(value!=undefined)
+				{
+					obj.style[attr]=value;
+				
+				}
+				//获取 最终样式
+				if(window.getComputedStyle)
+				{
+					  return   getComputedStyle(obj)[attr];
+				}else
+				{
+					
+					 return   obj.currentStyle[attr];
+				}
+
+			}
+			
+			document.onmousemove=function(ev){
+		        	var ev=ev || window.event;
+		            
+		      		var x=ev.pageX;
+		      		var y=ev.pageY;             //鼠标的坐标    		
+		
+		     		box.style.left=x+"px";
+		     		box.style.top=y+"px";
+                        
+                    
+                    var add=(y+300);    
+                     var addt=(x+300);    
+                    
+                    //console.log(add);
+                    
+
+		        if(add>h){
+	            	   CSS(box,"top","300px");
+	            	   CSS(box,"right","-300px");
+		            }
+		        if(addt>w){
+	            	 
+	            	   CSS(box,"left","900px");
+		            }
+		            
+        	}
+        </script>
+	</body>
+
+</html>

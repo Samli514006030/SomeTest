@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1{width:500px; height:600px; margin:80px auto;}
+			#box2{width:100%; height:130px; border-bottom:solid black 2px;}
+			#box3{width:100%; height:30px; border-bottom:solid black 2px;}
+			#box4{width:100%; height:436px; background-color:#778899;overflow:auto;}
+		    input{ resize: both; width:100px;height:25px; position: relative;left:400px; 
+		    bottom:2px; margin:0px;border:0px;}
+		    textarea{width:100%; height:130px;  font-size:30px; text-indent:1em;}
+		    div{border-bottom: dotted beige 1px; font-size: 24px; color: #000000; height:50px;}
+		   
+		    
+		</style>
+	</head>
+	<body bgcolor="darkgray">
+		<div id="box1">
+			<div id="box2"><textarea>请输入留言</textarea></div>
+			<div id="box3"><input type="button" value="留言"/></div>
+			<div id="box4"></div>
+		</div>
+		<script>
+			   var content=document.getElementsByTagName('textarea')[0];
+			   var btn=document.getElementsByTagName('input')[0];
+			   var odiv=document.getElementsByTagName('div');
+
+			   content.onfocus=function()
+			   {   
+			   	   if(content.value="请输入留言"){
+			   	content.value='';
+
+			   	   
+			   	   }
+			   	
+			   	
+			   }
+			   content.onblur=function()
+			   {   
+			   	  	if(content.value=='')
+
+			   	  	{
+			   	  		content.value="请输入留言";
+
+			   	  	
+			   	  	}
+			   	
+			   	
+			   	
+			   	
+			   }
+			   
+			   
+			   
+			   
+			   
+			   
+			   btn.onclick=function()
+			   {
+			   	  var div=document.createElement('div');
+			   	      div.innerHTML=content.value+'<br>';
+			   	      odiv[3].appendChild(div);
+			   	
+			   	
+			   	content.value='';
+			   	
+			   	
+			   	
+			   }
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

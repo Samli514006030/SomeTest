@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.my_c{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<a class="my_c" href="http://www.qq.com" target="_blank">qq</a>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var val = $('a').attr('href');
+			var val = $('a').attr('target');
+			var val = $('a').attr('class');
+			
+			console.log(val);
+			
+		</script>
+	</body>
+</html>

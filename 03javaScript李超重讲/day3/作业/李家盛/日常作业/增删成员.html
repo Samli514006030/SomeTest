@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #d1 {
+        border: black 1px;
+        margin: 10px auto;
+        width: 600px;
+        height: 600px;
+        position: relative;
+    }
+
+    #d2 {
+        background: green;
+        width: 498px;
+        height: 498px;
+        margin: 0 50px;
+        position: absolute;
+        color: white;
+        border: green 1px solid;
+
+    }
+
+    #i1 {
+        width: 120px;
+        height: 30px;
+        position: absolute;
+        margin: 500px 50px;
+        border: black 1px solid;
+    }
+
+    #i2 {
+        width: 120px;
+        height: 30px;
+        position: absolute;
+        margin: 530px 50px;
+        border: black 1px solid;
+    }
+
+    #i3 {
+        width: 120px;
+        height: 30px;
+        position: absolute;
+        margin: 500px 170px;
+
+    }
+
+    #i4 {
+        width: 120px;
+        height: 30px;
+        position: absolute;
+        margin: 530px 170px;
+    }
+
+    #i5 {
+        width: 260px;
+        height: 60px;
+        position: absolute;
+        margin: 500px 290px;
+        border: black 1px solid;
+    }
+</style>
+<body>
+<div id="d1">
+
+    <div id="d2">
+
+    </div>
+    <input type="button" value="增加成员至最后" id="i1">
+    <input type="button" value="删除最后一位成员" id="i2">
+    <input type="text" id="i3" placeholder="请输入名字" maxlength="4">
+    <select name="select" id="i4">
+        <option>请选择性别</option>
+        <option style="background-color: green">男</option>
+        <option style="background-color: pink">女</option>
+    </select>
+    <input type="button" value="删除所输入名字对应的成员" id="i5">
+</div>
+<script>
+    var a = [
+        ["程建政", "男"],
+        ["邓晓丰", "男"],
+        ["陈健", "男"],
+        ["贾亚丽", "女"],
+        ["李城", "男"],
+        ["李为龙", "男"],
+        ["马红亮", "男"],
+        ["吴闻", "男"],
+        ["俞钧龙", "男"],
+        ["张超凡", "男"]
+    ];
+    var d2 = document.getElementById("d2"),
+            i1 = document.getElementById("i1"),
+            i2 = document.getElementById("i2"),
+            i3 = document.getElementById("i3"),
+            i4 = document.getElementById("i4"),
+            i5 = document.getElementById("i5");
+
+    printMember();
+    //点击添加
+    i1.onclick = function () {
+        a.push([i3.value, i4.value]);
+        printMember();
+    }
+    //点击删除
+    i2.onclick = function () {
+        a.pop();
+        printMember();
+
+    }
+    //输入名字删除：可改为 名字or性别都符合才删除
+    i5.onclick = function () {
+        a = a.filter(function (item) {
+            if (item[0] != i3.value) {
+                return item;
+            }
+        })
+        printMember();
+    }
+    function printMember() {
+        d2.innerHTML = "";
+        for (var i = 0; i < a.length; i++) {
+            d2.innerHTML += a[i][0] + "&nbsp"
+        };
+        i1.btn = true;
+        i1.onmouseover = function () {
+            if (this.btn) {
+                this.style.background = "green"
+            }
+        };
+        i2.btn = true;
+        i2.onmouseover = function () {
+            if (this.btn) {
+                this.style.background = "green"
+            }
+        };
+        i5.btn = true;
+        i5.onmouseover = function () {
+            if (this.btn) {
+                this.style.background = "green"
+            }
+        };
+        i1.onmouseout = function () {
+            if (this.btn) {
+                this.style.background = "#e8e8e8"
+            }
+        };
+        i2.onmouseout = function () {
+            if (this.btn) {
+                this.style.background = "#e8e8e8"
+            }
+        };
+        i5.onmouseout = function () {
+            if (this.btn) {
+                this.style.background = "#e8e8e8"
+            }
+        };
+
+    }
+    ;
+</script>
+</body>
+</html>

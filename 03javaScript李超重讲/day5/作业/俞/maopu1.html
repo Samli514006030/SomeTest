@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin:0;
+				padding:0;
+				font-family: "微软雅黑","arial black";
+				font-size:12px;
+				word-break: break-all;				
+			}
+			#box{
+				width: 500px;
+				height: 800px;
+				border: 2px solid #999999;
+				background: white;
+			}
+			#box1{
+				width:50px;
+				
+				border: 1px solid white;
+				float: left;
+				text-align: center;				
+			}
+			
+			#box1 a{
+				color:blue;
+				text-decoration: none;
+			}
+			#msg{
+				width:440px;
+				height:50px;
+				border:1px solid black;
+				display: inline-block;
+						
+			}
+			.btn{
+				margin-left:440px;	
+			}
+			#btn{
+				border-radius:5px;
+				width: 50px;
+				background: pink;
+				color:white;
+				margin-top:10px;
+				text-align: center;
+				border-radius: 5px;
+			}
+			#blog{
+				background: #E6E6E6;
+				width:440px;
+				min-height: 300px;
+				max-height: 500px;
+				overflow: auto;
+				border: 1px solid black;
+				margin-left:50px;		
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h6>快速回复</h6>
+			<div id="box1">
+				<img src="img/namePic.png">
+				<a href="#">匿名用户</a>				
+			</div>
+			
+				<div id="msg" contenteditable="true" ></div>
+				
+			
+			<div class="btn">
+				<input  id="btn" type="button" value="回复">
+			</div>
+			<div id="blog"></div>
+		</div>
+		<script>
+			var blog = document.getElementById('blog');
+			var msg = document.getElementById('msg');
+			var btn = document.getElementById('btn');
+//			var box1 = document.getElementById('box1')
+//			var img = box1.getElementsByTagName('img');
+			btn.onclick = function(){
+//				var box = box1;
+				var p = document.createElement('p');
+				//var box = document.importNode(box1);
+				p.innerHTML = '<img src="img/namePic.png">'
+				var node = document.createTextNode(msg.innerHTML);
+//				p.appendChild(box);
+				p.appendChild(node);
+				
+				blog.appendChild(p);
+				msg.innerHTML = '';
+				
+			}
+		</script>
+	</body>
+</html>

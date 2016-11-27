@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#bgbox{width: 500px; height: 400px;border: 2px solid blue;margin: 30px auto;}	
+			#box{width: 400px; height: 300px;margin: 5px auto;border: 1px solid black;overflow: auto;}
+			#shuru{width:500px;margin: 5px auto; text-align: center;}
+			#btn{width:400px;margin: 5px auto;text-align: center;}
+		</style>
+	</head>
+	<body>
+		<div id="bgbox">
+			<ol id="box"></ol>
+			<div id="shuru">输入姓名：<input type="text" id="text1" value="dsd"/>&nbsp;
+			选择性别:<input type="text" id="text2" value="只能输入“男”或“女”" />
+			</select>
+			</div>	
+			<div id="btn"><input type="button" value="提交添加" />&nbsp;<input type="button" value="删除最后一名同学" /></div>
+			
+			<script>
+				var oBox=document.getElementById('box');
+				var oLi=oBox.getElementsByTagName('li');
+				var oInter=document.getElementById('shuru');
+				var oInput1=document.getElementById('text1');
+				var oInput2=document.getElementById('text2');
+				var oBtn=document.getElementById('btn');
+				var oInput=oBtn.getElementsByTagName('input');
+				
+				
+				var arrName=['马洪亮','AAA','刘志明','刘驰誉','BBB'];
+				var arrSex=['男','男','女','男','女'];
+				
+				
+				for(var i=0;i<arrName.length;i++){
+					oBox.innerHTML+='<li value>'+arrSex[i]+'&nbsp;&nbsp;&nbsp;'+arrName[i]+'</li>';
+				}
+//				var aname=oInput1.value;
+//				var asex=oInput2.value;				
+			    oInput[0].onclick=function(){
+				
+				var aname=oInput1.value;
+				var asex=oInput2.value;	
+				arrName.push(aname);
+				arrSex.push(asex);
+				oBox.innerHTML='';
+				for(var i=0;i<arrName.length;i++){			
+					oBox.innerHTML+='<li value>'+arrSex[i]+'&nbsp;&nbsp;&nbsp;'+arrName[i]+'</li>';
+				}
+
+			}
+			oInput[1].onclick=function(){
+				arrName.pop();
+				arrSex.pop();
+				oBox.innerHTML='';
+//				aname=oInput1.value;
+//				asex=oInput2.value;	
+				for(var i=0;i<arrName.length;i++){
+					oBox.innerHTML+='<li value>'+arrSex[i]+'&nbsp;&nbsp;&nbsp;'+arrName[i]+'</li>';
+				}
+
+			}
+
+				
+				
+				
+			</script>
+
+		</div>
+	</body>
+</html>

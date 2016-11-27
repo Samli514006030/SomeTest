@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		     li{list-style: none;}
+		     body{ background: #7da0cd;}
+			#page{
+				height: 542px;
+				width: 720px;
+				margin: 90px auto;
+				/*border:1px solid ghostwhite ;*/
+				position: relative;
+				background: white;
+			}
+			.zenlin{
+				position: absolute;
+				top:0px;
+				right:0px;
+			}
+			.content{
+				border: solid 3px #336666;
+				position: absolute;
+				left: 36px;
+				top: 112px;
+				height: 376px;
+				width: 650px;
+				border-left: none;
+				border-right: none;
+				
+			}
+			/*#content{
+				display: none;
+			}*/
+			#page2{
+				display: none;
+			}
+			.img1{
+				position: absolute;
+				height:152px ;
+				width:160px ;
+				left: 47px;
+				top: 80px;
+			}
+			.img2{
+				position: absolute;
+				height:235px ;
+				width:134px ;
+				right: 264px;
+				top: 24px;
+			}
+			.img3{
+				position: absolute;
+				height:146px ;
+				width:125px ;
+				right:77px;
+				top: 45px;
+			}
+			#content-1{
+				width: 302px;
+				height: 33px;
+				position: absolute;
+				color: #d99694;
+				line-height:33px;
+				font:32px  "微软雅黑";
+				left:217px;
+				bottom:74px;
+			}
+			#content-2{
+				width: 58px;
+				height: 30px;
+				position: absolute;
+				color: #000;
+				line-height:30px;
+				font: 28px "宋体";
+				font-weight: bold;
+				left:320px;
+				bottom:24px;
+				font-style: italic;				
+			}
+		  .footer span{
+		  	position: absolute;
+		  	left: 300px;
+		  	bottom: 12px;
+		  	width: 127px;
+		  	height: 12px;
+		  	font-family:"宋体";
+		  	font-style: normal;
+		  }	
+		  .page2-1{
+		  	position: absolute;
+		  	height:27px;
+		  	width:284px;
+		  	left:42px;
+		  	top:78px;
+		  	line-height: 27px;
+		  	color: #336666;
+		  	font:24px "微软雅黑";
+		  }	
+		  .page2-img1{
+		  	height:185px ;
+		  	width:648px ;
+		  	display: block;
+		  	position:absolute ;
+		  	left:36px ;
+		  	top:122px ;
+		  }
+		  .page2-img2{
+		  	height:175px ;
+		  	width:648px ;
+		  	display: block;
+		  	position:absolute ;
+		  	left:36px ;
+		  	bottom:60px ;
+		  }
+		 #page .arrow{
+		 	z-index: 2;
+		  	position: absolute;
+		    display: none;
+		  	top: 250px;
+		  	text-align:center ;
+		    font-size: 36px; 
+		    font-weight: bold;
+		  	height: 50px;
+		  	width: 50px;
+		  	/*border: solid 1px red;*/
+		  	line-height: 50px;
+		  	cursor: pointer;
+		    background:rgba(0,0,0,0.7); 
+		  	opacity: 0.3;
+		  	text-decoration: none;
+		  	color: #fff;		  	
+		  }
+		   #page #prev{
+		  	left: 0px;
+		  }
+		    #page #next{
+		  	right: 0px;
+		  }
+		   #page:hover .arrow{
+		   	display: block;
+		   }
+		  
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<a href="#" id="prev" class="arrow">&lt;</a>
+    	    <a href="#" id="next" class="arrow">&gt;</a>
+			<div class="zenlin"><img src="img/ppt1/图片5.png"/></div>
+			<div class="content">
+				
+				<div id="content">
+					<img src="img/ppt1/图片1.png" class="img1"/>
+					<img src="img/ppt1/图片2.png" class="img2"/>
+					<img src="img/ppt1/图片3.png" class="img3"/>				
+					<div id="content-1">
+						<li>Android <span id="">技&nbsp;术&nbsp;沙&nbsp;龙</span></li>		  				
+					</div>
+					<div id="content-2">
+						<span id="">
+						李超
+					   </span>
+					</div>						
+				</div>							
+			</div>	
+		    <div class="footer">
+		    	<span >
+		    		www.zelininfo.com
+		    	</span>
+		    </div>
+		    
+		    <div id="page2">
+       	        <div class="page2-1">
+       	   	       <span >泽林移动开发学员薪资</span>      	   	
+       	        </div>
+       	        <img src="img/ppt2/page2 图片1.png" class="page2-img1"/>
+       	        <img src="img/ppt2/page2图片2.png"  class="page2-img2"/>
+           </div>		
+		</div>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>   
+   <script type="text/javascript">
+   	   var prev=$('#prev');
+   	   var next=$('#next');
+   	   var page=$('#page');
+   	   var page1=$('#content');
+   	   var page2=$('#page2');
+   	   var time=null;
+   	   var index=0;
+   	    
+   	    if(time){
+		   clearInterval(time);
+		   time=null;
+		}
+   	    flag2=0;
+   	    prev.click(function(){
+   	    	clearInterval(time);
+		   time=null;
+   	    	 if (flag2==0) {  	    	 	
+   	    	 	page2.show();
+   	    	    page1.hide(); 	    	  
+   	    	 	flag2=1;		   		
+		   } else{
+		   	    page1.show();
+   	    	    page2.hide();
+   	    	    flag2=0;
+		   }   	      
+   	    });  
+   	     var flag1=0;
+   	    next.click(function(){
+   	       clearInterval(time);
+		   time=null;
+		   if (flag1==0) {
+		   		page2.show();
+   	    	    page1.hide();
+   	    	    flag1=1;
+		   } else{
+		   	    page1.show();
+   	    	    page2.hide();
+   	    	    flag1=0;
+		   }	
+   	    });
+   	    page.mouseover(function(){
+   	    clearInterval(time);
+		   time=null;
+   	    });
+   	    page.mouseout(function(){
+   	    	clearInterval(time);
+		    time=null;
+   	    time=setInterval(auto,1000);
+   	    });	
+ 	    time=setInterval(auto,1000);
+   	    var flag=0;
+   	    function auto(){
+   	    	if (flag==0) {
+   	    	page1.show();	
+   	    	page2.hide();
+   	    	flag=1;  	    		
+   	    	} else{
+   	    		page2.show();
+   	    		page1.hide();
+   	    		flag=0;
+   	    }   	
+   	}
+   	    
+   	    function change(num){
+   	    	if (num==0) {
+		   		page2.show();
+   	    	    page1.hide();
+   	    	    a=1;
+		   } else{
+		   	    page1.show();
+   	    	    page2.hide();
+   	    	    num=0;
+		   }  	    	
+   	    }
+   	     
+// 	    
+// 	    if (page2.length!=0) {
+// 	    	page2.hide();
+// 	    		
+// 	    	} else{
+// 	    		page2.show();
+// 	    	}   	
+// 	    }
+   	  
+   </script>
+	</body>
+</html>

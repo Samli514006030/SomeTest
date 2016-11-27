@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<div id="box">
+			<div id="box1">
+			</div>
+			text
+		</div>
+		<button id="btn1">html获取</button>
+		<button id="btn2">html设置</button>
+
+		<button id="btn3">text获取</button>
+		<button id="btn4">text设置</button>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#btn1').click(function() {
+				var value = $('#box').html();
+				//				console.log(typeof value);
+			});
+			$('#btn2').click(function() {
+				var value = $('#box').html();
+				$('#box').html(value + '<strong>hello html()</strong>');
+			});
+			$('#btn3').click(function() {
+				var value = $('#box').text();
+				console.log(value);
+			});
+			$('#btn4').click(function() {
+				$('#box').text('<strong>hello html()</strong>');
+			});
+		</script>
+	</body>
+
+</html>

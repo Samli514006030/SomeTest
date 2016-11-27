@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box{margin:0  auto;}
+			ul{display: inline-block; margin:10px  10px  ;}
+			ul li{list-style: none;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			
+		</div>
+		<script type="text/javascript">
+		     var  obox=document.getElementById('box');
+		     var  aul=document.getElementsByTagName('ul');
+		     var  ali=document.getElementsByTagName('li');
+		     var   num=i*j;
+			for (var i=1;i<10;i++) 
+			{
+				
+				
+			   for (var j=i;j<10;j++)
+			   {  var num=i*j;
+			   	aul[i-1].innerHTML +='<li>'+i+'*'+j+'='+num+'</li>';
+			   	
+			   };	
+			}
+		</script>
+	</body>
+</html>

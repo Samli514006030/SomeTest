@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.active{width:50px;height:50px;background:#6c6c6c;margin:5px;display: inline-block;text-align: center;line-height: 50px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			var box=document.getElementById('box');
+			
+			
+			for(var i=1;i<10;i++){
+				for(var j=i;j<10;j++){
+					var box1=document.createElement('div');
+					box1.className='active';
+					box1.innerHTML+= i+'*'+j+'='+i*j;
+					box.appendChild(box1);
+					
+				}
+				box.innerHTML+='<br />';
+			}
+		</script>
+	</body>
+</html>

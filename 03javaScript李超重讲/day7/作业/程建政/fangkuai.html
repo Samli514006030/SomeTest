@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+  <style>
+     #box{ width:50px; height:50px; background:#F00; position:absolute;}
+	 #box1{ width:50px; height:50px; background:#0F0; position:absolute;}
+	 #box2{ width:50px; height:50px; background:#FF0; position:absolute;}
+	 .odiv{ width:25px; height:25px; background:#96F; position:absolute;}
+	 
+  </style>
+</head>
+
+<body>
+  <div id="box2"></div>
+  <div id="box1"></div>
+  <div id="box"></div>
+  
+  <div class="odiv"></div>
+  <div class="odiv"></div>
+  <div class="odiv"></div>
+  <div class="odiv"></div>
+  <div class="odiv"></div>
+  <div class="odiv"></div>
+   <script>
+      var box=document.getElementById('box');
+	  var box1=document.getElementById('box1');
+	  var box2=document.getElementById('box2');
+      var odiv=document.getElementsByClassName('odiv');
+      
+       window.onmousemove=function(ev){
+		   var ev=ev || window.event;
+		   var oW=window.innerWidth;
+		   var oH=window.innerHeight;
+		   //x轴
+		  if(ev.pageX>=(oW-50)){
+			   box.style.left=oW-50+'px';
+			   }
+		   else{box.style.left=ev.pageX+'px';
+		   }
+		  if(ev.pageX>=(oW-100)){
+			   box1.style.left=oW-50+'px';
+			   }
+		   else{box1.style.left=ev.pageX+50+'px';
+		   }
+		  if(ev.pageX>=(oW-150)){
+			   box2.style.left=oW-50+'px';
+			   }
+		   else{box2.style.left=ev.pageX+100+'px';
+		   }
+		   //y轴
+		  if(ev.pageY>=(oH-50)){
+			   box.style.top=oH-50+'px';
+			   }
+		   else{box.style.top=ev.pageY+'px';
+		   }
+		  if(ev.pageY>=(oH-100)){
+			   box1.style.top=oH-50+'px';
+			   }
+		   else{box1.style.top=ev.pageY+50+'px';
+		   }
+		  if(ev.pageY>=(oH-150)){
+			   box2.style.top=oH-50+'px';
+			   }
+		   else{box2.style.top=ev.pageY+100+'px';
+		   }
+		  for(var i=0;i<odiv.length;i++){
+		   if(ev.pageX>=(oW-(i+1)*25)){
+			   odiv[i].style.left=ev.pageX-25*(i+1)+'px';
+			   }
+		   else{
+			   odiv[i].style.left=ev.pageX+25*i+'px';
+		       }  
+			}   
+		  for(var i=0;i<odiv.length;i++){
+		    if(ev.pageY>=(oH-(i+1)*25)){
+			   odiv[i].style.top=ev.pageY-25*(i+1)+'px';
+			   }
+		   else{
+			   odiv[i].style.top=ev.pageY+25*i+'px';
+		       }   
+			}
+		  }
+   
+      
+   </script>
+
+</body>
+</html>

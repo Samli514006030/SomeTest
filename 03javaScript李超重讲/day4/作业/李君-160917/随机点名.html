@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机点名</title>
+		<style type="text/css">
+			#iBox{
+				width: 200px;
+				height: 300px;
+				border: 2px solid black;
+				margin: 90px auto;
+			}
+			
+			#txtBox{
+				width: 100%;
+				height: 70%;
+				background-color: #D5D4D4;
+			}
+			
+			#btnBox{
+				width: 100%;
+				height: 29%;
+				background-color: burlywood;
+			}
+			#btnBox input{
+				height: 40px;
+				width: 80px;
+				line-height: 40px;
+				margin: 30px 0 0 60px;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="iBox">
+			<div id="txtBox">
+				
+			</div>
+			<div id="btnBox">
+				<input type="button" id="btn" value="随机点名"/>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		    var btnStr=document.getElementById('btn');
+		    var btnTXT=document.getElementById('txtBox');
+		    
+			var arrStrDate=["李君","李成","陈建"];
+			
+			btnTXT.onclick=function(){
+				var name=getArrStr();
+				var strong=create.getElement('strong');
+				strong.innerHTML=name;
+				btnTXT.appendChild(strong);
+			}
+			
+			function getArrStr(){
+				var res="";
+				var id=Math.floor(Math.random()*26+1);
+				res=arrStrDate[id];
+				return res;
+			}
+		</script>
+	</body>
+</html>

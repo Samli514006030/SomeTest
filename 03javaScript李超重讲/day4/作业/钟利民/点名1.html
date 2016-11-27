@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>点名</title>
+    <style>
+    	#box{
+			height: 300px;
+			width: 400px;
+			margin: 0 auto;    		
+    		
+    	}
+    	#show{
+    		border: solid 1px #000000;
+    		font-size:50px;
+    		width: 200px;
+    		height: 200px;
+    	    line-height: 200px;
+    		text-align: center;
+    	}
+    	#bt{
+    		border: solid 1px #000000;
+    		height: 40px;
+    		width: 202px;
+    		
+    	}
+    </style>
+
+</head>
+ 
+<body>
+		<div id="box">
+	        <div id="show"></div>
+	        <input id="bt" type="button" value="开始"/>
+  		</div>
+
+      	<script type="text/javascript">
+      		var bt = document.getElementsByTagName('input')[0]; 
+      		var show=document.getElementById('show');
+      		
+	    	var a = ["李为龙","陈建","陈峰","邓晓丰",'李家盛','吴闻','刘世颖','韦文慧','沈瑞建','程建政','周喜良',
+		    	'孙志亮','钟利民','张超凡','樊占军','李诚','朱何优','阳聪','俞均龙','傅超军','刘驰誉' ,'钟伟伟',
+		    	'刘志明','李君','马红亮','贾亚丽'];
+	    	var a2 = new Array();
+	    	
+	    	var b=true;
+	    	bt.onclick = function (){
+				var s=bt.value;
+		        if(s=="开始"){
+		            b=true;
+		            run();       //调用函数
+					bt.value='结束';
+		        }else{
+		           	b=false;
+					bt.value='开始';
+		        }
+	    	}
+	    	
+	    	function run(){
+		        var i = Math.floor(Math.random() * a.length);
+				show.innerHTML=a[i];
+		        if(b==false){
+		            var c =true;
+		            if(c){
+		                a2[a2.length]=i;
+		                return;
+		            }
+		        }
+		        setTimeout("run()",20);
+	    	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+
+        #Login {
+            width: 800px;
+            height: 600px;
+            background: gray;
+            position: fixed;
+            left: 600px;
+            top: 100px;
+            font-family: "微软雅黑";
+            padding: 0px;
+        }
+
+        #Login p {
+            display: block;
+            height: 60px;
+            text-align: center;
+            font-size: 40px;
+           /* color: #000000;*/
+        }
+
+        #Login input {
+            font-size: 38px;
+            font-family: "微软雅黑";
+           /* color: red;*/
+        }
+
+        #Login #submit {
+        /*    color: #808080;*/
+        }
+
+        #homePage {
+            width: auto;
+            height: auto;
+            /*background:white;*/
+            display: none;
+
+        }
+
+        #box {
+            height: 600px;
+            width: 1370px;
+            /*  border: 1px solid red;*/
+            margin: 20px auto;
+            background: lightgrey;
+        }
+
+        #button {
+            width: 1370px;
+            height: 120px;
+            margin: 5px auto;
+            /*  border: 1px solid blue;*/
+            background: rebeccapurple;
+        }
+
+        #button input {
+            width: 300px;
+            height: 100px;
+            margin: 10px 180px;
+        }
+
+        #box div {
+            border: 1px solid blueviolet;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+            margin: 20px 46px;
+            font-family: "微软雅黑";
+            font-size: 26px;
+            color: white;
+        }
+
+        #showName {
+            color: red;
+            font-size: 30px;
+            font-family: "微软雅黑 Light";
+        }
+
+        #show {
+            font-size: 30px;
+            font-family: "微软雅黑 Light";
+            display: block;
+            margin-left: 200px;
+        }
+        #showError{
+            color: yellow;
+        }
+        a{
+            font-size: 26px;
+            font-family: "微软雅黑 Light";
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="Login">
+    <p>
+        <span>登录窗口</span>
+    </p>
+    <p>
+        <span>姓名:</span>
+        <input id="nameText" type="text" value=""/>
+    </p>
+    <p>
+        <span>密码:</span>
+        <input type="password" value=""/>
+    </p>
+    <p>
+        <input id="submit" type="submit" value="登 录"/>
+        <input id="exit" type="submit" value="退 出"/>
+    </p>
+    <p id="showError"></p>
+</div>
+<div id="homePage">
+
+    <a href="index.html">返回登录页面</a>
+    <p id="show">欢迎<span id="showName"></span>登录并使用本系统</p>
+    <div id="box"></div>
+
+    <div id="button">
+        <input type="button" value="开始"/>
+        <input type="button" value="停止"/>
+    </div>
+    <a id="quit" href="#">退出系统</a>
+</div>
+
+<script type="text/javascript">
+    var exit = document.getElementById('exit');
+    exit.onclick = function () {
+        //var loction = window.location;
+        //console.log(location);
+
+      closeWindow();
+    }
+    var nameInput = document.getElementById('nameText');
+
+
+    var Login = document.getElementById('submit');
+    var LoginBox = document.getElementById('Login');
+    var homePage = document.getElementById('homePage');
+    Login.onclick = function () {
+        var nameV = nameInput.value;
+        var checkString=nameV.indexOf(' ');
+        var show = document.getElementById('showName');
+        console.log(nameV);
+        var und = 'undefined';
+        var showError=document.getElementById('showError');
+       if (checkString>-1){
+           showError.innerHTML='你输入的格式有误,请重新输入!';
+       }else if(nameV==''){
+           showError.innerHTML='你输入的信息不正确,请重新输入!';
+       }else {
+            LoginBox.style.display = 'none';
+            homePage.style.display = 'block';
+            document.body.style.background = 'white';
+            show.innerHTML = nameV;
+        }
+    }
+    var box = document.getElementById('box');
+    var butronList = document.getElementById('button');
+    var inputs = butronList.getElementsByTagName('input');
+
+    var studentArray = [
+        '李为龙', '邓晓丰', '陈健', '吴闻', '刘世颖', '韦文会', '冼瑞健', '李家盛', '程建政', '周喜良', '孙志亮', '钟利民', '张超凡', '陈峰', '樊占军', '李城', '朱何优',
+        '阳聪', '俞钧龙', '傅超军', '刘驰誉', '钟伟伟', '刘志明', '李君', '马红亮', '贾亚丽'
+    ];
+
+
+    addStudentbox(box, studentArray);
+
+    setBg(box.childNodes);
+    var time2;
+    var randomArry = [];
+    inputs[0].onclick = function () {
+        clearTime();
+        var length = box.childNodes.length;
+        var students = box.childNodes;
+        time2 = setInterval(function () {
+            var num = parseInt(Math.random() * 26);
+            randomArry.push(num);
+            var color = 'red';
+            setColor(students[num], color);
+            resetColor(students, num);
+        }, 10);
+
+    }
+    inputs[1].onclick = function () {
+        clearTime();
+        console.log(randomArry.length);
+    }
+    var quit = document.getElementById('quit');
+    quit.onclick = function () {
+      closeWindow();
+    }
+    function resetColor(students, num) {
+        for (var i = 0; i < students.length; i++) {
+            if (i != num) {
+                students[i].style.background = 'green';
+                students[i].style.borderRadius = '1px';
+            }
+        }
+    }
+    function closeWindow() {
+        if(navigator.userAgent.indexOf('MSIE')>0){
+            window.opener=null;
+            window.close();
+        }else if (navigator.userAgent.indexOf("Firefox")>0){
+            window.location.href='about:blank';
+        }else {
+            window.close();
+        }
+    }
+    function clearTime() {
+        clearInterval(time2);
+    }
+
+    function setColor(obj, color) {
+        obj.style.background = color;
+        obj.style.borderRadius = '50px';
+    }
+
+    function addStudentbox(box, array) {
+        for (x in array) {
+            var div = document.createElement('div');
+            div.id = 'stu' + x;
+            div.innerHTML = array[x];
+            var boxChildLength = box.childNodes.length;
+            if (boxChildLength == 0) {
+                box.insertBefore(div, box.firstChild);
+            }
+            var divArra = box.childNodes;
+            box.insertBefore(div, divArra[x]);
+        }
+    }
+    function setBg(students) {
+        for (var i = 0; i < students.length; i++) {
+            students[i].style.backgroundColor = 'green';
+        }
+    }
+</script>
+</body>
+</html>

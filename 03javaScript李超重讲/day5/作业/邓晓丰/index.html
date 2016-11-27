@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>评论</title>
+	<style>
+		body,ul,li,h2,p,h4{ 
+			margin:0; 
+			padding:0;
+		}
+		li{
+			list-style:none;
+		}
+		body{ 
+			background:#f1f1f1; 
+			height:1000px;
+		}
+		#header,#section,#footer{ 
+			width:600px; 
+			margin:0 auto; 
+			margin-bottom:10px;
+		}
+		#tit{ 
+			height:60px; 
+			background:white;
+		}
+		#tit h2{ 
+			margin-left:40px; 
+			margin-top:10px;
+		}
+		#tit li{ 
+			font-size:14px; 
+			float:left; 
+			margin-right:10px; 
+			margin-top:10px;
+		}
+		#tit li.copy{ 
+			float:right;
+		}
+		#host{ 
+			height:44px; 
+			background:#e5e9ec url(2.gif) 20px 20px no-repeat; 
+			padding:20px 80px; 
+			color:#666693;
+		}
+		#hostName{ 
+			margin-bottom:10px;
+		}
+		#host button span{ 
+			color:red;
+		}	
+		#host button{
+			background:white;
+			color:#666693;
+		}
+		#host span.s1{ 
+			margin-left:20px;
+		}
+		#content{
+			color:#666693; 
+			background:white; 
+			text-indent:2em; 
+			padding:10px
+			}
+		
+		#section div.replyArea{ 
+			height:30px; 
+			border-bottom:dashed 1px black; 
+			line-height:30px; 
+			font-size:20px; 
+			font-weight:bold;}
+		#replys li{ 
+			background: url(3.gif) no-repeat 20px 0; 
+			min-height:100px; 
+			margin-top:20px; 
+			border-bottom:1px black dashed;
+			
+		}
+		#replys .top{ 
+			height:30px; 
+			margin-left:80px;}
+		#replys span.floor,#replys span.replyName,#replys span.time{ 
+			float:left;	 
+			line-height:14px; 
+			margin-right:20px;
+			color:#666693;
+			font-size:14px;
+		}
+		#replys span.time{ 
+			float:right;
+		}
+		#replys div.contents{ 
+			color:#666693;
+			margin-left:80px;
+			word-break:break-all;
+		}	
+
+		#footer{ 
+			background:white; 
+			padding:20px; 
+			width:560px;
+		}
+		#footer .footer1{ 
+			height:100px; 
+		}
+		#replyName{ 
+			width:80px; 
+			height:80px; 
+			background:url(1.gif) no-repeat; 
+			float:left; 
+			padding-top:60px; 
+			margin-top:10px;
+		}
+		#replyContent{ 
+			width:460px; 
+			height:80px; 
+			float:left; 
+			margin-top:10px; 
+		}
+		#text{ 
+			font-size:14px;
+			height:60px; 
+			width:450px; 
+			resize:none; 
+			overflow:auto;
+		}
+		#replyContent span{ 
+			float:right; 
+			margin-right:10px;
+		} 
+		#replyContent button{ 
+			float:right; 
+			width:60px; 
+			height:20px; 
+			background:blue; 
+			margin-right:10px;
+		} 
+	</style>
+</head>
+
+<body>
+	<div id="header">
+    
+    	<div id="tit">
+        	<h2>电商巨头纷纷瞄准VR购物 大规模商用仍需时日</h2>
+            <ul>
+            	<li>发表时间：<span>2016-09-18 16:21:14</span></li>
+                <li>点击：<span>11</span></li>
+                <li>回复：<span id="num">0</span></li>
+                <li class="copy"><a href="#">复制本站链接</a></li>
+            </ul>
+        </div>
+        
+        <div id="host">
+        	<div id="hostName">匿名用户</div>
+            <button><span>+</span>关注</button>
+            <button>传呼</button>
+            <span class="s1">使用道具</span>
+            <span class="s1">只看楼主</span>
+        </div>
+       
+        <div id="content">
+        	<p>时值9月，阿里巴巴的“淘宝buy+”计划还未按时上线，京东就在中秋前夕宣布成立电商领域首个“VR/AR产业推进联盟”，组建VR实验室，发布APP“VR购物星系”。至此，无论是国内的阿里、京东，还是海外的亚马逊，电商巨头都纷纷瞄向了VR购物。</p><p>2016年被称为VR元年，VR/AR技术也受到了资本市场热捧，除却遍地烽起的创业公司与项目，该技术中场景化体验也让更多依靠线上渠道的电商企业看到了提升用户体验的新方式，阿里巴巴、京东、亚马逊等零售企业巨头成为业内先行者。但在采访中，多位业内人士向《中国经营报》记者表示，VR的大规模商用尚需时日，而对该技术与电商结合所带来的变化却并不感到乐观。</p>
+        </div>
+    </div>    
+   	<div id="section">
+    	<div class="replyArea">回复区域</div>
+        <ul id="replys">
+        </ul>
+    </div>
+    <div id="footer">
+    	<h4>快速回复</h4>
+        <div class="footer1">
+            <div id="replyName">匿名用户</div>
+            <div id="replyContent">
+                <textarea id="text"></textarea>
+                <button id="btn">回复</button>
+                <span>表情</span>
+            </div>
+        </div>
+    </div>
+	
+    
+    <script>
+		var aUl=gbi('replys');
+		var btn=gbi('btn');
+		var text=gbi('text');
+		var num=gbi('num');
+		var flor=0;
+		
+		btn.onclick=function(){
+			var value=text.value;
+			if(value.trim()=='') return;
+			
+			var str=getDateTime();
+			
+			var li=newobj('li');
+			
+			var div1=newobj('div');
+			div1.className='top';
+			
+			var div2=newobj('div');
+			div2.className='contents';
+			div2.innerHTML=value;
+			
+			var span1=newobj('span');
+			span1.className='floor';
+			span1.innerHTML='['+(++flor)+'楼]';
+			num.innerHTML=flor;
+			
+			var span2=newobj('span');
+			span2.className='replyName';
+			span2.innerHTML='匿名用户';
+			
+			var span3=newobj('span');
+			span3.className='time';
+			span3.innerHTML=str;
+			
+			div1.appendChild(span1);
+			div1.appendChild(span2);
+			div1.appendChild(span3);
+			
+			li.appendChild(div1);
+			li.appendChild(div2);
+			
+			aUl.appendChild(li);
+			
+			text.value='';
+		}
+		
+		
+		function getDateTime(){
+			var date =new Date();
+			var year=date.getFullYear();
+			var month=zero(date.getMonth()+1);
+			var day=zero(date.getDate());
+			var h=zero(date.getHours());
+			var m=zero(date.getMinutes());
+			var s=zero(date.getSeconds());
+			var str=year+'年'+month+'月'+day+'日 '+h+':'+m+':'+s;
+			return str;
+		}
+		
+		function  zero(n){
+			if(n<10){
+				return '0'+n;
+			}else{
+				return ''+n;
+			}
+		}
+		
+		function newobj(str){
+			return document.createElement(str);
+		}
+		
+    	function gbi(str){
+			return document.getElementById(str);
+		}
+    </script>
+</body>
+</html>

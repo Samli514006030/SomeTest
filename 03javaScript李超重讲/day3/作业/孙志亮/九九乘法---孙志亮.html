@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			ul{margin: 0;padding: 0;}
+			#div1{margin: 300px;position: relative;}
+			ul{list-style:none; float:left;position: absolute;left:0;bottom:0;}
+			
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		<div id="div1">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+			
+
+	</body>
+	
+	<script type="text/javascript">		
+		var aUl=document.getElementsByTagName('ul');
+
+		for (var i=0;i<=aUl.length;i++) 
+		{
+			for (var j=i;j<9;j++) 
+			{
+				aUl[i].innerHTML+='<li>'+(i+1)+'*'+(j+1)+'='+(i+1)*(j+1)+'</li>';	
+			}	
+			aUl[i].style.left=70*i+'px';
+		}
+	</script>
+</html>

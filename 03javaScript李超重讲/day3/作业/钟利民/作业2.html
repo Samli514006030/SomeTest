@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		*{padding: 0;margin: 0;}
+			#box{
+				width: 431px;
+				height: 200px;
+				border:  solid #000000 1px;
+			}
+			#a{
+				width:180px;
+				height:40px;
+			}
+			#b{
+				width:180px;
+				height: 40px;
+			}
+			#c{
+				width:215px;
+				height:40px;
+				display:block;
+				position: relative;
+			}
+			#d{
+				width: 216px;
+				height:40px;
+				position: absolute;top: 244px;left: 218px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		姓名<input type="text" id="a"/>
+		性别<input type="text"  id='b'/>
+	
+			
+		
+		<input type="button"  value="添加" id="c" />
+		<input type="button" value="删除"  id='d'/>
+		
+			
+	
+		
+		
+		
+		<script>
+			var box=document.getElementById('box');
+			var ipt1=document.getElementById('a');
+			var ipt2=document.getElementById('b');
+			var ipt3=document.getElementById('c');
+			var ipt4=document.getElementById('d');
+			
+			
+		var arrM=['钟利民','陈建','李家盛','李为龙','阳葱','钟伟伟','李诚','傅超军','陈峰','刘世颖'];	
+//		var arr=[];
+//		var obj={}
+//		obj.name='钟利民';
+//		obj.nex='18';
+//		arr.push(obj);
+//		for (var i=0;i<arrM.length;i++) {
+//			box.innerHTML+='&nbsp'+arrM[i];
+//		}
+//		ipt3.onclick=function(){
+//			box.innerHTML+=ipt1.value;
+//			
+//		}
+//
+//		ipt4.onclick=function(){
+//			 box.innerHTML+=arrM.value;
+//			
+//			arrM.pop(a);
+//		}
+		
+		for (var i=0;i<arrM.length;i++) {
+			 box.innerHTML=arrM;
+		}
+		
+		 
+		 	
+		  ipt3.onclick=function(){
+		 	box.innerHTML=arrM;
+		 	arrM.push(a);
+			}
+		 	var a=ipt1.value;
+		  
+		 ipt4.onclick=function(){
+
+		 	box.innerHTML
+		 	=arrM;
+		 	arrM.pop()
+		};
+	
+		 	
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+					
+//			ipt3.onclick=function(){
+//				box.innerHTML+=ipt1.value;	
+//			}
+		
+			
+			
+			
+			
+
+		</script>
+	</body>
+</html>

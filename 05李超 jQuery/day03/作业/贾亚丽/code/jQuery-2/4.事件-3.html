@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img id="img1" src="img/bigptr.jpg" alt="大鱼"/>
+		<div id="info"></div>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var info = $('#info');
+			$('#img1').mousedown(function(){
+				info.html("<strong>鼠标按下</strong>");
+			});
+			
+			$('#img1').mouseup(function(){
+				info.html("<strong>鼠标松开</strong>");
+			});
+			
+			$('#img1').mouseover(function(){
+				info.html("<strong>鼠标进入</strong>");
+			});
+			$('#img1').mouseout(function(){
+				info.html("<strong>鼠标移出</strong>");
+			});
+			
+			
+		</script>
+	</body>
+</html>

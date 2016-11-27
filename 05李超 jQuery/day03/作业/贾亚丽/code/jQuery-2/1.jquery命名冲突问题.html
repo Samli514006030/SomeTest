@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">
+			
+		</div>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * 方式一：
+			 * 释放$ 函数名称。
+			 * 必须使用全名的 jQuery
+			 */
+//			$.noConflict();
+//			console.log(jQuery('#box'));
+
+			/*
+			 * 方式二：
+			 * 
+			 */
+			
+			var jq = $.noConflict();
+			console.log(jq('#box'));
+			console.log(jQuery('#box'));
+//			jq = null;
+//			console.log(jq('#box'));
+		
+		</script>
+	</body>
+
+</html>

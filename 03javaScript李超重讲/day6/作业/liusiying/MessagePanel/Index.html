@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px
+        }
+
+        body {
+            background: grey;
+
+        }
+
+        #Main {
+            width: 1200px;
+            background: white;
+            margin: 0 auto;
+            font-family: "Microsoft JhengHei UI Light";
+            padding: 20px;
+            overflow: auto;
+        }
+
+        #Main h1 {
+            text-align: center;
+        }
+
+        #textEdit {
+            width: 1200px;
+            height: 400px;
+            background: lightgrey;
+
+        }
+
+        #textEdit h3, #textEdit textarea {
+            display: inline-block;
+            float: left;
+            margin-left: 20px;
+            margin-top: 40px;
+        }
+
+        #textEdit textarea {
+            padding: 20px;
+            font-size: 30px;
+            overflow: auto;
+            width: 800px;
+            height: 300px;
+            outline: none;
+        }
+
+        #textEdit h3 {
+            color: blue;
+        }
+
+        #Editarea {
+            margin-top: 0px;
+            height: 60px;
+            padding-left: 20px;
+            background: lightgrey;
+        }
+
+        #sp {
+            margin-left: 180px;
+            font-size: 24px;
+            height: 60px;
+            float: left;
+        }
+
+        #inp {
+            height: 40px;
+            width: 120px;
+            font-size: 24px;
+            background: blue;
+            color: white;
+            float: right;
+            margin-right: 160px;
+            margin-top: 10px;
+        }
+
+        .textValueShow {
+            width: 1200px;
+            height: 200px;
+            background: lightgrey;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="Main">
+    <h1>Message System</h1>
+    <div id="textEdit">
+        <h3>留言内容预览区域:</h3>
+        <textarea autofocus>请在此编辑你的内容.................!</textarea>
+    </div>
+    <div id="Editarea">
+        <div id="sp"><span>0</span><span>/</span><span>100</span></div>
+        <div><input id="inp" type="button" value="提 &nbsp;交"/></div>
+    </div>
+    <div id="content"></div>
+</div>
+<script>
+    //给textInput添加事件
+    var spanNum = document.getElementById('Editarea').firstElementChild.firstElementChild;
+    spanNum.style.color = 'red';
+
+
+    var index = 0;
+    var textArae = document.getElementsByTagName('textarea')[0];
+    var val = textArae.value;
+    textArae.onclick = function () {
+        this.value = '';
+    }
+
+    textArae.onmouseover = function () {
+
+    }
+    textArae.onmouseout = function () {
+
+        if (this.value.length == 0) {
+            this.value = val;
+        }
+    }
+    textArae.oninput = function () {
+        spanNum.innerHTML = this.value.length;
+    }
+
+    var parentDiv = document.getElementById('content');
+    var inp = document.getElementById('inp');
+
+    inp.onclick = function () {
+        var div = document.createElement('div');
+        div.className = 'textValueShow';
+        div.innerHTML = textArae.value;
+        spanNum.innerHTML='0';
+        parentDiv.insertBefore(div, parentDiv.firstElementChild);
+        textArae.value='';
+    }
+</script>
+</body>
+</html>

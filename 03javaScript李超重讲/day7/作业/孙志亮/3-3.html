@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:100px;
+				height:100px;
+				background: red;
+				position: absolute;
+				color:white;
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>box1</div>
+		<div>box2</div>
+		<div>box3</div>
+		<script type="text/javascript">			
+			var aDiv=document.getElementsByTagName('div');
+			//给DIV定位
+			for(var i=0; i<aDiv.length;i++){
+//				console.log(i);
+				aDiv[i].style.left = 100*i+"px";
+				aDiv[i].style.top=100*i+"px";	
+			}
+			
+			//鼠标移动事件
+			document.onmousemove=function(ev){
+				var w =  document.documentElement.clientWidth || document.body.offsetWidth;
+				var h = document.documentElement.clientHeight || document.body.offsetHeight;
+//				console.log(w+'：： '+h);
+				var ev = ev || window.event;
+				var x = ev.clientX;
+				var y = ev.clientY;
+				var aDivX = 100*(aDiv.length)+x;
+				var aDivY = 100*(aDiv.length)+y;
+				
+				for(var i=0; i<aDiv.length; i++){
+					if(aDivX >= w ){					
+							aDiv[i].style.left = x-100*(i+1)+"px";
+							aDiv[i].style.top = 100*i+y+"px";
+							if(aDivY >= h){
+								aDiv[i].style.left = w-100*(i+1)+"px";
+								aDiv[i].style.top = y-100*(i+1)+"px";
+							}
+					}	
+					else if(aDivY >= h ){
+							aDiv[i].style.left =x+100*i+"px";
+							aDiv[i].style.top = y-100*(i+1)+"px";
+						if(aDivX >= w ){					
+							aDiv[i].style.left = x-100*(i+1)+"px";
+							aDiv[i].style.top =y-100*i+"px";
+						}
+					}
+					else{
+							aDiv[i].style.left = 100*i+x+"px";
+							aDiv[i].style.top=100*i+y+"px";	
+					}	
+				}
+			}
+
+		</script>
+	</body>
+</html>

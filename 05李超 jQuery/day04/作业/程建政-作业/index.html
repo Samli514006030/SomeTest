@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/01.css" />
+	</head>
+
+	<body>
+
+		<div class="box" id="odiv1" style="background: white;">
+			<img src="img/未标题-2.jpg" class="img1" />
+			<div class="box1">
+				<img src="img/图片1.png" id="aimg1" />
+				<img src="img/图片2.png" id="aimg2" />
+				<img src="img/图片3.png" id="aimg3" />
+				<p id="p1">Android技术沙龙</p>
+				<p id="p2">程建政</p>
+			</div>
+			<span class="spn1">www.zelininfo.com</span>
+		</div>
+
+		
+
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$("#aimg1").fadeIn(3000);
+			$("#aimg2").css({
+				"width": "18%"
+			});
+			$("#aimg3").css({
+				"left": "72%"
+			});
+
+			
+			$(document).click(function() {
+				window.location.href="html/index1.html";
+			})
+		</script>
+
+	</body>
+
+</html>

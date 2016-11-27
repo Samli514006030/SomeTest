@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>PPT</title>
+		<script type="text/javascript" src="code/jQuery-2/js/jquery-3.1.1.min.js"></script>
+		<style type="text/css">
+			body{
+				background: lightgray;
+			}
+			.wrap{
+				width: 740px;
+				height: 555px;
+				margin: 50px auto;
+				position: relative;
+				background: #FFF url(img/0.png) top right no-repeat;
+			}
+			.wrap img:first-of-type{
+				top: 0;
+				right: 0;
+				position: absolute;
+			}
+			.wrap p{
+				margin: 0;
+				padding: 0;
+				top: 80px;
+				left: 48px;
+				height: 30px;
+				color: darkgreen;
+				line-height: 30px;
+				font-size: 30px;
+				font-weight: bold;
+				position: absolute;
+			}
+			.content{
+				width: 670px;
+				height: 390px;
+				top: 118px;
+				margin: 0 auto;
+				position: relative;
+				border-top: 2px solid darkgreen;
+				border-bottom: 2px solid darkgreen;
+			}
+			.content img:nth-of-type(1){
+				width: 670px;
+				height: 180px;
+				top: 10px;
+				display: none;
+				position: absolute;
+			}
+			.content img:nth-of-type(2){
+				width: 670px;
+				height: 180px;
+				bottom: 10px;
+				display: none;
+				position: absolute;
+			}
+			footer{
+				bottom: 10px;
+				left: 330px;
+				position: absolute;
+			}				
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<p>泽林移动开发学员薪资</p>
+			<div class="content">
+				
+				<img src="img/4.png" alt="4" />
+				<img src="img/5.png" alt="5" />
+				
+			</div>
+			<footer>www.zelininfo.com</footer>
+		</div>
+		<script type="text/javascript">
+		$(function(){
+			$('body').click(function(){
+				$('.content img:nth-of-type(1)').fadeIn(2000);
+				
+				$('body').click(function(){
+					$('.content img:nth-of-type(2)').fadeIn(2000);
+
+				});
+			});
+		});
+		</script>
+	</body>
+</html>

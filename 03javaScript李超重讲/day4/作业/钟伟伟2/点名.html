@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+         div{  width: 500px;
+               height: 500px;
+               text-align: center;
+               line-height: 200px;
+               border: 2px solid #a67082;
+               margin: 100px auto;
+               font-size: 20px;
+               color: crimson;
+         }
+         p{
+               width: 100px;
+               margin: 0 auto;
+         }
+        input{
+               width: 50px;
+        }
+
+    </style>
+</head>
+<body>
+                  <div id="div"></div>
+
+                   <p> <input type="button" value="开始" id="dian"><input type="button" value="停止" id="guan"></p>
+
+                  <script>
+                  var me={
+                  	
+                        chushi:function(){
+                        	//定时器变量名
+	                        var time;
+	                        var kai=document.getElementById("dian");
+	                        var guan=document.getElementById("guan");
+	                        var  sum=document.getElementById("div");
+	
+	                        //开启随机数
+	                        kai.onclick=function(){
+	                            clearInterval(time);
+	                            
+	                             var ss=["陈健","程建政","邓晓丰","傅超军","贾亚丽","李诚","李家盛","李为龙","马红亮",
+	                                    "吴闻","俞钧龙","张超凡","钟利民","周喜良","朱何优","","陈咏麟","李军",
+	                                    "孙志亮","韦文会","刘驰誉","刘文兵","刘志明","刘世颖","陈峰","钟伟伟",];
+	                            time=setInterval(function(){
+	                               
+
+	                                var x=Math.floor(Math.random()*26);
+	                               
+	                                sum.innerHTML=ss[x];
+	
+	                            },30)
+	                        };
+	                        //停止
+	                       guan.onclick=function(){
+	                          clearInterval(time)
+	                       }
+	                        	
+                        }   
+                        
+                    }
+                    me.chushi();
+           </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+
+
+<script>
+
+    var div1 = document.getElementById('div1');
+    var div2=div1.firstElementChild;
+        div2.style.position='relative';
+    var div3=div2.firstElementChild;
+        div3.style.position='relative';
+    document.onmousemove = function (ev) {
+        var ev = ev || window.event;
+        var x = ev.pageX;
+        var y = ev.pageY;
+        //console.log(x + ":" + y);
+        div1.style.left=x+'px';
+        div1.style.top=y+'px';
+        div2.style.left='100px';
+        div2.style.top='100px';
+        div3.style.left=100+'px';
+        div3.style.top=100+'px';
+        //console.log(ev.clientX+"x:Y"+ev.clientY);
+        //var height=window.getComputedStyle;
+        //console.log("clientHeight:"+height);
+        console.log("clientWidth:"+window.innerWidth);
+        console.log("clientHeight:"+window.innerHeight);
+        //console.log(ev.pageY);
+        if(ev.pageY>(window.innerHeight/2)){
+            div1.style.top=(y-100)+'px';
+            div2.style.top=(-100)+'px';
+            div3.style.top=(-100)+'px';
+        }
+        if(ev.pageX>(window.innerWidth/2)){
+            div1.style.left=(x-100)+'px';
+            div2.style.left='-100px';
+            div3.style.left='-100px';
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 500px;
+				height: 500px;
+				margin: 0 auto;
+				border: 1px solid red;
+			}
+			#p1{
+				background: red;
+				text-align: center;
+				color: white;
+			}
+			
+			#p2{
+				background: orange;
+				text-align: center;
+				color: white;
+			}
+			
+			strong{
+				background: green;
+			}
+			span{
+				background: goldenrod;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			<p id="p1">这是一个P</p>
+			
+			
+			<p id="p2">这也是一个P</p>
+		</div>
+		
+		<input type="button" id="btn" value="删除元素" />
+		<input type="button" id="btn2" value="删除元素2" />
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#p1').append('<strong>append</strong>');//append在元素末尾增加，在p元素内
+			$('#p1').prepend('<span>prepend</span>');//prepend在元素首部增加，在p元素内
+			
+			$('#p2').after('<strong>after</strong>');//after在元素末尾增加，在p元素外
+			$('#p2').before('<span>before</span>');//before在元素首部增加，在p元素外
+			
+			
+			$('#btn').click(function(){
+				//删除匹配的所有元素。
+				$('span').remove();
+			});
+			
+			$('#btn2').click(function(){
+				//删除匹配的所有元素。
+				$('#box').empty();
+			});
+			
+		</script>
+	</body>
+</html>

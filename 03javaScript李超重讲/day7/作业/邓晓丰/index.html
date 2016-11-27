@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				overflow: hidden;
+			}
+			
+			div {
+				width: 80px;
+				height: 80px;
+				position: absolute;
+				
+			}
+			
+			#div1 {
+				color: white;
+				background: red;
+				left: 0;
+				top: 0;
+			}
+			
+			#div2 {
+				background: green;
+				left: 80px;
+				top: 80px;
+			}
+			
+			#div3 {
+				background: blue;
+				left: 160px;
+				top: 160px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">按下-拖动</div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+
+		<script type="text/javascript">
+			var div1 = document.getElementById('div1');
+			var div2 = document.getElementById('div2');
+			var div3 = document.getElementById('div3');
+
+
+			var cx=80;
+			var cy=80;
+			div1.onmousedown=function(ev){
+				var ev = ev || window.event;
+				
+				var dx=ev.clientX-this.offsetLeft;
+				var dy=ev.clientY-this.offsetTop;
+				
+				//可视高宽
+				var h=getH();
+				var w=getW();
+				
+				document.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					
+					var x=ev.clientX-dx;
+					var y=ev.clientY-dy;
+					
+					if(div3.offsetLeft<=0||div3.offsetLeft>=w-80){
+						cx=-cx;
+					}
+					if(div3.offsetTop<=0||div3.offsetTop>=h-80){
+						cy=-cy;
+					}
+					
+					if(x<0){
+						div1.style.left=0;
+						div2.style.left=80+'px';
+						div3.style.left=160+'px';
+					}else if(x>w-80){
+						div1.style.left=w-80+'px';
+						div2.style.left=w-160+'px';
+						div3.style.left=w-240+'px';
+					}else{
+						div1.style.left=x+'px';
+						div2.style.left=x+cx+'px';
+						div3.style.left=x+cx*2+'px';
+					}
+					
+					
+					if(y<0){
+						div1.style.top=0;
+						div2.style.top=80+'px';
+						div3.style.top=160+'px';
+					}else if(y>h-80){
+						div1.style.top=h-80+'px';
+						div2.style.top=h-160+'px';
+						div3.style.top=h-240+'px';
+					}else{
+						div1.style.top=y+'px';
+						div2.style.top=y+cy+'px';
+						div3.style.top=y+cy*2+'px';
+					}	
+	
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+			}
+			
+			function getH() {
+				return document.documentElement.clientHeight || document.body.clientHeight;
+			}
+
+			function getW() {
+				return document.documentElement.clientWidth || document.body.clientWidth;
+			}
+		</script>
+	</body>
+
+</html>

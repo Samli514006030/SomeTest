@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			body{height: 2000px;}
+			#box1{width: 50px;
+				height: 50px;
+				background: blue;
+				position: absolute;
+			}
+			#box2{width: 50px;
+				height: 50px;
+				background: red;
+				position: absolute;
+			}
+			#box3{width: 50px;
+				height: 50px;
+				background: green;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">box1
+		</div>
+		<div id="box2">box2
+		</div>
+		<div id="box3">box3
+		</div>
+		
+		<script>
+			var oBox1=document.getElementById('box1');
+			var oBox2=document.getElementById('box2');
+			var oBox3=document.getElementById('box3');
+			
+			document.onmousemove=function(ev){
+				var ev=ev ||window.event;
+					//获取可视窗口的宽高
+					var a = window.innerWidth;
+					var b = window.innerHeight;
+					console.log(a+':'+b);
+					//获得鼠标的坐标			
+					var x = ev.pageX;
+					var y = ev.pageY
+					console.log(x+':'+y);
+					if((a-(x+150)>=0)&&(b-(y+150)>=0)){
+							oBox1.style.left=x+'px';
+							oBox1.style.top=y+'px';
+							oBox2.style.left=x+50+'px';
+							oBox2.style.top=y+50+'px';
+							oBox3.style.left=x+100+'px';
+							oBox3.style.top=y+100+'px';
+					} else if((a-(x+150)<0)&&(b-(y+150)<0)){
+							oBox1.style.left=x-50+'px';
+							oBox1.style.top=y-50+'px';
+							oBox2.style.left=x-100+'px';
+							oBox2.style.top=y-100+'px';
+							oBox3.style.left=x-150+'px';
+							oBox3.style.top=y-150+'px';
+					}else if(a-(x+150)<0){
+							oBox1.style.left=x-50+'px';
+							oBox1.style.top=y+'px';
+							oBox2.style.left=x-100+'px';
+							oBox2.style.top=y+50+'px';
+							oBox3.style.left=x-150+'px';
+							oBox3.style.top=y+100+'px';
+					}else if(b-(y+150)<0){
+							oBox1.style.left=x+'px';
+							oBox1.style.top=y-50+'px';
+							oBox2.style.left=x+50+'px';
+							oBox2.style.top=y-100+'px';
+							oBox3.style.left=x+100+'px';
+							oBox3.style.top=y-150+'px';
+					}
+
+			}
+			
+
+		</script>
+	</body>
+</html>

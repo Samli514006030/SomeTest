@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .box{
+            text-align:center;
+            margin-top:100px;
+            width:100%;
+        }
+        #show{
+            margin:auto;
+            font-size:30px;
+            line-height: 50px;
+            width:100px;
+            height:50px;
+            background:#FFEEFF;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <div id="show"></div>
+    <div>
+        <input id="btn" type="button" value="开始"/>
+    </div>
+</div>
+<script type="text/javascript">
+    var isRun=true;
+    var student = ["贾亚丽","马红亮","李君","刘志明","钟伟伟","阳聪","傅超军","朱何优","李城","樊占军","陈峰","钟利民","李为龙","邓晓丰","孙志亮","周喜良","程建政","李家盛","冼瑞健","韦文会","刘世颖","吴闻","陈健","张超凡","俞钧龙"];
+    var arr = [];
+    var btn = document.getElementById('btn');
+    btn.onclick = function action(){
+        var s = document.getElementById("btn").value;
+        if(s == "开始"){
+            isRun = true;
+            run();
+            document.getElementById("btn").value = "结束";
+        }else{
+            isRun = false;
+            document.getElementById("btn").value = "开始";
+        }
+    };
+    function run(){
+        var i = Math.floor( Math.random() * student.length + 1 ) - 1;
+        document.getElementById("show").innerHTML = student[i];
+        if(isRun == false){
+            var flg = true;
+            for(var j in arr){
+                if(arr[j] == i){
+                    flg = false;
+                }
+            }
+            if(flg){
+                arr[arr.length] = i;
+                return;
+            }
+        }
+        setTimeout("run()",10);
+    }
+</script>
+</body>
+</html>
+ 

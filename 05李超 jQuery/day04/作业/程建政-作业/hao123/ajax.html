@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	  <style>
+	  body{
+	  	width: 100%;
+	  	margin: 0;padding: 0;
+	  }
+	  	  #box{
+	  	  	 width:90%;
+	  	  	 height: 104px;
+	  	  	 background: #ff4444;
+	  	  	/*background: white;*/
+	  	  	 padding-left: 150px;
+	  	  	
+	  	  	 
+	  	  }
+	  	  #box_h{
+	  	  	height:52px;
+	  	  	position: relative;
+	  	   
+	  	  }
+	  	 
+	  	  .oimg{
+	  	  	margin-top:18px;
+	  	  	margin-left: -5px;
+	  	  }
+	  	  #aimg1{
+	  	  	 margin-bottom:7px ;
+	  	  }
+	  	  a{
+	  	  	text-decoration: none;
+	  	  	color: white;
+	  	  }
+	  	  #oa1{
+	  	  	font-size: 1.2em;
+	  	  	font-family: "微软雅黑";
+	  	  	
+	  	  	display:inline-block;
+	  	  	position: relative;
+	  	  	top: -8px;
+	  	  	font-weight: 500;
+	  	  }
+	  	  #aimg2{
+	  	  	position: relative;
+	  	  	left: 18px;
+	  	  	top: 8px;
+	  	  }
+	  	  #aimg3{
+	  	  	position: relative;
+	  	  	left: 80px;
+	  	  	top: -2px;
+	  	  }
+	  	  .ospn{
+	  	  	position: relative;
+	  	  	left: 60px;
+	  	  	font-size: 0.9em;
+	  	  	top: -4px;
+	  	  	margin-left: 20px;
+	  	  }
+	  	  .ospn:hover{
+	  	  	text-decoration: underline
+	  	  }
+	  	  #oae{
+	  	  	position: relative;
+	  	  	left: 80px;
+	  	  	top: -2px;
+	  	  }
+	  	  #oahome{
+	  	  	position: relative;
+	  	  	left: 100px;
+	  	  	top: -3px;
+	  	  }
+	  	 #ainp{
+	  	 	 width: 152px;
+	  	 	 height: 36px;
+	  	 	 background: white;
+	  	 	 border: none;
+	  	 	 outline: none;
+	  	 	 position: relative;
+	  	 	 left: 100px;
+	  	 	 top: -2px;
+	  	 	 font-size: 20px;
+	  	 	 text-indent: 0.5em;
+	  	 }
+	  	 #oasou{
+	  	 	display: inline-block;
+	  	 	width: 78px;
+	  	 	height: 40px;
+	  	 	background: #ee3333;
+	  	 	text-align: center;
+	  	 	position: relative;
+	  	 	left: 92px;
+	  	 	top: 6px;
+	  	  }
+	  	#box_b ul{
+	  	 	width: 100%;
+	  	 	list-style: none;
+	  	 	
+	  	 	color: white;
+	  	 	
+	  	 	position: relative;
+	  	 	left: -54px;
+	  	 } 
+	  	#box_b li{
+	  	 	height: 36px;
+	  	 	text-align: center;
+	  	 	line-height: 36px;
+	  	 	padding-left: 9px;
+	  	 	padding-right: 9px;
+	  	 	font-size: 16px;
+	  	 	display: inline-block;
+	  	 	font-family: "微软雅黑";
+	  	 }
+	  	li:hover{
+	  	 	background:rgba(255,255,255,0.5);
+	  	 }
+	  	 button{
+	  	 	position: relative;
+	  	 	top: 200px;
+	  	 	width: 100px;
+	  	 	height: 50px;
+	  	 }
+	  	 #box_xl{
+	  	 	display: none;
+	  	 	background: #ff4444;
+	  	 	position: absolute;
+	  	 	top: 48px;
+	  	 	left: 300px;
+	  	 	z-index: 10;
+	  	 }
+	  	 #box_xl ul{
+	  	 	width: 130px;
+	  	 	padding: 0;
+	  	 }
+	  	 #box_xl li{
+	  	 	font-weight: bold;
+	  	 	font-size: 14px;
+	  	 	width:110px;
+	  	   list-style: none;
+	  	   padding: 10px;
+	  	   margin: 0;
+	  	 }
+	  	 #box_er{
+	  	 	display: none;
+	  	 	width: 120px;
+	  	 	height: 100px;
+	  	    text-align: center;
+	  	    padding-top: 20px;
+	  	 	background: #ff4444;
+	  	 	position: absolute;
+	  	 	top: 128px;
+	  	 	left: 815px;
+	  	 	z-index: 10;
+	  	 }
+	  	 
+	  </style>
+	<body>
+		<div id="box">
+			<div id="box_h">
+				<a href="http://www.hao123.com"><img src="img/hao-logo.041681138.png"  class="oimg"/></a>
+				<img src="img/caipiao.png" class="oimg" />
+				<a href="#"><img src="img/02.png" id="aimg1" /></a>
+				<a href="#" id="oa1">导航 ▲</a>
+				<img src="img/001.jpg" / id="aimg2">
+				<img src="img/bear.c5c2ea590.png"  id="aimg3"/>
+				<span class="ospn"><a href="#"><b>一键登录</b></a></span>
+				<span class="ospn"><a href="#">浏览器</a></span>
+				<a href="#" id="oae"><img src="img/qrcode.0e3ec503c.png" /></a>
+				<a href="#" id="oahome"><img src="img/home.12c5791cc.png"></a>
+				<input type="text" id="ainp"/>
+				<a href="#" id="oasou"><img src="img/search-submit.a72c28474.png"/></a>
+			</div>
+		    <div id="box_xl">
+		    	<ul>
+		    		<a href="#"><li>彩票首页</li></a>
+					<a href="#"><li>国足冲向世界杯</li></a>
+					<a href="#"><li>购彩大厅</li></a>
+					<a href="#"><li>双色球</li></a>
+					<a href="#"><li>足球彩票</li></a>
+					<a href="#"><li>全国开奖</li></a>
+					<a href="#"><li>图标走势</li></a>
+					<a href="#"><li>手机购彩</li></a>
+					<a href="#"><li>双色球资讯</li></a>
+					<a href="#"><li>我的彩票</li></a>
+		    	</ul>
+		    </div>
+		     <div id="box_er">
+		     	<img src="img/qr_code.jpg" />
+		     </div>
+			<div id="box_b">
+				<ul>
+					<a href="#"><li>彩票首页</li></a>
+					<a href="#"><li>国足冲向世界杯</li></a>
+					<a href="#"><li>购彩大厅</li></a>
+					<a href="#"><li>双色球</li></a>
+					<a href="#"><li>足球彩票</li></a>
+					<a href="#"><li>全国开奖</li></a>
+					<a href="#"><li>图标走势</li></a>
+					<a href="#"><li>手机购彩</li></a>
+					<a href="#"><li>双色球资讯</li></a>
+					<a href="#"><li>我的彩票</li></a>
+				</ul>
+			</div>
+			<button id="btn1">改变背景</button>
+			<button id="btn2">改变文字</button>
+			
+		</div>
+		
+		
+		
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript">
+		
+		$("#oa1").mouseover(function(){
+			$(this).html("导航  ▼");
+			$("#box_xl").css("display","block");
+		})
+		$("#oa1").mouseout(function(){
+			$(this).html("导航  ▲");
+			$("#box_xl").css("display","none");
+		})
+		$("#box_xl").mouseout(function(){
+			$(this).css("display","none");
+		})
+		$("#box_xl").mouseover(function(){
+			$(this).css("display","block");
+		})
+		
+		$("#oae").mouseover(function(){
+			$("#box_er").css("display","block");
+		})
+		$("#oae").mouseout(function(){
+			$("#box_er").css("display","none");
+		})
+		
+		
+		    var i=0;
+		    var a=0;
+		    var b=0;
+			$("#btn1").click(function(){
+				a++;
+				$.get("new_file.php?bg="+a,function(data,status){
+					$("#box")[0].style.background=data;
+					$("#box_er")[0].style.background=data;
+					$("#box_xl")[0].style.background=data;
+				})
+				if(a==9){
+					a=0;
+				}
+			})
+			$("#btn2").click(function(){
+				i++;
+				$.get("new_file.php?bg="+i,function(data,status){
+					$("ul li").css("color",data);
+				})
+				if(i==9){
+					i=0;
+				}
+			})
+			
+			
+		</script>
+		
+	</body>
+</html>

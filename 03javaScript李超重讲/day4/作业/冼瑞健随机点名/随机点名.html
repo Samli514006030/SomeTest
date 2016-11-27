@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>随机点名</title>
+    <!--未解决的BUG 1、想将上面UL里，转动的过程中背景要改变，选中名字后，那名字的背景色要变。-->
+               <!--2、生成随机数，用floor，不可能出现26，用ceil不可能出现0；-->
+    <style>
+        h2{margin: 0 auto; text-align: center;}
+        h3{margin: 10px auto;text-align: center;}
+        li{list-style: none;}
+        li{width: 100px;
+            height: 24px;
+            margin: 5px;
+            border: 1px solid black;
+            display: inline-block;
+            text-align: center;
+        }
+        #box{width: 600px;
+            height: 500px;
+            margin: 30px auto;
+            border: 3px solid black;
+            padding: 5px;
+            overflow: auto;
+        }
+        #tagname{border: 2px solid red;margin: 0 auto;
+                width: 200px;
+                height: 50px;
+                font-size: 30px;
+                font-weight: bold;
+                text-align: center;
+        }
+        #btn{margin: 0 auto;text-align: center;}
+        #btn input{margin: 20px;}
+        #name{border: 2px solid red;}
+    </style>
+</head>
+<body>
+    <h2>Web前端0817班点名表</h2>
+    <div id="box">
+        <h3>学员名单</h3>
+        <ul id="name">
+        </ul>
+        <h3>被点名学员</h3>
+        <div id="tagname">被点名学员</div>
+        <div id="btn">
+            <input type="button" value="开始点名"/>
+            <input type="button" value="停止"/>
+        </div>
+    </div>
+
+    <script>
+        var Box=document.getElementById('box');
+        var oName=document.getElementById('name');
+        var aLi=oName.getElementsByTagName('li');
+        var oTagName=document.getElementById('tagname');
+        var oBtn=document.getElementById('btn');
+        var aBtn=oBtn.getElementsByTagName('input');
+
+        var arr=['李为龙', '邓晓丰', ' 陈健', '吴闻', '刘世颖',
+            '韦文会', '冼瑞健', '李家盛', '程建政', '周喜良', ' 孙志亮',
+            '钟利民', '张超凡', '陈峰', '樊占军', '李城', '朱何优', ' 阳聪',
+            '俞钧龙', '傅超军', '刘驰誉', '钟伟伟', '刘志明', '李君', '马红亮',
+            '贾亚丽'
+        ];
+        for(var i=0;i<arr.length;i++){
+            oName.innerHTML+='<li><span>'+arr[i]+'</span></li>';
+        }
+        aBtn[0].onclick= function () {
+            var i=0;
+            int=setInterval(function(){
+                oTagName.innerHTML='<span>'+arr[i]+'</span>';
+                i=Math.floor(Math.random()*26);
+                console.log(i+arr[i]);
+            }, 20)
+
+        }
+        aBtn[1].onclick=function(){
+            clearInterval(int);
+        }
+
+
+
+    </script>
+
+</body>
+</html>

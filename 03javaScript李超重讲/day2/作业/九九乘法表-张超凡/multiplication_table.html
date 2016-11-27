@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				margin: 5px;
+				float: left;
+				padding: 0;
+				font-size: 14;
+			}
+			.box div{
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<script type="text/javascript">
+			var aBox = document.getElementsByClassName('box');
+			for(var i=0;i<9;i++){
+				for(var j=i;j<9;j++){
+					aBox[i].innerHTML+='<div>'+(i+1)+'x'+(j+1)+'='+(i+1)*(j+1)+'</div>';
+				}
+			}
+		</script>
+	</body>
+</html>

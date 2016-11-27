@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机点名</title>
+		<style type="text/css">
+			#iBox{
+				width: 200px;
+				height: 300px;
+				border: 2px solid black;
+				margin: 90px auto;
+			}
+			
+			#txtBox{
+				width: 100%;
+				height: 110px;
+				padding-top: 90px;
+				background-color: #D5D4D4;
+			}
+			
+			#txtBox strong{
+				color: red;
+				width: 80px;
+				height: 40px;
+				margin: 80px 0 0 60px;
+				line-height: 40px;
+				text-align: center;				
+			}
+			
+			#btnBox{
+				width: 100%;
+				height: 100px;
+				background-color: burlywood;
+			}
+			#btnBox input{
+				height: 40px;
+				width: 80px;
+				line-height: 40px;
+				margin: 30px 0 0 60px;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="iBox">
+			<div id="txtBox">
+				
+			</div>
+			<div id="btnBox">
+				<input type="button" id="btn" value="随机点名"/>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		    var btnStr=document.getElementById('btn');
+		    var txtStr=document.getElementById('txtBox');
+		    
+			var arrStrDate=["李为龙","邓晓丰","陈健","吴闻","刘世颖","韦文会","冼瑞健",
+			"李家盛","程建政","周喜良","孙志亮","钟利民","张超凡","陈峰","樊占军","李城",
+			"朱何优","阳聪","俞钧龙","傅超军","刘驰誉","钟伟伟","刘志明",
+			"李君","马红亮","贾亚丽"];
+			
+			
+			btnStr.onclick=function(){
+				var name=getArrStr();
+				txtStr.innerHTML="<strong>"+name+"</strong>";
+			}
+			
+			function getArrStr(){
+				var res="";
+				var id=Math.floor((Math.random()*100*26+1)%26);
+				res=arrStrDate[id];
+				return res;
+			}
+		</script>
+	</body>
+</html>

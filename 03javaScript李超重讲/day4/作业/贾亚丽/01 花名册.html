@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>花名册</title>
+		<style type="text/css">
+			.wd{
+				width: 1000px;
+				height: 600px;
+				margin: 0 auto;
+			}
+			.center{
+				width: 900px;
+				height: 450px;
+				margin: 0 auto;
+				position: relative;
+				border: 1px solid #8e4343;
+			}
+			.center ul{
+				padding: 11px;
+				margin: 0;
+			}
+			.center ul li{
+				width: 120px;
+				height: 100px;
+				list-style-type: none;
+				color: #605e5e;
+				float: left;
+				display: block;
+				position: relative;
+				border: 1px solid #FFF;
+			}
+			.center ul li:nth-child(7n+3){
+				margin-right: 24px;
+			}
+			.center ul li:hover{
+				background: #fffbee;
+				border: 1px solid #ffc13b;
+			}
+			.center ul li div{
+				width: 90px;
+				height: 50px;
+				margin: 5px auto;
+				text-align: center;
+				font-size: 20px;
+				line-height: 50px;
+				border: 1px solid #a6a5a5;
+			}
+			.center ul li p{
+				width: 110px;
+				height: 25px;
+				display: none;
+				color: #909090;
+				text-align: center;
+				margin: 6px auto;
+				border: 1px solid #e4e4e4;			
+			}
+			.center ul li:hover p{
+				display: block;
+			}
+			.button{
+				width: 500px;
+				height: 100px;
+				margin: 10px 50px;
+				float: left;
+				text-align: center;
+			}
+			.button input{
+				width: 200px;
+				height: 80px;
+				margin: 10px;
+				font-size: 30px;
+				border: 1px solid #bf8585;
+			}
+			.select{
+				display: inline-block;
+				width: 200px;
+				height: 100px;
+				margin: 10px 50px;
+				position: relative;
+				border: 1px solid #a6a5a5;
+			}
+			.select p{
+				margin: 0 auto;
+				text-align: center;
+				font-size: 50px;
+			}
+			.select span{
+				margin: 0 50px;
+				color: #909090;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wd">
+			<div class="center">
+				<ul id="ul"></ul>
+			</div>
+			<div class="button">
+				<input type="button" value="开始"/>
+				<input type="button" value="暂停"/>
+			</div>
+			<div class="select">
+				<p id="sel"></p>
+				<span id="line"></span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oul=$('ul');
+			var osel=$('sel');
+			var oline=$('line');
+			var ali=oulget('li');
+			var ap=oulget('p');
+			var adiv=oulget('div');
+			var abtn=document.getElementsByTagName('input');
+			var seat=['一','二','三','四'];
+			var choice=0;			/*全局变量,记录随机产生的下标*/
+			function $(id){
+				return document.getElementById(id);
+			}
+			function oulget(tag){
+				return oul.getElementsByTagName(tag);
+			}
+			function Create(tag){
+				return document.createElement(tag);
+			}
+			initi();				/*初始化列表*/
+			function initi(){
+				var name=[	
+					"","阳聪","钟伟伟","李君","马洪亮","冼瑞健","刘驰誉",
+					"钟利民","陈健","吴闻","朱何优","李城","刘志明","樊占军",
+					"贾亚丽","李家盛","韦文会","俞钧龙","李为龙","陈锋","周喜良",
+					"张超凡","孙志亮","陈咏麟","邓晓丰","刘世颖","傅超军","程建政"
+				];
+				for(var i=0;i<28;i++){
+					var myli=Create('li');
+					var myp=Create('p');
+					var mydiv=Create('div');
+					var num=i%7;
+					mydiv.innerHTML=name[i];
+					myli.className='lis';
+					if(num>=0 && num<=2){
+						myp.innerHTML='第'+seat[3-parseInt(i/7)]+'排左手'+seat[num];
+					}
+					else{
+						myp.innerHTML='第'+seat[3-parseInt(i/7)]+'排右手'+seat[6-num];
+					}
+					oul.appendChild(myli);
+					ali[i].appendChild(mydiv);
+					ali[i].appendChild(myp);
+				}
+				ali[0].style.visibility='hidden';
+//				ali[1].style.visibility='hidden';
+			}
+			var timeout=false; 		//启动及关闭按钮  
+			abtn[0].onclick=function(){
+				timeout=false;
+				osel.innerHTML='';
+				oline.innerHTML='';
+				time();
+				function time(){  
+					if(timeout) return;  
+					adiv[choice].style='';
+					choice=parseInt(Math.random()*27+1);
+//					console.log(choice);
+					adiv[choice].style.background='blueviolet';
+					setTimeout(time,30); 
+				}  
+			}
+			abtn[1].onclick=function(){
+				var name=[	
+					"","阳聪","钟伟伟","李君","马洪亮","冼瑞健","刘驰誉",
+					"钟利民","陈健","吴闻","朱何优","李城","刘志明","樊占军",
+					"贾亚丽","李家盛","韦文会","俞钧龙","李为龙","陈锋","周喜良",
+					"张超凡","孙志亮","陈咏麟","邓晓丰","刘世颖","傅超军","程建政"
+				];
+				timeout=true;
+				osel.innerHTML=name[choice];
+				oline.innerHTML=ap[choice].innerHTML;
+			}
+		</script>
+	</body>
+</html>

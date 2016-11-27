@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box{width: 900px;height: 360px;position: relative;margin: 20px 20px;border-left: 1px solid black;border-bottom: 1px solid black ;}
+			#box1{ width: 100px;height: 40px;border-top: 1px solid black;border-right: 1px solid black;line-height: 38px;text-align: center;}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box"></div>
+		
+		<script type="text/javascript">
+			
+			var oBox=document.getElementById('box');
+			
+			for (var i=1;i<=9;i++) 
+			{
+				for (var j=1;j<=i;j++)
+				{
+					oBox.innerHTML+= '<div id="box1" style="position:absolute;left:'+(j-1)*100+'px;top:'+(i-1)*40+'px; " >'+i+' X '+j+' = '+i*j+' </div>';
+				}
+			}
+		</script>
+	</body>
+</html>

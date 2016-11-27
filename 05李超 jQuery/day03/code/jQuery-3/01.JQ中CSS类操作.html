@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.my_c {
+				width: 100px;
+				height: 100px;
+				border: 1px solid blue;
+			}
+			
+			.my_c2 {
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="">
+			hello
+		</div>
+		<button id="btn1">添加边框</button>
+		<button id="btn2">添加背景</button>
+		<button id="btn3">删除边框</button>
+		<button id="btn4">删除背景</button>
+		
+		<button id="btn5">添加/删除  背景</button>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var box = $('#box');
+			$('#btn1').click(function() {
+				box.addClass('my_c');
+			});
+			$('#btn2').click(function() {
+				box.addClass('my_c2');
+			});
+			
+			$('#btn3').click(function() {
+				box.removeClass('my_c')
+			});
+			$('#btn4').click(function() {
+				box.removeClass('my_c2');
+			});
+			
+			
+			$('#btn5').click(function() {
+				box.toggleClass('my_c2')
+			});
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    background: #2a2a2a;
+}
+
+div {
+    position: relative;
+    margin: 0;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border: black solid 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+}
+
+input {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    font-size: 15px;
+}

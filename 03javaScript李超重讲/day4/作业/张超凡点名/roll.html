@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- <input type="button" id="btn" value="随机开始"/> -->
+	<button id="btn">随机开始</button>
+	<span id="name"></span>
+	
+	<script type="text/javascript">
+		var oBtn = document.getElementById('btn');
+		var oTxt = document.getElementById('name');
+		var flag = true;
+		var time;
+		var arr = ['李为龙','邓晓丰','陈健','吴闻','刘世颖','韦文会','冼瑞健',
+		           '李家盛','程建政','周喜良','孙志亮','钟利民','张超凡','陈峰',
+		           '樊占军','李城','朱何优','阳聪','俞钧龙','傅超军','刘驰誉',
+		           '钟伟伟','刘志明','李君','马红亮','贾亚丽']
+		oBtn.onclick = function(){
+			if(flag){
+				time = setInterval(function(){
+					var num = Math.round(Math.random()*(arr.length-1));
+					oTxt.innerText = arr[num];
+				},10);
+				//oBtn.value = '点名';
+				oBtn.innerText = '点名';
+			}else{
+				clearInterval(time);
+				//oBtn.value = '随机开始';
+				oBtn.innerText = '随机开始';
+			}
+			flag = !flag;
+		}
+	</script>
+</body>
+
+</html>

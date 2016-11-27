@@ -1,0 +1,29 @@
+body{
+	margin:0;
+	padding:0;
+}
+
+#box1,#box2,#box3{
+	position: absolute;
+	width:100px;
+	height:100px;
+	top:0;
+	left:0;
+	color:white;
+	font-size:20px;
+	text-align: center;
+	line-height: 100px;
+	font-weight: bold;
+}
+
+#box1{
+	background: red;	
+}
+
+#box2{
+	background: yellow;	
+}
+
+#box3{
+	background: black;	
+}

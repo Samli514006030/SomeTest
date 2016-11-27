@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+  <style>
+     *{ margin:0; padding:0;}
+	 body{ margin:100px 400px;}
+	 #box{ width:540px; height:540px; border:#666 solid 1px; background:#9FC;}
+     ul{ width:500px; height:300px; border:#666 solid 1px; overflow:auto; margin:20px; background:#CCC;}
+     li{ list-style:none; margin:10px 50px; }
+	 #txt1{ height:40px; font-size:24px; color:#00F; width:100px;}
+	 #txt4{ height:40px; font-size:24px; color:#00F; width:100px;}
+	 #txt2{ height:20px; width:20px; position:relative; top:5px;}
+	 #inp3{ width:100px; height:40px; position:relative; top:-5px; left:67px;}
+	 #txt3{ height:20px; width:20px; position:relative; top:5px;}
+	 #box3 input{ width:100px; height:40px;}
+  </style>
+
+</head>
+
+<body>
+  <div id="box">
+  <ul id="box1">
+    
+  </ul>
+   <div style="position:relative; top:20px; left:60px;" id="box4">
+	   <span>&nbsp;姓名：</span>
+	   <input type="text" id="txt1">
+	   &nbsp;&nbsp;&nbsp;&nbsp;性别：<input type="radio" id="txt2" name="nan"  checked>男&nbsp;&nbsp;<input type="radio" name="nan" id="txt3">女</div>
+	   
+	   <div id="box3" style="position:relative; top:40px; left:125px ">
+		  <input type="button" value="添加" id="inp1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="button" value="删除" id="inp2">
+	   </div>
+	   
+	   <div style=" position:relative; top:60px; left:70px;">
+		  输入名字删除: <input type="text" id="txt4"><input type="button" value="删除" id="inp3">
+	   </div>
+   </div> 
+   
+   <script>
+       var aul=document.getElementById('box1');
+	   var txt1=document.getElementById('txt1');
+	   var txt2=document.getElementById('txt2');
+	   var txt3=document.getElementById('txt3');
+       var ipn1=document.getElementById('inp1');
+	   var ipn2=document.getElementById('inp2');
+	   var ipn3=document.getElementById('inp3');
+	   var txt4=document.getElementById('txt4');
+	   
+	   
+	    
+	   var arr=['程建政','张三','李四','王五','超凡','龙哥'];
+	   
+	  
+	   
+	   
+	   for(var i=0;i<arr.length;i++){
+	           aul.innerHTML+='<li class="box2" style="color:#093">'+'姓名：'+arr[i]+'</li>';
+	     }
+	   ipn1.onclick=function(){
+		   
+		   if(txt1.value==''){ alert('请输入姓名！');}
+		   else{ 
+			var vtxt=txt1.value;
+			arr.push(vtxt);
+			if(txt2.checked){
+			aul.innerHTML+='<li class="box2" style="color:#093">'+'姓名：'+arr[arr.length-1]+'</li>';}
+			if(txt3.checked){
+			aul.innerHTML+='<li class="box2" style="color:#C0C">'+'姓名：'+arr[arr.length-1]+'</li>';}
+			txt1.value='';}
+			}
+	   ipn2.onclick=function(){
+			aul.innerHTML='';
+			var vtxt=txt1.value;
+			arr.pop();
+			for(var i=0;i<arr.length;i++){
+			aul.innerHTML+='<li class="box2" style="color:#093">'+'姓名：'+arr[i]+'</li>';
+		}}
+			
+	      ipn3.onclick=function(){
+			  aul.innerHTML='';
+			  var vtxt4=txt4.value;
+			  for(var i=0;i<arr.length;i++){
+				  if(arr[i]==vtxt4){
+					  arr.splice(i,1);
+		   }
+					  
+				aul.innerHTML+='<li class="box2" style="color:#093">'+'姓名：'+arr[i]+'</li>';
+					 } 
+				    
+				   }
+	   
+	   
+   
+   </script>
+   
+</body>
+</html>

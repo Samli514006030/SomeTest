@@ -1,0 +1,20 @@
+		
+#box0{position: relative;}
+	#box1{
+		width: 50px;
+		height: 50px;
+		background: red;
+		position: absolute;
+	}
+	#box2{
+		width: 50px;
+		height: 50px;
+		background: red;
+		position: absolute;
+	}
+	#box3{
+		width: 50px;
+		height: 50px;
+		background: red;
+		position: absolute;
+	}

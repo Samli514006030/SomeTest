@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态反向</title>
+		<style type="text/css">
+			#O {
+				height: 100px;
+				width: 100px;
+				background: red;
+				position: absolute;
+			}
+			
+			#Tw {
+				height: 100px;
+				width: 100px;
+				background: green;
+				position: absolute;
+			}
+			
+			#Tr {
+				height: 100px;
+				width: 100px;
+				background: blue;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="O"></div>
+		<div id="Tw"></div>
+		<div id="Tr"></div>
+		
+		
+		<script type="text/javascript">
+		
+		var ADiv =document.getElementsByTagName("div");
+		
+		
+		//获取可视高度和宽度
+			var kw=document.documentElement.clientWidth;        //兼容性
+		    var kh=document.documentElement.clientHeight;
+		    
+//		    var kw =window.innerWidth;
+//		    var kh =window.innerHeight;
+		       
+			
+			document.onmousemove=function(ev){
+		        	var ev=ev || window.event;
+		            
+		      		var x=ev.pageX;
+		      		var y=ev.pageY;             //鼠标的坐标    	
+		      		
+//                  ADiv[0].style.left=x+"px";
+//                  ADiv[0].style.top=y+"px";
+//                  
+                    
+//                  ADiv[1].style.left=x+100+"px";
+//                  ADiv[1].style.top=y+100+"px";
+//                  
+//                  ADiv[2].style.left=x+200+"px";
+//                  ADiv[2].style.top=y+200+"px";
+
+		     		if ((kw-(x+300)>=0 )&& (kh-(y+300)>=0)){
+		     			
+		                    ADiv[0].style.left=x+"px";
+		                    ADiv[0].style.top=y+"px";
+		                   
+		                    ADiv[1].style.left=x+100+"px";
+		                    ADiv[1].style.top=y+100+"px";
+		                    
+		                    ADiv[2].style.left=x+200+"px";
+		                    ADiv[2].style.top=y+200+"px";
+		     		}
+		     		else if((kw-(x+300)<0) &&( kh-(y+300)<0)){
+		     			
+			     			 ADiv[0].style.left=(x-100)+"px";
+	                         ADiv[0].style.top=(y-100)+"px";
+	                    
+	                    
+	                         ADiv[1].style.left=(x-200)+"px";
+	                         ADiv[1].style.top=(y-200)+"px";
+	                    
+	                         ADiv[2].style.left=(x-300)+"px";
+	                        ADiv[2].style.top=(y-300)+"px";
+	                        
+		     	   }else if (kw-(x+300)<0 ){
+		     			
+		                   ADiv[0].style.left=(x-100)+"px";
+		                    ADiv[0].style.top=y+"px";
+		                   
+		                   ADiv[1].style.left=(x-200)+"px";
+		                    ADiv[1].style.top=y+100+"px";
+		                    
+		                   ADiv[2].style.left=(x-300)+"px";
+		                    ADiv[2].style.top=y+200+"px";
+		     		}
+		     		else if(kh-(y+300)<0){
+		     			
+			     			  ADiv[0].style.left=x+"px";
+	                         ADiv[0].style.top=(y-100)+"px";
+	                    
+	                    
+	                          ADiv[1].style.left=x+100+"px";
+	                         ADiv[1].style.top=(y-200)+"px";
+	                    
+	                         ADiv[2].style.left=x+200+"px";
+	                        ADiv[2].style.top=(y-300)+"px";
+		     	   }
+		     		
+		     		
+		     	
+		     		
+		     		
+		     		
+		     		
+		     		
+		     		
+		     		
+		     		
+		     		
+		     		
+		     	}
+			
+			
+		</script>
+	</body>
+</html>

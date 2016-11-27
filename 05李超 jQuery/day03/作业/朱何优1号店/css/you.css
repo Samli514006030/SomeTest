@@ -1,0 +1,314 @@
+/*样式重置*/
+body,ul,li,input{
+	margin: 0;
+	padding: 0;
+	font:12px "微软雅黑";
+}
+body{
+	overflow-x: hidden;
+}
+p{
+	color: red;
+}
+li{
+	list-style: none;
+}
+input{
+	outline: none;
+	border: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	vertical-align: top;
+}
+
+/*设置左右固定模块样式*/
+#leftblock{
+	background: white;
+	width: 34px;
+	height: 3000px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#rightblock{
+	background: #3f3c3c;
+	text-align: center;
+	color: red;
+	width: 34px;
+	height: 3000px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 10;
+}
+#rightbar{
+	position: absolute;
+	top: 200px;
+}
+#rightbar div{
+	margin-bottom: 30px;
+}
+
+/*设置头部样式*/
+#header{
+	width: 100%;
+	height: 35px;
+	*zoom: 1;
+	border-bottom: 1px solid #dbdbdb;
+}
+#header:after{
+	clear: both;
+	display: block;
+	content: "";
+}
+#login,#destination{
+	float: left;
+	margin-left: 75px;
+	line-height: 35px;
+	height: 35px;
+}
+#login a:hover{
+	color: #ff8166;
+}
+#destination{
+	width:130px;
+	height: 35px;
+	background:url(../img/truck.gif) no-repeat right;
+	margin-left:10px;
+}
+#helps{
+	height: 35px;
+	float: right;
+	margin-right: 44px;
+}
+#helps ul,#helps div{
+	float: left;
+	margin:12px 10px;
+}
+#helps li{
+	display: none;
+}
+
+/*设置广告样式*/
+#banner{
+	width: 100%;
+	position: relative;
+	cursor: pointer;
+}
+.banner1{
+	height: 60px;
+	background:url(../img/banner1.gif) no-repeat 75px 0;
+}
+.banner2{
+	height: 300px;
+	background:url(../img/banner2.gif) no-repeat 75px 0;
+}
+#banner #foldBanner{
+	position: absolute;
+	width: 17px;
+	height: 40px;
+	top: 0;
+	left:1238px;
+	z-index: 10;
+}
+
+/*设置搜索框样式*/
+#search{
+	width: 100%;
+	margin:20px 75px;
+	height: 72px;
+	position: relative;
+}
+
+#searchbox{
+	background: #ff3c3c;
+	width: 528px;
+	height: 32px;
+	position: absolute;
+	top: 0;
+}
+
+#suggestGoods{
+	position: absolute;
+	top: 32px;
+}
+
+#suggestGoods a{
+	color: #999999;
+	float: left;
+	margin:6px 10px 0 0;
+	font-size: 12px;
+}
+
+#searchbox #searchGoods{
+	width: 70px;
+	left: 2px;
+	color: black;
+	line-height: 28px;
+	text-align: center;
+}
+#searchbox #searchtext{
+	border-left: 1px solid #e1e1e1;
+	width: 356px;
+	left:72px;
+}
+#searchbox #searchgo{
+	position: absolute;
+	top: 2px;
+	color: white;
+	height: 28px;
+	width: 98px;
+	right:2px;
+	line-height: 28px;
+	text-align: center;
+}
+
+#searchGoods,#searchtext{
+	background: white;
+	height: 28px;
+	position: absolute;
+	top: 2px;
+}
+
+#search #shoppingCar{
+	position: absolute;
+	top: 0;
+	left:1110px;
+	width: 90px;
+	height: 45px;
+	background:url(../img/shoppingCar.gif);
+}
+
+/*设置中间导航样式*/
+#content{
+	position: relative;
+}
+#rightside{
+	width: 100%;
+	height: 434px;
+	position: absolute;
+}
+#sidebar{
+	width: 210px;
+	height: 434px;
+	margin-left: 75px;
+	background: url(../img/sidebar.gif);
+	font-size: 14px;
+	position: absolute;
+	z-index: 10;
+}
+
+#allGoods{
+	width: 210px;
+	height:34px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 34px;
+	color: white;
+}
+#navList{
+	width:1000px;
+	position: absolute;
+	top:10px;
+	left:300px;
+}
+#navList li{
+	float: left;
+	margin-right: 30px;
+}
+#navList a{
+	color: black;
+	font-weight: bold;
+	font-size: 14px;
+}
+#navList a:hover{
+	color: red;
+}
+#navList .redA{
+	color: red;
+}
+#aboutPhone{
+	width:115px;
+	height: 30px;
+	position: absolute;
+	top:0;
+	right:60px;
+	display: inline-block;
+	background:url(../img/aboutPhone.png);
+}
+
+/*设置中间轮播样式*/
+#mainBanner{
+	width: 100%;
+	position: absolute;
+	top: 34px;
+	left: 0;
+	height: 400px;
+	*zoom: 1;
+	border-top: 2px solid red;
+}
+#newflash{
+	position: absolute;
+	top: 0;
+	left: 1034px;
+	width: 240px;
+	height: 398px;
+	background:url(../img/newsflash.gif);
+}
+#mainBanner:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+#mainBanner div{
+	height: 400px;
+	float: left;
+}
+#lunbotu{
+	width: 750px;
+}
+
+#lunboPrev,#lunboNext{
+	position: absolute;
+	top: 0;
+	font-size: 60px;
+	width: 45px;
+	background:black;
+	color: white;
+	opacity: 0.5;
+	display: none;
+}
+
+#mainBanner #lunboPrev{
+	left: 285px;
+	height: 80px;
+}
+#mainBanner #lunboNext{
+	left: 990px;
+	height: 80px;
+}
+#spanList{
+	position: absolute;
+	top:370px;
+	left: 545px;
+	z-index:20;
+}
+#spanList span{
+	float: left;
+	margin-right: 20px;
+	width: 16px;
+	height: 16px;
+	background: #cccccc;
+}
+#spanList .currentSpan{
+	background: #ff3c3c;
+}
+#mainBanner .sideBanner{
+	width: 284px;
+}
+
+
+

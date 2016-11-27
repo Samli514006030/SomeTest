@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		     p,ul ,textarea{
+		     	 margin:0 ;
+		         padding: 0;
+		     }
+		   #d2 ul{  
+		    	list-style: none;
+		         
+		         background: #204D74;
+		    }
+			#div{
+				 width:600px;
+			     height: 400px;
+			    overflow: auto;
+			    
+			    background: #C0C0C0;
+			    margin: 0 auto;
+			    
+			}
+			#d2{
+				height: 30px;
+				background: #204D74 ;
+				line-height: 30px;
+				overflow: hidden;
+				
+			}
+			#d2 ul li{
+				 float: left;
+				 width: 100px;
+				 height: 20px;
+				 color: #FFFFFF;
+				 text-align: center;
+			}
+			#d2	ul .li{
+				background: #C0C0C0;
+				color: #000000;
+				border-top:2px solid #0000FF;
+				height: 30px;
+			
+			}
+			textarea{
+				resize: none;
+				width: 600px;
+				height: 100px;
+				border: none;
+				display: block;
+				font-size: 16px;
+				outline: none;
+			} 
+			#box{
+				width: 600px;
+				margin: 5px auto 0;
+				border: 1px solid;
+			}
+			p{
+				
+				background: #C0C0C0;
+			}
+			#box1{
+				width: 200px;
+				margin-left: 800px;
+			}
+			#show{
+				
+				width: 60px;
+				background: #0000FF;
+				color: #FFFFFF;
+				line-height: 25px;
+				text-align: center;
+				margin-left: 10px;
+				
+			}  
+			 #div .kk{
+			 
+			 	border-bottom:1px dashed #FFFFFF ;
+			  	
+			 }
+			 #div p{
+			 	
+			 	height: 50px;
+			 	padding: 5px 5px 0;
+			 	line-height: 63px;
+			 	 
+			 }
+			  #div .kk .dd{
+			     padding: 10px  0;
+			  	text-indent: 6em;
+			  	
+			
+			  } 
+			
+		</style>
+	</head>
+	<body>
+		 <div id="div">
+		 	  
+		 	<div id="d2">
+		 		<ul>
+		 			<li class="li">全部回帖</li>
+		 			<li>赞数最多</li>
+		 			<li>最强回复</li>
+		 		</ul>
+		 	</div>
+		 	
+		 	  <ul ></ul>
+	 	
+		 </div>
+		 <div id="box">
+		 	<p><img src="img/1.png" />发表回复</p>
+		 	<textarea  id="xie">请示输入发表内容</textarea>
+		 </div>
+		 
+		 
+		 <div id="box1">
+		 	<img src="img/2.png"/><input type="button" id="show" value="回复" />
+		 </div>   
+		      
+		      
+		      
+		    <script type="text/javascript">
+		      	   var tm={
+		      	   	   chushi:function(){
+			      	   	   
+			      	   	   	var yuan=document.getElementById("div");
+			      	   	   	var dian=document.getElementById("show");
+			      	   	   	var ul=document.getElementsByTagName("ul")[1];
+			      	   	   	var val=document.getElementById("xie");	
+			      	   	   	var  zhi=val.value;
+			      	   	   	  val.onfocus=function(){
+			      	   	   	  	if(val.value==zhi){
+			      	   	   	  	val.value="";	
+			      	   	   	  	val.style.border="none";
+			      	   	   	  	  }      	   	   	  	  
+			      	   	   	  	
+			      	   	   	  }
+			      	   	   	  val.onblur=function(){
+			      	   	   	  	if(val.value==""){
+			      	   	   	  	val.value=zhi;	
+			      	   	   	  	  }      	   	   	  	  
+			      	   	   	  	
+			      	   	   	  }
+			      	   	   	   
+			        	   	   
+			      	   	   	 dian.onclick=function(){
+			      	   	   	 	    	   	   			      	   	   	 	
+			      	   	   	 		if(val.value==zhi){
+			      	   	   	 			val.style.border="2px solid red";
+			      	   	   	 			return;
+			      	   	   	 		}			      	   	  
+			      	   	   	 	  	 
+			      	   	   	 	ul.innerHTML+='<li class="kk"><p></p><div class="dd">'
+			      	   	   	 	            +val.value+'</div></li>';
+			      	   	   	 		
+			      	   	   	 	 var sum=yuan.getElementsByTagName("p");
+				      	   	   	 for(var i=0;i<sum.length;i++){
+				      	   	   	 	     
+				      	   	   	 	    sum[i].innerHTML='<span>'+(i+1)+'楼</span><img src="img/1.png">';
+                                    
+				      	   	   	   }
+				      	   	 
+				      	   	   	 val.value=zhi;
+			      	   	    }			      	   	   	 		      	   	   			      	   	   	
+		      	   	    }
+		      	    }
+		      	     tm.chushi();
+		    </script>
+	</body>
+</html>

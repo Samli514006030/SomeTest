@@ -1,0 +1,22 @@
+body{
+		    	margin: 0;
+		    	padding: 0;
+		    }
+			#box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+			#box2{
+				width: 100px;
+				height: 100px;
+				background: blueviolet;
+				position: absolute;
+			}
+			#box3{
+				width: 100px;
+				height: 100px;
+				background: gold;
+				position: absolute;
+			}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/bigptr.jpg" alt="..."/>
+		<div id="msg"></div>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('img').mousemove(function(ev){
+				$('#msg').html(ev.pageY+"");
+			});
+		</script>
+	</body>
+</html>

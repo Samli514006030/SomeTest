@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>随机点名 </title>
+		<style>
+			#div1 {
+				text-align: center;
+				margin-top: 100px;
+				width: 100%;
+			}
+			
+			#show {
+				margin: 0 auto;
+				font-size: 50px;
+				width: 200px;
+				height: 80px;
+				line-height: 80px;
+				background: deepskyblue;
+			}
+			
+			#btn {
+				margin-top: 20px;
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="div1">
+			<div id="show"></div>
+			<div>
+				<input id="btn" type="button" value="开始" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			var isRun = true;
+			var a = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+			"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+			var a2 = new Array();
+			var btn = document.getElementById('btn')
+
+			function action() {
+				var s = btn.value;
+				if(s == "开始") {
+					isRun = true;
+					run();
+					btn.value = "结束";
+				} else {
+					isRun = false;
+					btn.value = "开始";
+				}
+			}
+
+			function run() {
+				var i = Math.floor(Math.random() * a.length + 1) - 1;
+				document.getElementById("show").innerHTML = a[i];
+				if(isRun == false) {
+					var b = true;
+					for(var j in a2) {
+						if(a2[j] == i) {
+							b = false;
+						}
+					}
+					if(b) {
+						a2[a2.length] = i;
+						return;
+					}
+				}
+				setTimeout("run()", 50);
+			}
+			btn.onclick = action;
+		</script>
+	</body>
+
+</html>

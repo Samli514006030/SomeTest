@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h1{width:450px;
+			   margin:10px auto;
+			   font-size: 40px;
+			   text-align: center;
+			   letter-spacing: 15px;
+			   color: #ff99cc;
+			   background:#fcf9f9 ;
+			}
+			span{letter-spacing:0;}
+			#warp{width:450px;
+			      height:500px;
+			      border: 1px solid black;
+			      margin:10px auto;
+			      background: #f6d3d3;			     
+			}
+			#content{width:420px;
+			         height: 260px;
+			         overflow: auto;
+			         border:1px solid black;
+			         margin: 15px;   
+			         background: #9b9595;
+			}
+			#alert{width:200px;
+			       height:20px;
+			       color: red;
+			       font-weight: bold;
+			       font-size: 20px;
+			       text-align: center;
+				   line-height: 20px;
+				   margin-left:125px;
+				   margin-top:10px;
+				   letter-spacing:5px;
+			}
+			input{width:150px;
+			      height:50px;
+			      text-align: center;
+			      font-size: 24px;
+			      font-weight: bold;
+			      line-height: 30px;
+			      margin: 35px;
+			}
+			p{width:60px;
+			  height:20px;
+			  line-height: 20px;
+			  font-size: 18px;
+			  
+			  text-align: center;
+			  margin:10px;
+			  display:inline-block;	
+			}
+			#checked{
+			       	width:200px;
+			         height:80px; 
+			         line-height: 80px;
+			         font-size: 40px;
+			         font-weight: bold;
+			         text-align: center;
+				     background:#f4eeee;
+				     color:blue;
+				     word-spacing:20px;
+				     margin:10px auto;	  
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<h1><em>泽林<span>8017</span>班点名册</em></h1>
+		<div id="warp">
+			<div id="content"></div>
+			<div id="checked"></div>
+			<div id="alert"></div>
+			<input type="button" value="开始" />
+			<input type="button" value="停止" />
+		</div>
+		
+		<script type="text/javascript">
+			
+			//获取元素
+			var warp =document.getElementById('warp');
+			var content=document.getElementById('content');
+			var aInput =document.getElementsByTagName('input');
+			var oDiv=document.getElementById('checked');
+			var alert=document.getElementById('alert');
+            var aP=document.getElementsByTagName('p');
+			
+			var time=null;
+			var num=0;
+			var flg=true;
+			
+			//声明变量总人数及数组			
+			var sum = 26;
+			var arr=['张超凡','孙志亮','邓晓丰','刘世颖','傅超军','程建政','贾亚丽','李家盛',
+			'韦文会','李为龙','吴闻','冼瑞健','周喜良','钟利民','陈峰','樊占军','李城',
+			'朱何优','阳聪','俞钧龙','刘驰誉','钟伟伟','刘志明','李君','马红亮','陈健'];
+			
+			for(sum in arr){
+				content.innerHTML+='<p>'+arr[sum]+'</p>';
+			}
+			
+			//点击是事件开始
+			aInput[0].onclick=function(){
+					oDiv.innerHTML ='';
+					aP[num].style.background ="#9b9595";
+					if(flg){
+					clearInterval(time);
+					time=setInterval(function(){
+						num=Math.floor(Math.random()*arr.length);
+                        jump();
+					},30);
+					flg=false;
+				}else{
+					al();	
+				}					
+			}
+			//点击是事件停止
+			aInput[1].onclick=function(){
+				if(!flg){
+					aP[num].style.background='blue';
+					oDiv.innerHTML = num+':' +arr[num];
+					clearInterval(time);
+					flg=true;
+				}else{
+					al();
+				}
+			}
+			
+			function al(){
+				alert.innerHTML='对不起，不能重复点击哦！';	
+				setTimeout(function(){
+					alert.innerHTML=" ";				
+				},1000);	
+			}
+			function jump(){
+				aP[num].style.background='blue';		
+				setTimeout(function(){
+					aP[num].style.background ="#9b9595 ";		
+				},3);	
+			}
+			
+		</script>
+	</body>
+</html>

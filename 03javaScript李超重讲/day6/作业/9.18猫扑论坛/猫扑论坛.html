@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>猫扑论坛</title>
+		<style type="text/css">
+			body{font-size: 12px;font-family: "微软雅黑","宋体";margin: 0;padding: 0;}
+			p{margin: 0;padding: 0;}
+			h1{margin: 0;padding: 0;position: absolute;top: 24px;height: 24px;}
+			a{text-decoration: none;color: black;}
+			#header{
+				width: 100%;
+				height: 16px;
+				background: #f5f5f5;
+				padding: 8px 8px 8px 0;
+			}
+			#header img{
+				float: left;
+			}
+			#header a{
+				float: left;
+				color: #006286;
+			}
+			#nav{
+				width: 100%;
+				height: 40px;
+				background: #42617d;
+				color: white;
+			}
+			#nav a{
+				float: left;
+				background:url(img/nav_aRight.gif) right 0 no-repeat;
+				width: 82px;
+				line-height: 40px;
+				text-align: center;
+				color: white;
+				}
+			#nav #nav_first{
+				background: none;
+				width: 117px;
+			}
+			#nav .navActive{
+				background: white;
+				color: black;
+			}
+			#left{
+				position: absolute;
+				overflow-y: scroll;
+				left: 0;
+				top:72px;
+				width: 37%;
+			}
+			#right{
+				position: absolute;
+				overflow-y: scroll;
+				right:0;
+				top:72px;
+				width:63%;
+				height: 10000px;
+			}
+			#column{
+				background: #e9e5e2;
+				width: 100%;
+				height: 29px;
+				padding:21px 0 0 10px;
+			}
+			#column .speColor{
+				color: #006286;
+			}
+			#column #rrs,#reply,.conReplyElePost{
+				width: 40px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+				background: #2895c2;
+				color: white;
+				display: inline-block;
+				margin-left: 10px;
+			}
+			#title,#post{
+				width:829px ;
+				height: 96px;
+				background: white;
+				margin-left: 14px;
+				position: relative;
+			}
+			#title span,#post_footer span{
+				color: #666666;
+			}
+			#title_detail{
+				width: 100%;
+				position: absolute;
+				top: 68px;
+			}
+			#title_detail a{
+				position: absolute;
+				right: 20px;
+				color: #00629c;
+			}
+			#author{
+				width: 100%;
+				height: 97px;
+				background: #e5e9ec;
+			}
+			#post{
+				height:400px;
+			}
+			#post #strange{
+				color: #006286;
+				position: absolute;
+				top: 24px;
+				left: 24px;
+			}
+			#post p{
+				position: absolute;
+				top: 72px;
+				left: 24px;
+				color: #666666;
+			}
+			#post #img{
+				width: 100%;
+				position: absolute;
+				top: 140px;
+				left: 24px;
+			}
+			#img #p2{
+				position: absolute;
+				top: 410px;
+				left: 6px;
+			}
+			#post_footer{
+				position: absolute;
+				right: 0;
+				top:1240px;
+			}
+			#post_footer span{
+				float: right;
+			}
+			#quickReply,#conReply{
+				position: absolute;
+				top:1240px;
+				width:830px ;
+				height:178px;
+				margin-left: 10px;
+			}
+			#conReply{
+				top:1440px;
+			}
+			#quick{
+				position: absolute;
+				top: 24px;
+				left: 24px;
+			}
+			#namePic{
+				border-radius: 6px;
+				position: absolute;
+				top: 60px;
+				left: 24px;
+			}
+			#nickName{
+				position: absolute;
+				top: 120px;
+				left: 24px;
+				color: #006286;
+			}
+			#nickName:hover{
+				color: #0f9bcf;
+			}
+			#area{
+				resize: none;
+				width: 706px;
+				height:46px;
+				font-size: 12px;
+				position: absolute;
+				top: 60px;
+				left: 90px;
+				color: #adadad;
+				padding: 14px 0 0 12px;
+			}
+			#area_foot{
+				width:718px ;
+				position: absolute;
+				top:130px;
+				left: 90px;
+			}
+			#num{
+				color: #bd0000;
+			}
+			#are_foot_R{
+				float: right;
+			}
+			#lookChoice{
+				width: 350px;
+				height: 420px;
+				border: 5px solid #817f7f;
+				border-radius: 4px;
+				position: absolute;
+				top:1360px;
+				right: 12px;
+				z-index: 10;
+				background: white;
+				display: none;
+			}
+			#lookClose{
+				width: 18px;
+				height: 16px;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				background: url(img/lookClose.gif);
+			}
+			#lookClose:hover{
+				cursor: pointer;
+				background: url(img/lookClose_hover.gif);
+			}
+			#lookChoColumn{
+				width: 350px;
+				height: 41px;
+				position: absolute;
+				top: 40px;
+				background:url(img/lookCloseColumn.gif);
+			}
+			#lookChoColumn img{
+				width: 30px;
+				height: 22px;
+				position: relative;
+				top: 10px;
+				left: 10px;
+			}
+			.looks{
+				color: #666666;
+			}
+			.looks img{
+				vertical-align: middle;
+			}
+			#looksCho{
+				position: relative;
+				top: 10px;
+				left: 10px;
+			}
+			#looksList{
+				position: relative;
+				top: 82px;
+				width: 100%;
+				height: 270px;
+				border-bottom: 1px solid #b3b3b3;
+			}
+			#looksList .looksListDiv{
+				float: left;
+				width: 70px;
+				height: 70px;
+				margin-bottom: 20px;
+				text-align: center;
+				position: relative;
+			}
+			#looksList .looksListDiv:hover{
+				cursor: pointer;
+			}
+			#looksList .looksListDiv img{
+				vertical-align: middle;
+			}
+			#looksList .looksListDiv span{
+				display: block;
+				width: 40px;
+				position: absolute;
+				bottom: 0;
+				padding-left:18px ;
+				color: #006286;
+			}
+			#looksList .looksListDiv span:hover{
+				color: #429be0;
+			}
+			#lookChoiceFoot{
+				position: absolute;
+				bottom: 10px;
+			}
+			#lookChoiceFoot img{
+				vertical-align: bottom;
+			}
+			#lookChoiceFoot img{
+				cursor: pointer;
+			}
+			#lookChoiceFoot a{
+				color: #006286;
+			}
+			#lookChoiceFoot a:hover{
+				color: #0f9bcf;
+			}
+			
+			#reply{
+				width: 60px;
+				height: 28px;
+				line-height: 28px;
+			}
+			#reply:hover{
+				background:#52bde9;
+			}
+			#conReply_header{
+				padding-left: 10px;
+				background: #a0a9b1;
+				width: 100%;
+				height: 30px;
+				margin-bottom: 24px;
+			}
+			#conReply_header a{
+				color: white;
+				display: inline-block;
+				width: 70px;
+				height: 22px;
+				margin-top: 4px;
+				line-height: 22px;
+				font-size: 12px;
+				text-align: center;
+			}
+			#justAuthor{
+				position: absolute;
+				right: 10px;
+			}
+			.areaColor{
+				border: 1px solid red;
+			}
+			#conReply_header .active{
+				color:black;
+				background: white;
+			}
+			.conReplyElement{
+				width: 100%;
+				height: 110px;
+				background: #eeeae7;
+				border-bottom:1px dotted;
+				padding: 20px 0 0 10px;
+				position: relative;
+				clear: both;
+			}
+			.conReplyElement .userPic{
+				width: 34px;
+				height: 34px;
+				border-radius: 4px;
+				float: left;
+				margin-right: 10px;
+				
+			}
+			.conReplyElement p{
+				margin: 20px 40px;
+			}
+			.conReplyElement .reply_time{
+				float: right;
+				position: relative;
+				right: 20px;
+			}
+			.conReply_foot{
+				width: 100%;
+				position: absolute;
+				left:700px;
+				bottom: 20px;
+			}
+			.conReply_foot img{
+				float: left;
+			}
+			
+			
+			#conReply .conReplyElePost{
+				width: 60px;
+			}
+			#conReply .conReplyElePost:hover{
+				background:#2895c2;
+			}
+			.conReplyElement .elementColor1{
+				color: #999999;
+			}
+			.conReplyElement .elementColor2{
+				color: #006286;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<img src="img/flag.gif" alt="" />
+			<a href="#">世界上没有任何美好会在抱怨中产生。</a>
+		</div>
+		<div id="nav">
+			<a href="#" id="nav_first">
+				<img src="img/DZH_logo.gif"/>
+			</a>
+			<a href="#" class="navActive">大杂烩</a>
+			<a href="#">娱乐八卦</a>
+			<a href="#">原创区</a>
+			<a href="#">鬼话</a>
+			<a href="#">游戏烩</a>
+			<a href="#">冷笑话</a>
+			<a href="#">汽车烩</a>
+			<a href="#">联盟</a>
+		</div>
+		<div id="left">
+			<p style="color:red">做了个表情选择，有点烧脑</p>
+		</div>
+		<div id="right">
+			<div id="column">
+				<a href="#" class="speColor">大杂烩首页&nbsp;</a>&gt;&nbsp;
+				<a href="#" class="speColor">大杂烩&nbsp;</a>&gt;&nbsp;
+				<a href="#">五花八门</a>
+				<a href="#" id="rrs">RRS</a>
+			</div>
+			<div id="title">
+				<a href="#"><h1>月圆之夜高校上演浪漫求婚 却被这位吃瓜群众抢镜</h1></a>
+				<div id="title_detail">
+					<span id="time">发表时间：2016-09-17 18:28:37  </span>
+					<span id="click">点击：59276</span>
+					<span id="title_reply">回复：17</span>
+					<a href="#">复制本帖链接</a>
+				</div>
+				
+			</div>
+			<div id="author"></div>
+			<div id="post">
+				<a href="#" id="strange">#奇闻推荐#</a>
+				<p>在双十六的月圆之夜，在济南山东师范大学的校园里，也发生了浪漫的一幕。此时此情此景，求婚自然是大告功成，男子抱得美人归。<br/>一场浪漫的求婚在校园里上演。心形的蜡烛，配着皎洁的月光，一切都沉浸在浪漫的气氛中。 </p>
+				<div id="img">
+					<img src="img/11.jpg"/><br/><br/>
+					<p id="p2">然而，如此浪漫的求婚夜却被这位真正的吃瓜群众抢镜了。</p>
+					<img src="img/22.jpg"/>
+				</div>
+			</div>
+			<div id="post_footer">
+				<span>发表时间：2016-09-17 18:28:37</span>
+			</div>
+			<div id="lookChoice">
+				<a href="#" id="looksCho" class="looks">
+					<img src="img/look.gif" alt="表情" />表情
+				</a>
+				<div id="lookChoColumn">
+					<img src="img/face_data/007.gif"/>
+				</div>
+				<div id="looksList">
+				</div>
+				<span id="lookClose"></span>
+				<div id="lookChoiceFoot">
+					<select name="hundred">
+						<option value="0" selected="selected">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+					</select>
+					<select name="tenth">
+						<option value="0" selected="selected">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+					<select name="number">
+						<option value="0">0</option>
+						<option value="1" selected="selected">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+					<img src="img/face_data/001.gif"/>
+					<a href="http://dzh.mop.com/#rlink=http://dzh.mop.com/subject/nofresh/50350309.html">查看全部表情</a>
+				</div>
+			</div>
+			<div id="quickReply">
+				<span id="quick">快速回复</span>
+				<img src="img/namePic.png" id="namePic"/>
+				<a href="#" id="nickName">匿名用户</a>
+				<textarea  id="area" placeholder="在此输入内容,马上回复楼主..."></textarea>
+				<div id="area_foot">
+					<span id="num">0</span>/10000
+					<div id="are_foot_R">
+						<a href="#" id="looksDetail" class="looks"><img src="img/look.gif" alt="表情" />表情</a>
+						<a href="#" id="reply">回复</a>
+					</div>
+				</div>
+			</div>
+			<div id="conReply">
+				<div id="conReply_header">
+					<a href="#" class="active">全部回帖</a>
+					<a href="#">赞数最多</a>
+					<a href="#">最强回复</a>
+					<a href="#" id="justAuthor">只看楼主</a>
+				</div>
+				<div class="conReplyElement">
+					<img src="img/user/1.jpg" class="userPic"/>
+					<a href="#" class="elementColor1">[猫1]</a>
+					<a href="#" class="elementColor2">这年头2b特别多啊</a>
+					<a href="#" class="elementColor1">(九尾猫)</a>
+					<a href="#" class="elementColor2">[传呼]</a>
+					<span class="reply_time">今天 22:57:21</span>
+					<p style="position: relative;top: -30px;">
+						<img src="img/floor1.gif" style="position: relative;top: 10px;"/>
+						哥们好样的 下次吃瓜带上我
+					</p>
+					<div class="conReply_foot">
+						<img src="img/heart.gif"/>4 
+						<a href="#" class="conReplyElePost">
+							回复(<span class="replyNum">1</span>)
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var area = document.getElementById("area");
+			var num = document.getElementById("num");
+			var reply = document.getElementById("reply");
+			var conReply = document.getElementById("conReply");
+			var conReply_header = document.getElementById("conReply_header");
+			var conRHeaderA = conReply_header.getElementsByTagName("a");
+			var oldHeaderA="";
+			var floorNum =1;
+			var aNames=["过来人","小学生各种坑","农村户口","可笑的温柔","深夜情歌","小儿来两斤牛B","爱上隔壁老王","凉了时光","丢了幸福的猪"];
+			var catGrade=["死猫","野猫","小猫","中猫","大猫","波斯猫","通灵猫","多罗猫","九尾猫","伤不起的猫","猫王","传说中的猫","天外之猫","神一般存在的猫","猫族守护神"];
+			var lookChoice = document.getElementById("lookChoice");
+			var lookClose = document.getElementById("lookClose");
+			var looksDetail = document.getElementById("looksDetail");
+			var looksList = document.getElementById("looksList");
+			var looksImgsrc = ["007","010","011","015","023","058","092","100","122","180","193","215","246","300","296"];
+			var conStr="";
+			window.onload=function(){
+				area.value="";
+				var lookChoiceFoot = document.getElementById("lookChoiceFoot");
+				var options = lookChoiceFoot.getElementsByTagName("option");
+				options[0].selected=true;
+				options[3].selected=true;
+				options[14].selected=true;
+			}
+			init();
+			function init(){
+				for (var i=0;i<looksImgsrc.length;i++) {
+					var looksListDiv = document.createElement("div");
+					looksListDiv.className="looksListDiv";
+					looksList.appendChild(looksListDiv);
+					
+					var looksListImg = document.createElement("img");
+					looksListImg.src ="img/face_data/"+looksImgsrc[i]+".gif";
+					looksListDiv.appendChild(looksListImg);
+
+					var looksListSpan = document.createElement("span");
+					looksListSpan.innerHTML="<br/>"+looksImgsrc[i];
+					looksListDiv.appendChild(looksListSpan);
+				}
+			}
+			
+			looksDetail.onclick=function(ev){
+				ev = ev||window.event;
+				ev.preventDefault();
+				window.event?window.event.cancelBubble=true:ev.stopPropagation();
+				lookChoice.style.display="block";
+			}
+			lookClose.onclick=function(){
+				lookChoice.style.display="none";
+			}
+			
+			var looksLiDiv = looksList.getElementsByTagName("div");
+			for (var i=0;i<looksLiDiv.length;i++){
+				looksLiDiv[i].index=i;
+				looksLiDiv[i].onclick=function(){
+					area.className="";
+					conStr +="<img src='img/face_data/"+looksImgsrc[this.index]+".gif'/>";
+					area.value+="["+looksImgsrc[this.index]+"]";
+					lookChoice.style.display="none";
+				}
+			}
+			
+			var lookChoiceFoot = document.getElementById("lookChoiceFoot");
+			var selects = lookChoiceFoot.getElementsByTagName("select");
+			var images = lookChoiceFoot.getElementsByTagName("img")[0];
+			images.onclick=function(){
+				area.className="";
+				conStr +="<img src="+images.getAttribute('src')+"/>";
+				area.value+="["+images.getAttribute("src").substring(14,17)+"]";
+				lookChoice.style.display="none";
+			}
+			for (var i=0;i<selects.length;i++) {
+				selects[i].index = i;
+				selects[i].onchange=function(){
+					var options = selects[this.index].getElementsByTagName("option");
+					for (var j=0;j<options.length;j++) {
+						if(options[j].selected){
+							var oldstrNum = images.getAttribute("src").substring(14,17);
+							switch(this.index){
+								case 0:
+								var newstrNum = options[j].value+oldstrNum.substring(1);
+								images.src ="img/face_data/"+newstrNum+".gif";
+								break;
+								case 1:
+								var newstrNum =oldstrNum.charAt(0)+options[j].value+oldstrNum.charAt(2);
+								images.src ="img/face_data/"+newstrNum+".gif";
+								break;
+								case 2:
+								var newstrNum =oldstrNum.substring(0,2)+options[j].value;
+								images.src ="img/face_data/"+newstrNum+".gif";
+								break;
+							}
+							break;
+						}
+					}
+				}
+			}
+			
+			var nav = document.getElementById("nav");
+			var navAblock = nav.getElementsByTagName("a");
+			oldNavAblock = navAblock[1];
+			for (var i=0;i<navAblock.length;i++) {
+				navAblock[i].onclick=function(){
+					oldNavAblock.className=""
+					oldNavAblock=this;
+					this.className="navActive";
+				}
+			}
+			area.oninput=function(ev){
+				ev = ev||window.event;
+				ev.preventDefault();
+				window.event?window.event.cancelBubble=true:ev.stopPropagation();
+				num.innerHTML=area.value.length;
+				conStr += area.value.toString().charAt(area.value.toString().length-1);
+				console.log(conStr);
+				area.className="";
+				
+			}
+			reply.onclick=function(ev){
+				num.innerHTML = "0";
+				ev = ev||window.event;
+				ev.preventDefault();
+				window.event?window.event.cancelBubble=true:ev.stopPropagation();
+				if(area.value==""){
+					area.className="areaColor";
+					area.focus();
+				}else{
+					floorNum++;
+					var conReplyElement = document.createElement("div");
+					conReplyElement.className="conReplyElement";
+					conReply.appendChild(conReplyElement);
+					
+					var floorsNumber = document.createElement("a");
+					floorsNumber.className="elementColor1";
+					floorsNumber.href="#";
+					if(floorNum%2==0){
+						floorsNumber.innerHTML="[扑"+floorNum+"]";
+					}else{
+						floorsNumber.innerHTML="[猫"+floorNum+"]";
+					}
+					conReplyElement.appendChild(floorsNumber);
+					
+					var userImg = document.createElement("img");
+					var ramImg = Math.floor(Math.random()*9+1);
+					userImg.src = "img/user/"+ramImg+".jpg";
+					userImg.className="userPic";
+					conReplyElement.appendChild(userImg);
+					
+					var replyNames = document.createElement("a");
+					replyNames.className="elementColor2";
+					replyNames.href="#";
+					var ramNames = Math.floor(Math.random()*(aNames.length-1));
+					replyNames.innerHTML=aNames[ramNames];
+					conReplyElement.appendChild(replyNames);
+					
+					var cat = document.createElement("a");
+					cat.className="elementColor1";
+					cat.href="#";
+					var ramGrade = Math.floor(Math.random()*(catGrade.length-1));
+					cat.innerHTML="&nbsp;\("+catGrade[ramGrade]+"\)&emsp;";
+					conReplyElement.appendChild(cat);
+					
+					var notify = document.createElement("a");
+					notify.className="elementColor2";
+					notify.href="#";
+					notify.innerHTML="[传呼]";
+					conReplyElement.appendChild(notify);
+					
+					var spanTime = document.createElement("span");
+					spanTime.className = "reply_time";
+					var date = new Date();
+					var hour = addZero(date.getHours());
+					var minute = addZero(date.getMinutes());
+					var second = addZero(date.getSeconds());
+					var nowTime = date.getMonth() + 1 + "月" + date.getDate() + "日" + hour + ":" + minute + ":" + second;
+					spanTime.innerHTML = nowTime;
+					conReplyElement.appendChild(spanTime);
+					
+					var replyContent = document.createElement("p");
+					replyContent.innerHTML = conStr;
+					area.value="";
+					conReplyElement.appendChild(replyContent);
+					
+					var conReplyFoot =document.createElement("div");
+					conReplyFoot.className="conReply_foot";
+					conReplyElement.appendChild(conReplyFoot);
+					
+					var ReplyFootImg = document.createElement("img");
+					ReplyFootImg.src="img/heart.gif";
+					conReplyFoot.appendChild(ReplyFootImg);
+					conReplyFoot.innerHTML+=0;
+					
+					var ReplyFootPost = document.createElement("a");
+					ReplyFootPost.className="conReplyElePost";
+					ReplyFootPost.href="#";
+					ReplyFootPost.innerHTML="回复";
+					ReplyFootPost.style.background="#5a5a5a"; 
+					conReplyFoot.appendChild(ReplyFootPost);
+					conStr="";
+				}
+			}
+			
+			function addZero(obj){
+				if(obj.toString().length<2){
+					obj="0"+obj;
+				}
+				return obj;
+			}
+			
+			var oldconRHeaderA= conRHeaderA[0];
+			for(i in conRHeaderA){
+				if(i!=conRHeaderA.length-1){
+					conRHeaderA[i].onclick=function(ev){
+						ev = ev||window.event;
+						ev.preventDefault();
+						oldconRHeaderA.className="";
+						oldconRHeaderA=this;
+						this.className="active";
+						
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

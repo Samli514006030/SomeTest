@@ -1,0 +1,35 @@
+.box1{
+	width: 100px;
+	height:100px;
+	background:red;
+	position: absolute;	
+}
+
+.box2{
+	width: 100px;
+	height:100px;
+	background:yellow;
+	position: absolute;
+	left: 100px;
+	top: 100px;	
+}
+
+.box3{
+	width: 100px;
+	height:100px;
+	background:blue;
+	position: absolute;
+	left: 200px;
+	top: 200px;
+		
+}
+#box{
+	
+	position: absolute;
+	
+}
+body{
+	margin: 0;
+	padding: 0;
+	
+}

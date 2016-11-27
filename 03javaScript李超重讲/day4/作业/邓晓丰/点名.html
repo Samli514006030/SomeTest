@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>点名</title>
+</head>
+	<style>
+	
+		body{ 
+			background:#CCC;
+		}
+		
+		#box{
+			width:800px; 
+			height:400px;
+			margin:0 auto;
+			padding:20px;
+		}
+		
+		#box li{
+			list-style:none;
+			width:60px;
+			height:100px; 
+			border:green 4px solid;
+			background:green;
+			float:left;
+			border-radius:10px;
+			margin:10px;
+			cursor:pointer;
+			line-height:32px;
+			font-size:32px;
+			text-align:center;
+			font-weight:bold;
+			display:none;	
+		}
+		
+		#btn{ 
+			width:200px; 
+			height:50px; 
+			line-height:40px; 
+			font-size:32px; 
+			cursor:pointer; 
+			margin:0 560px;
+		}
+		
+	</style>
+<body>
+	<ul id="box"></ul>
+    <button id="btn">开始/重置</button>
+    
+    <script>
+	
+		var names=[	'邓晓丰','李为龙','陈 健','吴 闻','刘世颖','韦文会','冼瑞健','刘家盛',
+					'陈建政','周喜良','孙志亮','钟利民','张超凡','陈峰','樊占军','李城',
+					'朱何优','阳聪','俞钧龙','傅超军','刘驰誉','钟伟伟','刘志明','李君',
+					'马红亮','贾亚丽','李超'];
+		var oBox=gbi('box');
+		var oBtn=gbi('btn');
+		
+		//开始/重置
+		oBtn.onclick=function(){
+			removeChildren(oBox)
+			init();
+			show();
+		}
+
+		//显示
+		function show(){
+			var ali=oBox.getElementsByTagName('li');
+			var j=0;
+			var time=setInterval(function(){
+				ali[j++].style.display='block';	
+				if(j>=ali.length){
+					clearInterval(time);
+				}
+			},100);
+		}
+		
+		//初始化
+		function init(){
+			names.sort(function(){
+				return Math.random()-0.5;
+			});
+			for(var i=0;i<names.length;i++){
+				var li=document.createElement('li');
+				li.name=names[i];
+				setEvents(li);
+				oBox.appendChild(li);	
+			}
+		}
+		
+		//设置事件
+		function setEvents(obj){
+			obj.onmouseover=function(){
+				this.style.background='blue';
+				this.style.borderColor='blue';	
+			}
+			obj.onmouseout=function(){
+				this.style.background='green';
+				this.style.borderColor='green';	
+			}
+			obj.onclick=function(){
+				this.style.borderColor='#F90';	
+				this.onmouseover=null;
+				this.onmouseout=null;
+				setTimeout(function(){
+					obj.onclick=null;
+					obj.style.cursor='default';
+					obj.style.background='white';
+					obj.style.borderColor='red';
+					obj.innerHTML=obj.name;
+				},500);
+			}
+		}
+		
+		//删除所有子节点
+		function removeChildren(pnode){    
+			var childs=pnode.childNodes;    
+			for(var i=childs.length-1;i>=0;i--){    
+				pnode.removeChild(childs[i]);    
+			}    
+		} 
+		//根据id获得元素
+		function gbi(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>

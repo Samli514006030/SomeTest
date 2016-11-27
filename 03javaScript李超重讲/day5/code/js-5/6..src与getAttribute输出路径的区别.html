@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/bigptr.jpg" alt="大鱼海棠"/>
+		<script type="text/javascript">
+			var img = document.getElementsByTagName('img')[0];
+			console.log(img.alt);
+			
+			//img.src输出的是绝对路径
+			console.log("img.src : "+img.src);
+			//img.getAttribute('src')输出的是相对路径
+			console.log(img.getAttribute('src'));
+			
+		</script>
+	</body>
+</html>

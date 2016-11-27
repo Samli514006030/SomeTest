@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form >
+			<input type="button" value="123" />
+			<input type="submit" value=""/>
+		</form>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//"form:first"含义：form表单的第一个元素 submit 提交
+			$("form:first-child").submit(function(){
+				console.log('...');
+				return false;
+			});
+		</script>
+	</body>
+</html>

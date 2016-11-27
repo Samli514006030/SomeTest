@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background: #3d3d3d;
+        }
+
+        #div1 {
+            position: absolute;
+            margin: 25px 160px;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 200px auto;
+            color: white;
+        }
+
+        #img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            margin: 0 50px;
+        }
+
+        #btn {
+            width: 100px;
+            position: absolute;
+            margin: 100px 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="div2">
+    <img src="../img/1.jpg" id="img">
+    <input type="button" value="点名" id="btn">
+    <div id="div1"></div>
+</div>
+
+
+<script>
+    var div1 = document.getElementById("div1")
+    var btn = document.getElementById("btn")
+    var img = document.getElementById("img")
+    var b = [
+        ["刘驰誉"],
+        ["冼瑞健"],
+        ["李君"],
+        ["钟伟伟"],
+        ["阳聪"],
+        ["钟利民"],
+        ["陈健"],
+        ["吴闻"],
+        ["朱何忧"],
+        ["李城"],
+        ["刘志明"],
+        ["樊汉君"],
+        ["周善良"],
+        ["李为龙"],
+        ["俞君龙"],
+        ["韦文会"],
+        ["李家盛"],
+        ["贾亚丽"],
+        ["张超凡"],
+        ["孙志亮"],
+        ["邓小丰"],
+        ["刘世颖"],
+        ["傅超军"],
+        ["程建政"],
+        ["马行亮"],
+
+
+    ];
+    var flag = true;
+
+    btn.onclick = function () {
+        if (flag) {
+            time = setInterval(function () {
+                var m = Math.floor(Math.random() * 53);
+                img.src = "../img/" + m + ".jpg";
+                var a = Math.floor(Math.random() * 25);
+                div1.innerHTML = b[a]
+                console.log(m)
+                btn.value = "点击暂停"
+            }, 100);
+
+        } else {
+            clearInterval(time);
+            var a = Math.floor(Math.random() * 25);
+            div1.innerHTML = b[a]
+            btn.value = "继续点名";
+        }
+        flag = !flag;
+    }
+    btn.btn = true;
+    btn.onmouseover = function () {
+        if (this.btn) {
+            this.style.background = "green"
+        }
+    };
+    btn.onmouseout = function () {
+        if (this.btn) {
+            this.style.background = "white"
+        }
+    };
+</script>
+
+</body>
+</html>

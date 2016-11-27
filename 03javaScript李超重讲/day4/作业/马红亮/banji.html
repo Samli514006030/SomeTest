@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>banjishuzu</title>
+    <style>
+        #content{
+            width: 500px;
+            height: 300px;
+            margin:  0 auto;
+            overflow: scroll;
+            border: 3px solid black;
+        }
+
+        #box{
+            width: 500px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: cadetblue;
+            border: 3px solid black;
+        }
+        #box form{
+           text-align: center;
+        }
+        #box input{
+            width: 155px;
+            height: 30px;
+            border: 5px solid blue;
+            margin-top: 20px
+        }
+        #box select{
+            width: 165px;
+            height: 40px;
+            border: 5px solid blue;
+            margin-top: 20px;
+        }
+        #box span{
+            color: blue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #box button{
+            width: 90px;
+            height: 40px;
+            color: blue;
+            font-size: 14px;
+            margin-top: 20px;
+            margin-left: 115px;
+            margin-right: -20px;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <ul>
+        <li></li>
+    </ul>
+</div>
+<div id="box">
+    <form>
+        <span>姓名：</span> <input type="text"/><br/>
+        <span>性别：</span>
+        <select>
+            <option>男</option>
+            <option>女</option>
+        </select>
+    </form>
+        <button>添加人数</button> <button>删除人数</button>
+</div>
+                <script>
+                    var oDiv = document.getElementById("content");
+                    var li = oDiv.getElementsByTagName("li");
+                    var int = document.getElementsByTagName("input")[0];
+                    var sel = document.getElementsByTagName("select")[0];
+                    var btn  = document.getElementsByTagName("button");
+
+                    var arrName = ["ma","hong","liang"];
+                    var arrSex = ["nan","nan","nan"];
+
+                    for(var i = 0;i<arrName.length;i++){
+                        oDiv.innerHTML += "<ul><li>"+arrSex[i]+"&nbsp&nbsp"+arrName[i]+"</li></ul>"
+                    }
+                    btn[0].onclick = function(){
+                        var name = int.value;
+                        var sex = sel.value;
+                        arrName.push(name);
+                        arrSex.push(sex);
+                        oDiv.innerHTML = "";
+                        for(var i = 0;i<arrName.length;i++){
+                            oDiv.innerHTML +="<ul><li>"+arrSex[i]+"&nbsp&nbsp"+arrName[i]+"</li></ul>"
+                        }
+                    };
+
+                    btn[1].onclick = function(){
+                        arrName.pop();
+                        arrSex.pop();
+                        oDiv.innerHTML = "";
+                        for(var i = 0;i<arrName.length;i++ ){
+                            oDiv.innerHTML += "<ul><li>"+arrSex[i]+"&nbsp&nbsp"+arrName[i]+"</li></ul>"
+                        }
+                    }
+                </script>
+
+</body>
+</html>

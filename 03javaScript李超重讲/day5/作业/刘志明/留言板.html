@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0 auto;
+				padding: 0;
+			}
+			#message{
+				width: 500px;
+				height: 100px;
+				margin: 10px;
+				line-height: 50px;
+				font-size: large;
+			}
+			#content{
+				width: 500px;
+				min-height: 300px;
+				overflow: hidden;
+				border: 1px solid black;
+				margin: 10px;
+			}
+			button{margin-left: 400px;}
+		</style>
+	</head>
+	<body>
+		
+		<input  id="message" /><br>
+		<button id="btn">留言回复</button>
+		<div id="content"></div>	
+		
+		
+		<script type="text/javascript">
+			
+			var btn= document.getElementById('btn');
+			var content = document.getElementById('content');
+			var message = document.getElementById('message');
+			var aP = document.getElementsByTagName('p');
+//			var value = message.value;
+//			
+//			var Ms = document.createElement('span');
+//			var textN = document.createTextNode(value);
+	
+			
+//			Ms.appendChild(textN);
+			
+			btn.onclick=function(){
+				var value = message.value;
+				var Ms = document.createElement('p');
+			    var textN = document.createTextNode(value);
+	           
+			    Ms.appendChild(textN);
+			
+				if(message.value==''){
+					alert('内容不能为空');
+				}else{
+//					 content.appendChild(Ms);
+					 content.insertBefore(Ms,aP[0]);
+				};
+				message.value='';
+			};
+			
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		     body{
+		     	margin: 0;
+		     	padding: 0;
+		     }
+			  div{
+			  	position: absolute;
+			  	width: 100px;
+			  	height: 100px;
+			  	background-color:red;
+			  }
+		</style>
+	</head>
+	<body>
+		
+		        <div id="d1"></div>
+		        <div id="d2"></div>
+		        <div id="d3"></div>
+		        <script type="text/javascript">
+		        	   var d1=document.querySelector("#d1");
+		        	   var d2=document.querySelector("#d2");
+		        	   var d3=document.querySelector("#d3");
+		        	   
+		        	   
+		        	   
+		        	   document.onmousemove=function(ev){
+		        	   	var ev=ev||window.event;
+		        	   	var zx=ev.pageX;
+		        	   	var zy=ev.pageY;
+		        	   
+		        	    var kek=document.documentElement.clientWidth;
+		        	    var keh=document.documentElement.clientHeight;
+		        	    	 	
+		        	   	var d2y= d2.offsetHeight;
+		        	   	var d2x= d2.offsetWidth;
+		        	   	var d3y= d3.offsetHeight;
+		        	   	var d3x= d3.offsetWidth;
+		        	  
+		        	   	d1.style.top=zy+"px";
+		        	   
+		        	 //可视宽度
+		        	      if(kek-zx<100){
+		        	      	 d1.style.left=(kek-100)+"px";
+		   	  
+		        	      }else{
+		        	      	 d1.style.left=zx+"px";
+		        	      	 d2.style.left=(zx+d2x)+"px";
+		        	      	 d3.style.left=(zx+d2x+d3x)+"px";
+		        	      }
+		        	      
+		        	    //d2  
+			        	    if(kek-zx<200){
+			        	       d2.style.top=(zy+d2y)+"px";
+			        	       
+			        	       if(kek-zx>100){
+			        	          d2.style.left=(zx+d2x-200)+"px";
+			        	       }else{
+			        	       	 d2.style.left=(kek-200)+"px";
+			        	       }
+			        	    }else{
+			        	       d2.style.top=(zy+d2y)+"px";
+			        	      
+			        	    }
+		        	   //d3
+		        	     if(kek-zx<300){
+		        	       d3.style.top=(zy+d2y+d3y)+"px";
+		        	       d3.style.left=(zx+d2x+d3x-200)+"px";
+		        	       if(kek-zx<200){
+		        	       	
+		        	       	 if(kek-zx>100){
+		        	      
+		        	         	d3.style.left=(zx+d2x+d3x-400)+"px";
+		        	         }else{
+		        	         	 d3.style.left=(kek-300)+"px";
+		        	           }
+			        	      
+			        	     }		        	                          		        	       
+		        	     }else{
+		        	    	d3.style.left=(zx+d2x+d3x)+"px";
+		        	    }
+		        	  
+		        	   	
+		         	//可视高度
+		        	 	 if(keh-zy<200){
+		        	       d2.style.top=(zy+d2y-200)+"px";
+	
+		        	     }
+		        	
+		        	     if(keh-zy<300){
+		        	       d3.style.top=(zy+d2y+d3y-200)+"px";
+		        	    
+		        	          if(keh-zy<200){
+		        	       	
+		        	          	d3.style.top=(zy+d2y+d3y-400)+"px";
+		        	            }
+		        	                          		        	       
+		        	         }else{
+		        	          d3.style.top=(zy+d2y+d3y)+"px";
+		        	     
+		        	          }
+		        	
+		        	    }
+		        </script>
+	</body>
+</html>

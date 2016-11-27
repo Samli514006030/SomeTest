@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			span{background-color: green;border:solid red 1px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script>
+			var obox=document.getElementById('box');
+
+
+			for(var i=1;i<10;i++)
+			{
+				   
+				for(var j=1;j<=i;j++)
+				{
+					
+				
+					obox.innerHTML +='<span>'+i+'*'+j+'='+i*j+' '+'</span>';
+//					if((i*j)%2==0)
+//					{
+//						
+//					}
+				}
+				
+				obox.innerHTML +='<br>';
+			}
+			
+			
+		</script>
+	</body>
+</html>

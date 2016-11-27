@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 800px;
+				height: 400px;
+				background: yellow;
+				margin: 50px auto;
+			}
+			#center{width: 760px;height: 260px;background:cornflowerblue;padding: 20px;}
+			#Name{width: 100%;height: 50px;line-height: 50px;text-align: center;font-size: 20px;}
+			#txt{margin-right: 20px;width: 200px;height: 30px;}
+			#btn{width: 100%;height: 50px;line-height: 50px;text-align: center;font-size: 20px;}
+			#tbnT{height: 30px;width: 200px;margin: 10px;}
+			#tbnS{height: 30px;width: 200px;margin: 10px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="center"></div>
+			<div id="Name">
+				<span id="Span">请输入姓名:</span>
+				<input type="text" id="txt" value="" />
+				<input type="radio" name="xb" checked="checked" id="man" />男
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="xb" id="woman" />女
+			</div>
+			<div id="btn">
+				<input type="button" id="tbnT" value="添加成员" />
+				<input type="button" id="tbnS" value="删除成员" />
+			</div>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			
+			var center=document.getElementById('center');
+			var txt=document.getElementById('txt');
+			var man=document.getElementById('man');
+			var woman=document.getElementById('woman');
+			var tbnT=document.getElementById('tbnT');
+			var tbnS=document.getElementById('tbnS');
+			
+			var arr=['程建政','刘世颖', '邓晓峰', '傅超军', '张超凡',
+			'俞均龙', '陈峰', '周喜良' ,'朱何优', '吴闻','刘志明' ,'樊占军' ,'李诚'];
+//			console.log(arr);
+			
+			for (var i=0;i<arr.length;i++)
+			{
+				center.innerHTML+='&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+arr[i];
+			}
+			tbnT.onclick=function()
+			{
+				arr.push(txt.value);
+				center.innerHTML+='&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+arr[arr.length-1];
+//				console.log(arr);
+				txt.value='';
+			}
+			tbnS.onclick=function()
+			{
+				if (txt.value=='') 
+				{
+					arr.pop();
+					center.innerHTML='';
+					for (var i=0;i<arr.length;i++)
+					{
+						center.innerHTML+='&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+arr[i];
+					}
+				} 
+				else
+				{
+					for (var i=0;i<arr.length;i++)
+					{
+						if(txt.value==arr[i])
+						{
+							arr.splice(i,1);
+							center.innerHTML='';
+							for (var i=0;i<arr.length;i++)
+							{
+								center.innerHTML+='&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+arr[i];
+							}	
+						}
+					}
+				}
+				txt.value='';
+			}
+			
+		</script>
+	</body>
+</html>

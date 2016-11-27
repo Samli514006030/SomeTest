@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/*
+			 * 使用混合方式。工作中推荐使用，函数中定义私有变量，原型(prototype)中定义方法;
+			 * 好处：提高性能。
+			 */
+			function CreatePerson(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+			
+			CreatePerson.prototype.msg = function(){
+				console.log(this.name+","+this.age);
+			}
+			
+			var p1 = new CreatePerson('xxx',19);
+			p1.msg();
+			
+			
+			
+		</script>
+	</body>
+</html>

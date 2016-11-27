@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+#div1{ width:200px; height:200px; background:red; overflow:hidden; margin:20px;}
+#div2{ width:100px; height:100px; background:yellow; margin:50px; position:relative;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+	<div id="div2"></div>
+</div>
+<script>
+
+var oDiv2 = document.getElementById('div2');
+//oDiv2.offsetLeft   // 不一定是70
+
+console.log( posLeft(oDiv2) );   //70
+
+function posLeft(obj){
+	var result = 0;
+	
+	while(obj){
+		result += obj.offsetLeft; //无定位:div2->body-> null: 70+0+null
+		obj = obj.offsetParent;//有定位: 50 + 20 + 0
+	}
+	
+	return result;
+}
+</script>
+</body>
+</html>

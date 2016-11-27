@@ -1,0 +1,65 @@
+body{background-image: url(../img/bg.jpg);}
+#box{width: 1000px;
+	margin: 0 auto;
+	padding: 6px;
+}
+
+#box1{width: 940px;
+	height: 135px;
+	background: #fff;
+	margin: 0 auto;
+	padding: 23px 20px 20px 20px;
+	margin-bottom: 4px;
+}
+#box1 p{font-size: 12px;}
+#box2{position: absolute;}
+#box3,#box4{height: 95px;
+	display: inline-block;
+	position: relative;
+	}
+#box4{top: -20px;}
+#int{width: 810px;
+	height: 60px;
+	border: 1px solid black;
+	margin: 0 0 0 20px;
+}
+
+#btn{width: 60px;
+	height: 27px;
+	background-image: url(../img/huifu.jpg);
+	margin-top: 10px;
+	float: right;
+}
+#box4 a{float: right;
+		margin-top:14px ;}
+	
+#content{width: 940px;
+		height: 600px;
+		margin: 0 auto;
+		overflow: auto;
+		padding: 20px;
+		position: absolute;
+}
+#box5{height: 100px;
+	border-bottom: 1px dashed gray;}
+#box6{display: inline-block;
+		height: 90px;
+		position: relative;
+		top: -42px;
+}
+.neirong{margin: 0; padding: 0;}
+.neirong{width: 810px;
+		height: 90px;
+		padding: 6px;
+		position: relative;
+		overflow: auto;
+		margin: 0 auto;
+		display: inline-block;
+}
+.neirong p{font-size: 16px;}
+.rig{position: absolute;right: 20px;}
+.rig span{color: red;}
+#int{overflow: auto;
+	padding: 2px 0 0 6px;
+}
+#int span{color: gray;}

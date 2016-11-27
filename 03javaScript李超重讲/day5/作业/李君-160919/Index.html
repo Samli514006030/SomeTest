@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>学员信息表</title>
+		<style>			
+			html{
+				display: block;
+			}
+
+            h2 {
+                height: 30px;
+                color: black;
+                text-align: center;
+            }
+
+			#iBox{
+				width: 460px;
+				height: 200px;
+				margin: 0 auto;
+				border: 3px solid purple;
+				overflow-y:  scroll;
+			}
+						
+			table{
+				width: 100%;
+				text-decoration: none;
+				text-align: center;
+				border-collapse: collapse;
+			}
+
+            th{
+                background-color:#d5d4d4;
+                height:25px;
+                line-height:25px;
+                border:3px solid #808080;
+
+            }
+
+            td {
+                height: 20px;
+                line-height: 20px;
+                border: 3px solid #808080;
+            }
+
+            
+            #loginBox{
+				width: 400px;
+				height: 200px;											
+                border-bottom:3px solid purple;
+                border-left:3px solid purple;
+                border-right:3px solid purple;
+                background-color: #d5d4d4;
+                padding-left: 30px;
+                padding-right: 30px;
+                margin: 0 auto;	
+			}
+
+            p {
+                margin: 0;
+                padding: 0;
+                width: 400px;
+                text-align: center;
+            }
+
+            #point {
+                height: 50px;                
+            }
+
+                #point strong {
+                    font-size: 20px;
+                    height: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    color: red;
+                }
+
+            #insertName,#selectGender{
+                height:40px;
+                line-height:40px;
+                color:black;
+            }
+
+                #insertName #txts {
+                    width: 101px;
+                    height: 30px;
+                    line-height: 30px;
+                    padding-left: 5px;
+                    text-align: left;
+                    color: black;
+                }
+
+                #selectGender #select_Gen {
+                    width: 110px;
+                    height: 36px;
+                    line-height: 36px;
+                    color: black;
+                }
+		    
+		    #btnOnclick{
+                height:70px;
+                
+		    }
+                #btnOnclick #btnIns, #btnOnclick #btnDel {
+                    margin: 15px 0 0 0;
+                    width: 80px;
+                    height: 40px;
+                    font-size: 18px;
+                    text-align: center;
+                    border-radius: 15px;
+                    cursor: pointer;
+                }
+			
+		</style>
+	</head>
+	<body>
+        <h2>学员信息表</h2>
+
+		<div id="iBox">
+            <table id="tab"></table>
+        </div>       
+
+		<div id="loginBox">
+            <p id="point"></p>
+
+			<p id="insertName">
+                <span>姓名：</span>
+                <input type="text" id="txts" value="李君" title="请输入姓名："/>
+            </p>
+
+			<p id="selectGender">
+                <span>性别：</span>
+				<select name="select" id="select_Gen" title="请选择性别：">
+	    		    <option value="0">选择性别</option>
+					<option value="1">男</option>
+					<option value="2">女</option>
+	    		</select>
+			</p>
+			
+			<p id="btnOnclick">
+				<input type="button" id="btnIns" value="添加"/>
+				<input type="button" id="btnDel" value="删除"/>
+			</p>
+		</div>
+		
+		<script type="text/javascript" language="JavaScript" charset="UTF-8">
+		    //展示内容
+            var tab = getElement('tab');
+			//获取内容
+            var oTxt = getElement('txts');
+            var oSelect = getElement('select_Gen');
+            //提示信息
+            var txtP = document.getElementById('point');
+			//获取按钮
+            var oBtnIns = getElement('btnIns');
+            var oBtnDel = getElement('btnDel');
+
+            /*--- 封装获取标签的方法--Id,Class,Name ---*/
+			function getElement(id) {
+			    if (document.getElementById(id)) {
+			        return document.getElementById(id);
+			    }
+			}
+
+            /*--- 封装获取创建标签的方法 ---*/
+			function getCreateElement(id){
+			    return document.createElement(id);
+			}
+
+			//1.0 创建学员信息数组
+			var arrStrInfo = [
+				{ "Id": 1, "Name": "叶良辰", "Gender": "男" },
+				{ "Id": 2, "Name": "赵日天", "Gender": "男" },
+				{ "Id": 3, "Name": "孙尚香", "Gender": "女" },
+				{ "Id": 4, "Name": "无名氏", "Gender": "女" },
+				{ "Id": 5, "Name": "叶良辰", "Gender": "男" },
+				{ "Id": 6, "Name": "赵日天", "Gender": "男" },
+				{ "Id": 7, "Name": "孙尚香", "Gender": "女" },
+				{ "Id": 8, "Name": "无名氏", "Gender": "女" },
+				{ "Id": 9, "Name": "叶良辰", "Gender": "男" },
+				{ "Id": 10, "Name": "赵日天", "Gender": "男" },
+				{ "Id": 11, "Name": "孙尚香", "Gender": "女" },
+				{ "Id": 12, "Name": "无名氏", "Gender": "女" }
+			];
+
+            //--- 窗口加载完毕触发 ---//
+			window.onload = function () {
+			    //加载页面
+			    loadStrInfo();
+
+			    //新增学员信息记录
+			    oBtnIns.onclick = function () {
+			        getInsertStrInfo();
+			    }
+
+			    //删除学员信息记录
+			    oBtnDel.onclick = function () {
+			        getDelStrInfo();
+			    }			    
+			}
+
+			var setInTime=setInterval(function () {
+			    txtP.innerHTML = "";
+			}, 2000);
+
+			var clearInTime=clearInterval(function () {
+			    setInTime;
+			}, 0);
+
+            //向表的最后添加记录
+			function getInsertStrInfo() {
+			    //获取姓名
+			    var txtName = oTxt.value;
+			    //判断姓名是否为空
+			    if (!txtName) {
+			        txtP.innerHTML = "<strong>请输入姓名：</strong>";
+			        return;
+			    }
+			    //获取性别
+			    var index = oSelect.selectedIndex;
+			    var valSex = oSelect.options[index].value;
+			    var strSex = '男';
+			    //判断性别是否为空
+			    if (valSex != 0) {
+			        if (valSex == 1) {
+			            strSex = '男';
+			        }
+			        else {
+			            strSex = '女';
+			        }
+			    }
+			    else {
+			        txtP.innerHTML = "<strong>请选择性别：</strong>";
+			        return;
+			    }
+  				//获取最后一行的id序号
+  				var id=0;
+			    var num=tab.lastChild;
+			    if(1 == num.nodeType){
+			    	id=num.children[0].innerHTML;
+			    }
+			    else{
+			    	id=(num.previousSibling).children[0].innerHTML;
+			    }
+			    id++;
+
+			    var arrStr = { "Id": id, "Name": txtName, "Gender": strSex };
+			    arrStrInfo.push(arrStr);	    
+
+			    for (var i = (arrStrInfo.length - 1) ; i < arrStrInfo.length; i++) {
+			        addTr(arrStrInfo[i]);
+			    }
+
+			    txtP.innerHTML = "<strong>添加学员信息成功。</strong>";
+			    setInTime;
+			    clearInTime;
+			}
+
+			
+			function getDelStrInfo() {
+			    //获取姓名
+			    var txtName = oTxt.value;
+			    
+	            if(txtName!=null||txtName!=undefined){
+	            	
+	            	for(var i=0;i<tab.rows.length;i++){
+	            		
+			    		var tabTr=tab.rows[i];
+			    		var tabName=tab.rows[i].cells[1].innerHTML;
+			    		
+			    		if(txtName===tabName){
+			    			tab.deleteRow(tabTr);
+			    		}	
+	    		    }
+	            }
+	            
+	            else{
+	            	var index=tab.lastChild;
+    			
+		        	if(1==index.nodeType){
+			        	if(!tab.firstChild){
+			        		tab.deleteRow(index);
+			        	}		        	
+		            }
+			        else{
+			        	index=tab.previousSibling;
+			        	tab.deleteRow(index);
+		       		}
+	            }
+    			
+			}
+
+
+            //加载表数据（详细信息）
+			function loadStrInfo() {
+			    txtP.innerHTML = "<strong>请输入姓名和选择性别。</strong>";
+			    //创建表格的行
+			    var tr = getCreateElement("tr");
+			    tab.appendChild(tr);
+
+			    //创建表格的表头
+			    var th = getCreateElement("th");
+			    th.innerHTML = "序号";
+			    tr.appendChild(th);
+			    var th = getCreateElement("th");
+			    th.innerHTML = "学员姓名";
+			    tr.appendChild(th);
+			    var th = getCreateElement("th");
+			    th.innerHTML = "学员性别";
+			    tr.appendChild(th);
+
+			    for (var i = 0; i < arrStrInfo.length; i++) {
+			        addTr(arrStrInfo[i]);			       
+			    }
+			}
+
+			function addTr(model) {
+			    //创建表格的行
+			    var tr = getCreateElement("tr");
+			    tab.appendChild(tr);
+
+			    //创建表格单元格
+			    var td = getCreateElement("td");
+			    td.innerHTML = model.Id;
+			    tr.appendChild(td);
+			    var td = getCreateElement("td");
+			    td.innerHTML = model.Name;
+			    tr.appendChild(td);
+			    var td = getCreateElement("td");
+			    td.innerHTML = model.Gender;
+			    tr.appendChild(td);
+			}
+
+            /*--- 新增数据，并返回新增的元素 ---*/
+            //定义变量，存储数据元素的Id
+			var modelId = arrStrInfo.length;
+			arrStrInfo.addModel = function (model) {
+			    //每次添加序号++
+			    modelId++;
+			    //设置添加对象的Id
+			    model.Id = modelId;
+			    //数组元素++，在length
+			    this[this.length] = model;
+			    return model;
+			}
+
+            //1.1 根据id删除数组元素
+			arrStrInfo.deleteById = function (id) {
+			    for (var i = 0; i < this.length; i++) {
+			        if (this[i].Id == id) {
+			            for (var j = i; j < this.length - 1; j++) {
+			                this[j] = this[j + 1];
+			            }
+			            this.length--;
+			            break;
+			        }
+			    }
+			}
+
+			
+            /*--- 获取学员信息构造方法 ---*/
+			function GetObject(id, name, gender) {
+			    this.Id = id;
+			    this.Name = name;
+			    this.Gender = gender;
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>

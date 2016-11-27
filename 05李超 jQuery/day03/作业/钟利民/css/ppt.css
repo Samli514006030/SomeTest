@@ -1,0 +1,73 @@
+
+
+/*   ...1.
+ */
+	body{
+		background: darkgray;
+	}
+	#one{
+		margin:100px auto;
+		padding: 0;
+		width: 720px;
+		height: 540px;
+		background: white;
+		position: relative;
+	}
+	.tp{
+		float: right;
+	}
+	.xt{
+		position: absolute;top:113px;
+		margin-left: 37px;
+		height: 3px;
+		width: 650px;
+		background:url(../img/xiant.png) repeat-x;
+	}
+	.sj{
+		position: absolute;left: 85px;top: 148px;
+	}
+	.pb{
+		position: absolute;top: 130px;left:297px;
+	}
+	.sb{
+		position: absolute;top: 148px;left: 520px;
+	}
+	.zt{
+		position: absolute;top: 388px;left: 218px;
+		font-size: 40px;color: #d99694;
+		font-family: "华文新魏";
+		text-decoration: blink;
+	}
+	.zt1{
+		position: absolute;top: 440px;left: 343px;
+		font-family: "华文新魏";
+		font-size: 32px;
+	}
+	.xt1{
+		position: absolute;top: 490px;left: 37px;
+		height: 3px;
+		width: 650px;
+		background:url(../img/xiant.png) repeat-x;
+	}
+	.zt2{
+		position: absolute;top: 510px;left: 296px;
+		font-size: 18px;
+	}
+	/*...2
+	 */
+	body{
+		background: darkgray;
+	}
+	#two{
+		margin:100px auto;
+		padding: 0;
+		width: 720px;
+		height: 540px;
+		background: white;
+		position: relative;
+	}
+	.zt3{
+		font-size: 32px;
+		font-family: "微软雅黑";
+	}
+

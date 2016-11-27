@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			h{margin:0;padding:0;}
+			body{background:#e9e5e2 ;}
+			#warp{
+				width:700px;
+				height:180px;
+				background: white;
+				margin: 20px  auto;
+				position: relative;	
+			}
+			#warp h4{
+				position: absolute;
+				left:20px;
+				top:0;
+			}
+			#main{
+				width:660px;
+				height:100px;
+				float: left;
+				position: absolute;
+				left:20px;
+				top:60px;
+			}
+			#main span{
+				position: absolute;
+				left:0;
+				top:60px;
+				font-size:12px ;
+				color: #006286;
+			}
+			#main #txt{
+				width:570px;
+				height:40px;
+				font-size: 20px;
+				word-spacing:5px;
+				line-height:26px;
+				word-break: break-all;
+				overflow: auto;
+				position:absolute ;
+				left:65px;
+			    top:0;
+				padding:10px;
+			}
+			#main #btn{
+				position: absolute;
+				right:0;
+				bottom: 0;
+				background:#70b3fc;
+			}
+			#ul{
+				list-style: none;
+				width:700px;
+				margin: 20px auto;
+			}
+			p{
+				font-size: 20px;
+				line-height:28px;
+				word-spacing:5px;
+				word-break: break-all;
+			}
+			li{
+				background-position:0 30px;
+				min-height:150px;
+				border-bottom:1px dashed #999999;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="warp">
+			<h4>快速回复</h4>
+			<div id="main">
+				<img src='img/1-1.gif'>
+				<span>匿名用户</span>
+				<textarea id="txt" value=""></textarea>
+				<input type="button" value="回复" id="btn"/>				
+			</div>
+		</div>
+		<ul id="ul">	
+		</ul>
+		<script type="text/javascript">
+			//获取元素
+			var btn = document.getElementById('btn');
+			var txt = document.getElementById("txt");
+			var ul = document.getElementById('ul');
+			
+			
+			var i = 0;
+			//点击事件
+			btn.onclick=function(){
+				i++;
+				
+				//创建li元素
+				var li = document.createElement('li');
+				if(txt.value!=''){
+					li.style.display="block";
+					li.innerHTML='<p>'+'['+'猫'+i+']&nbsp;&nbsp;'+txt.value+'</p>';
+					ul.appendChild(li);
+				}else{
+					alert('请输入回复内容');
+					i--;
+				}
+				txt.value = '';
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>

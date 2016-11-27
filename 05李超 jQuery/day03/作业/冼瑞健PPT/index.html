@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			body{background: gray;}
+			#bg{width: 1000px;
+					height: 680px;
+					background: white;
+					margin: 0 auto;
+					position: relative;
+			}
+			#logo{
+				width: 166px;
+				height: 78px;
+				float: right;	
+			}
+			.line1{width: 950px;
+				height: 4px;
+				background: url(img/002.png) repeat-x;
+				clear: both;
+				position: relative;
+				left: 25px;
+				top: 80px;
+			}
+			.line2{width: 950px;
+				height: 4px;
+				background: url(img/002.png) repeat-x;
+				position: relative;
+				left: 25px;
+				top: 120px;
+			}
+			#content01{width: 950px;
+					height: 400px;
+					/*border: 1px solid black;*/
+					left: 25px;
+					top: 80px;
+					position: relative;
+			}
+			#pig{width: 780px;
+				height: 250px;
+				position: absolute;
+				/*border: 1px solid black;*/
+				text-align: center;
+			}
+			#bg1{width: 210px;
+				/*height: 200px;*/
+				position: relative;
+				/*left: 40px;*/
+				top: -60px;
+			}
+			#bg2{width: 180px;
+				/*height: 305px;*/
+				position: relative;	
+				left: 70px;	
+			}
+			#bg3{width: 160px;
+				/*height: 200px;*/
+				position: relative;
+				left: 140px;
+				top: -60px;	
+			}
+			#biaoti{
+				font-size: 50px;
+				color: #d99694;
+				clear: both;
+				position: relative;
+				text-align: center;
+				top: 300px;
+			}
+			#name{font-size: 40px;
+				position: relative;
+				clear: both;
+				text-align: center;
+				top: 300px;
+			}
+			#foot{
+				position: relative;
+				text-align: center;
+				top: 130px;
+				font-weight: bold;
+			}
+			#tito1{font-size: 40px;
+				font-weight: bold;
+				position: absolute;
+				left: 25px;
+				top: 110px;
+			}
+			#content02{width: 950px;
+					height: 400px;
+					/*border: 1px solid black;*/
+					left: 25px;
+					top: 80px;
+					position: relative;
+			}
+			#img1{width: 950px;
+				text-align: center;
+			}
+			#img2{width: 950px;
+				text-align: center;
+				position: relative;
+			}
+			.none{display: none;}
+		</style>
+	</head>
+	<body>
+		<div id="bg">
+			<div id="logo"><img src="img/001.png"/></div>
+			<div id="tito1" class="none">泽林移动开发学员薪资</div>
+			<div class="line1"></div>
+			<div id="content01">
+				<div id="pig">
+                    <span><img src="img/图片1.png" id="bg1"/></span>
+                    <span><img src="img/图片2.png" id="bg2"/></span>
+                    <span><img src="img/图片3.png" id="bg3"/></span>
+                </div>
+                <div id="biaoti">Android技术沙龙</div>
+                <div id="name">李超</div>
+			</div>
+			<div id="content02" class="none">
+				<div id="img1"><img src="img/02_图片1.png"/></div>
+				<div id="img2"><img src="img/02_图片2.png"/></div>
+			</div>
+			<div class="line2"></div>
+			<div id="foot">www.zelininfo.com</div>
+		</div>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(document).click(function(){
+				$('#content01').addClass('none');
+				$('#content02').removeClass('none');
+				$('#tito1').removeClass('none')
+			});
+			
+		</script>
+	</body>
+</html>

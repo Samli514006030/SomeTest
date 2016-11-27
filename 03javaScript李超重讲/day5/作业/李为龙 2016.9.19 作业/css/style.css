@@ -1,0 +1,124 @@
+/*清除样式*/
+	li{
+		list-style-type: none;
+		text-indent:8em;
+	}
+	a{
+		text-decoration: none;
+	}
+	
+/*外部最大的box*/
+		#box1{
+				width: 1000px;
+				height: 1600px; 
+				background:#e7e6e2;
+				margin: 90px auto; 
+		}
+		
+		
+		#box{
+				width: 910px;
+				height: 180px; 
+				background:white;
+				border: none; 
+				top: 30px;
+				left: 45px;
+				position: relative;
+				
+		}
+		
+/*头标文字*/
+		#p1{
+				position: absolute; 
+				top: 16px; 
+				left: 20px;
+		}
+		
+/*输入框*/
+		#text1{
+				width: 800px;
+				height: 60px;
+				position: absolute;
+				 top: 60px;
+				 right: 20px;
+		}
+		
+/*图片*/
+		#img1{
+				position: absolute; 
+				top: 60px;
+				left: 20px;
+		}
+		
+		
+		#a1{
+				position: absolute;
+				 bottom: 44px;
+				 left: 21px;
+		}
+		
+		
+/*按钮*/
+		#btn{
+				position: absolute; 
+				bottom: 20px;
+				right: 20px;
+				background: #0a92ca;
+		}
+		
+		
+/*这里是第二部分   内容,接受框	*/	
+		#content{
+				width: 910px;
+				height: 1000px;
+				background: #eeeae7;
+				border: none;
+				margin-top: 83px;
+				margin-left: 45px;
+				overflow: auto;
+		}
+		
+/*导航条*/		
+		#top{
+				width: 908px;
+				height: 31px;
+				background: #a0a9b1;
+				border: none;
+		}
+		
+/*导航条切换按钮	*/	
+		input{
+				width: 68px;
+				height: 24px;
+				background:lightblue;
+				margin-left:3px;
+				margin-top: 3px; 
+				color: white;
+		}
+		
+
+		#int2{
+				float:right;
+				margin-right: 20px;
+				 margin-top:3px;
+		 }
+		 
+/*单独给一个input换字体颜色*/
+		.active{
+				color: black;
+		}
+		
+	
+		li{
+				width: 908px;
+				line-height: 100px;
+				border: none;
+		}
+		
+//选项卡.		
+		/*.board{
+				width: 908px;
+				line-height: 100px;
+				border: none;
+				display: none;
+		};*/

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>99乘法表</title>
+</head>
+<style>
+</style>
+<body>
+<div id="div1">
+</div>
+<script>
+    var div1 = document.getElementById("div1")
+    for (var i = 1; i < 10; i++) {
+        for (var j = 1; j <= i; j++) {
+            div1.innerHTML += j + "x" + i + "=" + i * j + "&nbsp";
+        }
+        div1.innerHTML += "<br>"
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/01.css" />
+	</head>
+	<body>
+		
+		<div class=".box" id="odiv">
+			<img src="../img/未标题-2.jpg" class="img1" />
+			<span class="apn">Anroid 生态圈</span>
+
+			<div class="box1">
+				<div id="ind4_1">
+					<img src="../img/yazi.png"  id="aimg4_1"/>
+					<a href="#" class="oa4_1">工控设备</a>
+					<a href="#" class="oa4_2">电视</a>
+					<a href="#" class="oa4_3">机顶盒</a>
+					<a href="#" class="oa4_4">平板</a>
+					<a href="#" class="oa4_5">智能穿戴</a>
+					<a href="#" class="oa4_6">智能家居</a>
+					<a href="#" class="oa4_7">医疗设备</a>
+					<a href="#" class="oa4_8">车载设备</a>
+					<a href="#" class="oa4_9">手机</a>
+					
+				</div>
+			</div>
+			<span class="spn1">www.zelininfo.com</span>
+		</div>
+		
+		<script type="text/javascript" src="../jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript">
+		   setTimeout(function() {
+			 $("#aimg4_1").css({"right":"30%"});}, 500)
+			 setTimeout(function() {
+							if($("#aimg4_1")[0].style.right == "30%") {
+								$("a").fadeIn(1000);
+								$(".oa4_1").css({"left":"420px","top":"350px"});
+								$(".oa4_2").css({"left":"300px","top":"390px"});
+								$(".oa4_3").css({"left":"350px","top":"300px"});
+								$(".oa4_4").css({"left":"570px","top":"400px"});
+								$(".oa4_5").css({"left":"670px","top":"320px"});
+								$(".oa4_6").css({"left":"750px","top":"330px"});
+								$(".oa4_7").css({"left":"550px","top":"320px"});
+								$(".oa4_8").css({"left":"650px","top":"420px"});
+							    $(".oa4_9").css({"left":"750px","top":"400px"});
+							}
+						}, 3000)
+			 
+			  $(document).click(function(){
+						window.location.href="../index.html";
+					})
+		</script>
+	</body>
+</html>

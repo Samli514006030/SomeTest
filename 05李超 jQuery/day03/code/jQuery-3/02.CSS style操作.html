@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 99px;
+				border: 1px solid yellow;
+				color: white;
+				font-size: 1.5em;
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			hello jquery!
+		</div>
+
+		<button id="btn">获取CSS</button>
+
+		<button id="btn1">设置CSS方式一</button>
+		<button id="btn2">设置CSS方式二</button>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var box = $('#box');
+			$('#btn').click(function() {
+				var color = box.css('color');
+				//				console.log(bgColor);
+				alert(color);
+			});
+			$('#btn1').click(function() {
+				box.css('color', '#FFFF00');
+			});
+			$('#btn2').click(function() {
+				var j_css = {
+					'width': '100px',
+					'height': '99px',
+					'background': 'yellow'
+				}
+				
+				var cssStr = JSON.stringify(j_css);
+				var json_css = JSON.parse(cssStr);
+				//json数据，转来转去  脱裤子放屁，啥事儿都没干
+				box.css(json_css);
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/01.css" />
+	</head>
+	<body>
+		
+		<div class="box" id="odiv">
+			<img src="../img/未标题-2.jpg" class="img1" />
+			<span class="apn">泽林移动开发学员薪资</span>
+
+			<div class="box1">
+				<a href="#" class="oa1"></a>
+				<a href="#" class="oa1"></a>
+                
+				<img src="../img/图片6.png" id="aimg2_1" />
+				<img src="../img/图片8.png" id="aimg2_2" />
+				<img src="../img/图片7.png" id="aimg2_3" />
+			</div>
+			<span class="spn1">www.zelininfo.com</span>
+		</div>
+		
+		<script type="text/javascript" src="../jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript">
+			setTimeout(function() {
+				$("#aimg2_1").css({"width":"50%"});
+				$("#aimg2_3").css({"height":"50%"});
+				$("#aimg2_2").css({"height":"50%","width":"50%"});
+				}, 500)
+				setTimeout(function() {
+							if($("#aimg2_1")[0].style.width == "50%") {
+								$(".oa1").fadeIn(1000);
+							}
+						}, 3000)
+				$(document).click(function(){
+						window.location.href="index3.html";
+					})
+		</script>
+	</body>
+</html>

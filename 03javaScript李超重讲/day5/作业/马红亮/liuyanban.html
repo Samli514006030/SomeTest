@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板  </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #content{
+            width: 800px;
+            height: 178px;
+            margin: 0 auto;
+            border: 1px solid black;
+            background-color: #ffffff;
+        }
+        #content .div{
+            width: 110px;
+            height: 150px;
+            float: left;
+            margin-top: 10px;
+        }
+        #content .p1{
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+        #content img{
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+        #content .p2{
+            margin-left: 25px;
+            font-size: 13px;
+            color: #0000FF;
+        }
+        textarea{
+            float: left;
+            margin-top: 50px;
+            border: 2px solid #6c6c6c;
+        }
+        button{
+            width: 62px;
+            height: 30px;
+            float: right;
+            margin-right: 40px;
+            margin-top: 10px;
+            background-color: #0000FF;
+        }
+        #content1{
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            border: 3px solid silver;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <div class="div">
+        <p class="p1"><strong>快速回复</strong></p>
+        <img src="day1/img/namePic.png"/>
+        <p class="p2">匿名用户</p>
+    </div>
+   <textarea id="text" name="quickContent" cols="90px" rows="5px" placeholder="在此输入内容......"></textarea>
+    <button id="btn">回复</button>
+</div>
+<div id="content1">
+
+</div>
+        <script>
+            var oDiv = document.getElementById("content1");
+            var oText = document.getElementById("text");
+            var oBtn = document.getElementById("btn");
+
+            oBtn.onclick = function(){
+                oDiv.innerHTML += "<p><span></span>"+oText.value+"</p>";
+                oText.value = "";
+
+                change()
+            };
+            function change(){
+                var oSpan = oDiv.getElementsByTagName("span");
+                for(var i = 0;i<oSpan.length;i++){
+                    oSpan[i].innerHTML = i+1 +"楼:"
+                }
+            };
+
+        </script>
+</body>
+</html>

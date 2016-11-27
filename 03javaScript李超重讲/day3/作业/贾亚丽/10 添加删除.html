@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加删除信息</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.wd{width: 600px;height: 500px;margin: 20px auto;border: 1px solid black;position: relative;background: #fffeee;}
+			#message{width: 400px;height: 300px;border: 1px solid black;margin: 10px auto;position: relative;}
+			#message li{width: 80px;height: 20px;margin-bottom: 20px;padding: 5px;font: 16px/20px "宋体";display: inline-block;list-style-type: none;}
+			.add{width: 450px;height: 100px;margin: 0 auto;position: relative;}
+			.add #enter{width: 250px;height: 100px;float: left;}
+			.add #enter input{width: 200px;height: 30px;margin: 10px 20px;color: #666666;display: block;}
+			.add .addbtn input{width: 150px;height: 80px;margin: 10px 20px;}
+			#del{width: 400px;height: 50px;display: block;margin: 15px auto;}
+		</style>
+	</head>
+	<body>
+		<div class="wd">
+			<div id="message">
+				
+			</div>
+			<div class="add">
+				<div id="enter">
+					<input type="text" class="text" value="请输入姓名"/>
+					<input type="text" class="text" value="请输入性别"/>
+				</div>
+				<div class="addbtn">
+					<input type="button" value="添加成员" id="btn"/>
+				</div>
+			</div>
+			<input type="button" value="删除最后一个" id="del"/>
+		</div>
+		<script type="text/javascript">
+			var arr=[
+						{name:'陈峰',sex:'男',num:'1'},
+						{name:'陈建',sex:'男',num:'2'},
+						{name:'程建政',sex:'男',num:'3'},
+						{name:'邓晓丰',sex:'男',num:'4'},
+						{name:'傅超军',sex:'男',num:'5'},
+						{name:'李城',sex:'男',num:'6'},
+						{name:'李家盛',sex:'男',num:'7'},
+						{name:'李为龙',sex:'男',num:'8'},
+						{name:'马红亮',sex:'男',num:'9'},
+						{name:'吴闻',sex:'男',num:'10'}
+					];
+			var amessage=document.getElementById('message');	//初始化列表
+			var ali=message.getElementsByTagName('li');
+			for(var i=0;i<10;i++)
+			{
+				var myli=document.createElement('li');
+				myli.innerHTML=arr[i].num+' '+arr[i].name;
+				amessage.appendChild(myli);
+			}
+			var oenter=document.getElementById('enter');
+			var aadd=oenter.getElementsByTagName('input');
+			var addbtn=document.getElementById('btn');
+			var delbtn=document.getElementById('del');
+			var Num=11;
+			addbtn.onclick=function()
+			{
+				var name=aadd[0].value;
+				var sex =aadd[1].value;
+				if(sex !='男' && sex !='女')
+				{
+					
+					alert('请正确输入性别');
+				}
+				else
+				{
+					var obj={};
+					obj.name=name;
+					obj.sex=sex;
+					obj.num=Num;
+					arr.push(obj);
+					var myli=document.createElement('li');
+					myli.innerHTML=Num+' '+name;
+					amessage.appendChild(myli);
+					Num++;
+				}
+			}
+			delbtn.onclick=function()
+			{
+				arr.pop();
+				amessage.removeChild(ali[ali.length-1]);
+				Num--;
+			}
+			aadd[0].onfocus=function()		//设置添加输入框的提示信息
+			{
+				if(this.value=='请输入姓名'){
+					this.value='';
+				}
+			}			
+			aadd[0].onblur=function()
+			{
+				if(this.value==''){
+					this.value='请输入姓名';
+				}
+			}
+			aadd[1].onfocus=function()
+			{
+				if(this.value=='请输入性别'){
+					this.value='';
+				}
+			}			
+			aadd[1].onblur=function()
+			{
+				if(this.value==''){
+					this.value='请输入性别';
+				}
+			}
+		</script>
+	</body>
+</html>

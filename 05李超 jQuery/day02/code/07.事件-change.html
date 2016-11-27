@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea id="ta"></textarea>
+		<div id="msg"></div>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//.html()用为读取和修改元素的HTML标签;
+		//.text()用来读取或修改元素的纯文本内容;
+		//.val()用来读取或修改表单元素的value值。
+			$('#ta').change(function(){
+				var value = $(this).val();
+				$('#msg').html(value);
+				console.log('...');
+			});
+		</script>
+	</body>
+</html>

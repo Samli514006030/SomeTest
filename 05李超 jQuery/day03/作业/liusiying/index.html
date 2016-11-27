@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.wrap {
+				width: 1200px;
+				height: auto;
+				margin: 0 auto;
+			}
+			
+			.box1 {
+				width: 100%;
+				border: 2px solid gray;
+				margin: 20px auto;
+			}
+			
+			.box1_1 {
+				width: 100%;
+				height: 700px;
+				margin: 100px auto;
+				display: -webkit-inline-box;
+				display: inline-block;
+				border-top: 2px solid green;
+				border-bottom: 2px solid green;
+				font-family: "华文新魏";
+				font-size: 80px;
+				color: indianred;
+				text-align: center;
+			}
+			
+			.box1_1 img {
+				margin: 50px 30px 0px 30px;
+				position: relative;
+			}
+			
+			.box1_1 p {
+				line-height: 20px;
+			}
+			
+			.box1_1 p:last-of-type {
+				color: black;
+				font-size: 60px;
+			}
+			
+			.box1_1 img:nth-child(1) {
+				margin-top: 100px;
+			}
+			
+			.box2 {
+				width: 100%;
+				height: 800px;
+				font-family: "微软雅黑";
+				font-size: 30px;
+				color: green;
+				border: 2px solid gray;
+			}
+			
+			.box2 .box2_1 {
+				width: 100%;
+				height: 600px;
+				border-top: 2px solid green;
+				border-bottom: 2px solid green;
+			}
+			
+			.box2_1_1 {
+				width: 1000px;
+				height: 500px;
+				background: black;
+				margin: 2px auto;
+				-webkit-perspective: 1000px;
+				position: relative;
+			}
+			
+			.box2_1_1 .div1 {
+				position: relative;
+				left: 50px;
+				top: 50px;
+				width: 200px;
+				height: 350px;
+				transform-style: preserve-3d;
+				/*transform-origin: right;*/
+				background: green;
+				/*transform: rotateY(-20deg);*/
+				transform: skewY(-10deg);
+				float: left;
+			}
+			
+			.box2_1_1 .div11 {
+				left: -100px;
+				background: rgba(255, 0, 0, 0.5);
+			}
+			
+			.box2_1_1 .div12 {
+				left: 0px;
+				background: yellow;
+			}
+			
+			.box2_1_1 .div13 {
+				left: -150px;
+				background: rgba(0, 255, 0, 0.5);
+			}
+			
+			.box2_1_1 .div14 {
+				left: -80px;
+				background: rgba(0, 255, 0, 0.5);
+			}
+			
+			.box2_1_1 .div15 {
+				left: 780px;
+				top: -300px;
+				background: rgba(0, 0, 255, 0.5);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="box1" id="clickme">
+				<div class="box1_1">
+					<img src="img/favicon.png" />
+					<img src="img/图片1.png" />
+					<img src="img/图片2.png" />
+					<p>Andriod技术沙龙</p>
+					<p>李超</p>
+				</div>
+			</div>
+
+			<div class="box2" id="clickme2">
+				<p>App技术框架</p>
+				<div class="box2_1">
+					<div class="box2_1_1">
+						<div class="div1">
+
+						</div>
+						<div class="div1 div11">
+
+						</div>
+						<div class="div1 div12">
+							<span>+</span>
+						</div>
+						<div class="div1 div13">
+
+						</div>
+						<div class="div1 div14">
+
+						</div>
+						<div class="div1 div15">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#clickme").click(function() {
+				$("img").animate({
+					opacity: 0.25,
+					//left: "50",
+					height: "toggle"
+				}, 5000, function() {
+					$('#clickme').hide(1000);
+					$('#clickme2').show(1000);
+				});
+			});
+			$("#clickme2").click(function() {
+						$("img").show(1000);
+						$('#clickme').show(1000);
+						$('#clickme2').hide(1000);
+					});
+		</script>
+	</body>
+
+</html>

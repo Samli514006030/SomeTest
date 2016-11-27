@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			body {
+				width: 1280px;
+				height: 800px;
+				position: relative;
+			}
+			
+			header {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#centen {
+				position: absolute;
+				left: 0;
+				top: 160px;
+				width: 100%;
+				height: 575px;
+				background: url(img/bg.gif) repeat-x;
+				float: left;
+			}
+			
+			nav {
+				float: left;
+				width: 220px;
+				height: 575px;
+				border-right: 4px solid #8daace;
+				position: relative;
+				background: #90b1dc;
+				overflow: auto;
+			}
+			
+			nav ul {
+				height: 3000px;
+				position: absolute;
+				left: 3px;
+				top: 25px;
+			}
+			
+			nav li {
+				width: 194px;
+				height: 136px;
+				margin-top: 5px;
+				position: relative;
+			}
+			
+			.list {
+				border: 1px solid #7f6d44;
+				background: #dd8037;
+				z-index: 1;
+			}
+			
+			nav li span {
+				color: white;
+				position: absolute;
+				left: 4px;
+				top: 8px;
+				font-size: 10px;
+			}
+			
+			nav li img {
+				position: absolute;
+				left: 20px;
+				top: 3px;
+				width: 170px;
+				height: 128px;
+				border: 1px solid #6d7382;
+			}
+			
+			article {
+				height: 100%;
+				position: absolute;
+				left: 223px;
+				top: 0;
+				border: 1px solid #6593cf;
+			}
+			
+			article ul {
+				width: 720px;
+				height: 540px;
+				position: absolute;
+				left: 160px;
+				top: 15px;
+				background: white url(img/2.gif) no-repeat right top;
+			}
+			article ul li{
+				display: none;
+			}
+			.imgList{
+				display: block;
+			}
+			.conten {
+				position: absolute;
+				left: 36px;
+				top: 113px;
+				width: 648px;
+				height: 376px;
+				border-top: 3px solid #336666;
+				border-bottom: 3px solid #336666;
+			}
+			
+			.conten img:nth-child(1) {
+				position: absolute;
+				left: 50px;
+				top: 35px;
+			}
+			
+			.conten img:nth-child(2) {
+				position: absolute;
+				left: 260px;
+				top: 15px;
+			}
+			
+			.conten img:nth-child(3) {
+				position: absolute;
+				left: 480px;
+				top: 35px;
+			}
+			
+			.conten .text1 {
+				position: absolute;
+				left: 220px;
+				bottom: 50px;
+				font-size: 34px;
+				color: #d99694;
+			}
+			
+			.conten .text2 {
+				position: absolute;
+				left: 320px;
+				bottom: 0;
+				font-size: 34px;
+				color: black;
+			}
+			article ul li h1{
+				
+				position: absolute;
+				left: 36px;
+				top:60px;
+				
+			}
+			article ul li:nth-child(2) img:nth-child(1) {
+				width: 648px;
+				height: 188px;
+				position: absolute;
+				left:0; top:0;
+			}
+			
+			article ul li:nth-child(2) img:nth-child(2) {
+				width: 648px;
+				height: 188px;
+				position: absolute;
+				left:0; top:188px;
+			}
+			article ul li:nth-child(3) img:nth-child(1) {
+				width: 648px;
+				height: 188px;
+				position: absolute;
+				left:0; top:0;
+			}
+			
+			article ul li:nth-child(3) img:nth-child(2) {
+				width: 324px;
+				height: 188px;
+				position: absolute;
+				left:0; top:188px;
+			}
+			article ul li:nth-child(3) img:nth-child(3) {
+				width: 324px;
+				height: 188px;
+				position: absolute;
+				left:324px; top:188px;
+			}
+			article ul li:nth-child(4) img:nth-child(1) {
+				width: 608px;
+				height: 336px;
+				position: absolute;
+				left:20px; top:20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header><img src="img/1.gif" /></header>
+		<div id = "centen">
+			<nav>
+				<ul>
+					<li><span>1</span><img src="img/nav1.gif" /></li>
+					<li><span>2</span><img src="img/nav2.gif" /></li>
+					<li><span>3</span><img src="img/nav3.gif" /></li>
+					<li><span>4</span><img src="img/nav4.gif" /></li>
+				</ul>
+			</nav>
+			<article>
+				<ul>
+					<li class="imgList">
+						<div class="conten">
+							<img src="img/3.gif" />
+							<img src="img/4.gif" />
+							<img src="img/5.gif/">							<p class="text1">Android技术沙龙</p>
+							<p class="text2">李超</p>
+						</div>
+
+					</li>
+					<li>
+						<h1>泽林移动开发学员薪资</h1>
+						<div>
+							<img src="img/图片1.png"/>
+							<img src="img/图片2.png"/>
+						</div>
+					</li>
+					<li>
+						<h1>泽林移动开发学员薪资</h1>
+						<div>
+							<img src="img/图片3.png"/>
+							<img src="img/图片4.png"/>
+							<img src="img/图片5.png"/>
+						</div>
+					</li>
+					<li>
+						<h1>android开发前景</h1>
+						<div>
+							<img src="img/图片6.png"/>							
+						</div>
+					</li>
+				</ul>
+			</article>
+		</div>
+
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			var navLi = $("nav li");
+			var aLi = $("article ul li");
+			var adiv = $("article ul li div");
+			var aimg = $("article ul li div img");
+			
+			navLi.click(function() {
+				remove_class(navLi);
+				remove_class(aLi);
+				remove_class(adiv);
+				$(this).addClass("list");
+				aLi[navLi.index($(this))].className = "imgList";
+				adiv[navLi.index($(this))].className = "conten";	
+			});			
+			
+			
+			
+			
+			
+			function remove_class(obj){				
+				for(var i =0;i<obj.length;i++){					
+					obj[i].className = "";
+				}		
+			}
+		</script>
+
+	</body>
+
+</html>

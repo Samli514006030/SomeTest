@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+
+*{ margin:0; padding:0;}
+#div1{ width:200px; height:200px; background:red; overflow:hidden; margin:20px;}
+#div2{ width:100px; height:100px; background:yellow; margin:50px; position:relative;}
+
+</style>
+</head>
+
+<body style="height:2000px;"> <!--2000px: 滚动条-->
+	<div style="height:300px"></div>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+<script>
+
+var oDiv2 = document.getElementById('div2');
+//oDiv2.offsetLeft
+
+document.onclick = function(){
+	//console.log( posTop(oDiv2) );   					// 370
+	//console.log( oDiv2.getBoundingClientRect().top );	// 到可视区是变化的
+	console.log( oDiv2.getBoundingClientRect().bottom );
+};
+
+function posLeft(obj){
+	var result = 0;
+	
+	while(obj){
+		result += obj.offsetLeft;
+		obj = obj.offsetParent;
+	}
+	
+	return result;
+}
+
+function posTop(obj){
+	var result = 0;
+	
+	while(obj){
+		result += obj.offsetTop;
+		obj = obj.offsetParent;
+	}
+	
+	return result;
+}
+
+</script>
+</body>
+</html>

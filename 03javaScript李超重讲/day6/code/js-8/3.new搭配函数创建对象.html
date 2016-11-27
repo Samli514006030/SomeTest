@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			function createPerson(name,sex) {
+				this.name = name;
+				this.sex = sex;
+				this.msg = function(){
+					console.log(this.name+","+this.sex);
+				}
+				//不要写返回值。
+			}
+			
+			//注意陪p1和p2的地址指向
+			var p1 =new createPerson('小明','男');
+			p1.name = '小红';
+			var p2 = p1;
+			p2.sex = '女';
+			
+			p1.msg();
+			p2.msg();
+			
+			//输出结果都是 ‘小红’ ‘女’
+			
+			
+		</script>
+	</body>
+</html>

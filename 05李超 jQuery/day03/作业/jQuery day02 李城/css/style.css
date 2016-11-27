@@ -1,0 +1,21 @@
+h1 {
+	color: rgba(255, 255, 255, 0.3);
+	background: -webkit-linear-gradient(-30deg, rgba(255, 255, 255, 0) 100px, rgba(255, 255, 255, 1) 200px, rgba(255, 255, 255, 0) 300px) -300px 0 no-repeat;
+	background-clip: -webkit-text;
+	background-color: black;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	font: 50px "微软雅黑";
+	font-weight: bold;
+}
+
+#box {
+	padding: 10px 20%;
+}
+
+img {
+	width: 25%;
+	height: 25%;
+	margin-right: 5%;
+}

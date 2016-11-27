@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>改变盒子位置</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				height: 2000px;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			var adiv = document.getElementsByTagName('div');
+			var clix = document.documentElement.clientWidth;
+			var cliy = document.documentElement.clientHeight;
+			initi();
+			function initi(){
+				var arr=['blue','#909090','yellow','pink','darkmagenta'];
+				for(i in arr){
+					adiv[i].style.background=arr[i];
+				}
+			}
+			document.onmousemove = function(ev){
+				var ev = ev || window.event;
+				var x = ev.pageX;
+				var y = ev.pageY;
+				var oscroll = document.body.scrollTop;
+				var maxx = x+adiv.length*100;
+				var maxy = y+adiv.length*100-oscroll;
+				for(var i=0,change=true;i<adiv.length;i++){
+					var myx,myy;
+					if( maxx < clix && maxy < cliy ){
+						myx = x+i*100;
+						myy = y+i*100;
+					}
+					else if( maxx > clix && maxy < cliy ){
+						if( (x+100*i+100-clix)>0 ){
+							myx = 2*clix-x-i*100-200;
+						}
+						else{
+							myx = x+i*100;
+						}
+						myy = y+i*100;
+					}
+					else if( maxx < clix && maxy > cliy ){
+						myx = x+i*100;
+						if( (y+100*i+100-cliy-oscroll)>0 ){
+							myy = 2*cliy-y-i*100-200+2*oscroll;
+						}
+						else{
+							myy = y+i*100;
+						}
+					}
+					else{
+						if( (x+100*i+100-clix)>0 ){
+							myx = 2*clix-x-i*100-200;
+						}
+						else{
+							myx = x+i*100;
+						}
+						if( (y+100*i+100-cliy-oscroll)>0 ){
+							myy = 2*cliy-y-i*100-200+2*oscroll;
+						}
+						else{
+							myy = y+i*100;
+						}
+					}
+					adiv[i].style.left = myx+'px';
+					adiv[i].style.top = myy+'px';
+				}
+			}
+		</script>
+	</body>
+</html>

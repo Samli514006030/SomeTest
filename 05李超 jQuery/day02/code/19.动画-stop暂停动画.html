@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				background: gold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="boxGo">boxGo</button>
+		<button id="boxStop">boxStop</button>
+		<div id="box"></div>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var div = $("#box");
+			$("#boxGo").click(function() {
+				div.animate({
+					height: '300px',
+					opacity: '0.4'
+				}, "slow");
+				div.animate({
+					width: '300px',
+					opacity: '0.8'
+				}, "slow");
+				div.animate({
+					height: '100px',
+					opacity: '0.4'
+				}, "slow");
+				div.animate({
+					width: '100px',
+					opacity: '0.8'
+				}, "slow");
+			});
+			//stop stop([clearQueue],[jumpToEnd])
+			//clearQueue:如果设置成true，则清空队列。可以立即结束动画。
+			//jumpToEnd:如果设置成true，则完成队列。可以立即完成动画。
+			$("#boxStop").click(function() {
+				div.stop(true,false); //如何为div.stop(); 则是立即结束动画
+			});
+		</script>
+	</body>
+
+</html>

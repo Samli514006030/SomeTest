@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#block {
+				background: greenyellow;
+			}
+			#box{
+				background: gold;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<button id="go"> Run</button>
+		<div id="block">Hello!</div>
+
+		<div id="box"></div>
+
+		<button id="boxGo">
+			boxGo
+		</button>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 在一个动画中同时应用三种类型的效果
+			$("#go").click(function() {
+				$("#block").animate({
+					width: "50%",
+					height: "100%",
+					fontSize: "10em",
+					lineHeight: '100%',
+					borderWidth: 10
+				}, 10000);  
+			});
+			
+			
+			$("#boxGo").click(function() {
+				var div = $("#box");
+				div.animate({
+					height: '300px',
+					opacity: '0.4'
+				}, "slow"); //slow 600ms fast 200ms normal 400ms对于animate而言， 如果设置了运行速度就不能再设置时间了，两者只能选择一个
+				
+				
+				div.animate({
+					width: '300px',
+					opacity: '0.8'
+				}, "slow");
+				
+				div.animate({
+					height: '100px',
+					opacity: '0.4'
+				}, "slow");
+				
+				div.animate({
+					width: '100px',
+					opacity: '0.8'
+				}, "slow");
+				
+				
+				div.animate({
+					height:'200px',
+					opacity:'0.2'
+				},'slow');
+			});
+		</script>
+	</body>
+
+</html>

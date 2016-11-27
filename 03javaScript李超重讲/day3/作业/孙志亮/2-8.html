@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{width:500px;height:500px;border:1px solid black;margin:100px auto;background-color:#eae3e3;}
+			#div2{width:480px;min-height: 300px;max-height: 400px;overflow: auto;background-color: #CCCCCC;
+			margin:9px;border:1px solid black;word-break: break-all;}
+			#div3,#div4,input{margin:10px 30px;}
+			p{display:inline-block;margin:15px;width:50px;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">	
+			</div>
+			<div id="div3">
+				<span>姓名：</span><input type="text" value="" />
+			</div>
+			<div id="div4">
+				<span>性别：</span><input type="radio" name="n1" value="">男
+				<input type="radio"  name="n1" value="">女
+			</div>
+			<input type="button" value="添加">
+			<input type="button" value="删除">
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			//获取元素
+			var oDiv=document.getElementById('div2');
+		
+			var aInput=document.getElementsByTagName('input');
+			
+			var arr = ['张超凡','陈峰','陈健','程建政','邓晓丰','傅超军','贾亚丽','李城','李为龙','马红亮'];
+			array();
+			
+			//添加			
+			aInput[3].onclick=function()
+			{	
+				if(aInput[0].value!='')
+				{
+					var n = 0;
+					for(var i=0;i<arr.length;i++){
+						if(aInput[0].value==arr[i])
+						{
+						    alert(arr[i]+": "+'用户已存在');
+							break;
+						}else{
+							n++;
+						}
+					}	
+					if(n==arr.length){
+							oDiv.innerHTML = '';
+							arr.push(aInput[0].value);
+							array();
+							alert('添加成功');
+					}
+				}
+				
+				oDiv.innerHTML = '';
+				array();
+				aInput[0].value='';			
+			}
+			
+			//删除
+			aInput[4].onclick=function()
+			{
+				if(aInput[0].value!='')
+				{
+					for(var i=0;i<arr.length;i++)
+					{
+						if(aInput[0].value==arr[i])
+						{	
+						  	oDiv.innerHTML = '';
+						  	arr.splice(i,1);
+						  	array();
+						  	alert('用户已被删除');
+						  	aInput[0].value='';		
+						}
+					}
+				}else{
+					oDiv.innerHTML = '';
+					arr.pop();
+					array();
+					alert('成功删除');	
+				}
+				
+			}
+			
+			function array(){
+				
+				for(index in arr){
+					oDiv.innerHTML+='<p>'+arr[index]+'</p>';
+				}	
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

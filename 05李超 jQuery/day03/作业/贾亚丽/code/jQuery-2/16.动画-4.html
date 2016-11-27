@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/bigptr.jpg" alt="..." />
+		<div>
+			<button id="b1">淡出到</button>
+			<button id="b2">淡入</button>
+			<button id="b3">淡出</button>
+		</div>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var img = $('img');
+			$('#b1').click(function() {
+				img.fadeTo('slow',0.1,'linear',function(){});
+			});
+			
+			
+			$('#b2').click(function(){
+				img.fadeIn(500);
+			});
+			
+			$('#b3').click(function(){
+				img.fadeOut(500);
+			});
+			
+		</script>
+	</body>
+
+</html>

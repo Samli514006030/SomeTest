@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>英雄路制作随机点名POS机</title>
+		<link rel="shortcut icon" href="img/favicon.ico"/>
+		<style type="text/css">
+			#box{
+				width: 579px;
+				height: 600px;
+				background: black;
+				margin: 0 auto;
+				padding-left: 104px;
+				position: relative;
+			}
+			#startBlink {
+				position: absolute;
+				top: 250px;
+				left: 6px;
+			}
+			#Lottery {
+				position: relative;
+				width: 579px;
+				height: 467px;
+				background: url(img/Lottery.gif);
+			}
+			
+			#panel {
+				width: 417px;
+				height: 137px;
+				position: absolute;
+				top: 73px;
+				left: 48px;
+				background: black;
+				overflow: hidden;
+			}
+			
+			.panelChild {
+				width: 139px;
+				height: 122px;
+				position: absolute;
+				top: 12px;
+			}
+			
+			.Person {
+				width: 118px;
+				height: 111px;
+				position: absolute;
+				background: url(img/person.gif) no-repeat;
+			}
+			
+			#firstPanel {
+				left: 21px;
+			}
+			
+			#secondPanel {
+				left: 149px;
+			}
+			
+			#thirdPanel {
+				left: 277px;
+			}
+			
+			.names {
+				position: absolute;
+				width: 64px;
+				height: 24px;
+				left: 27px;
+				top: 52px;
+				background: white;
+				text-align: center;
+			}
+			
+			.pointed {
+				width: 74px;
+				height: 43px;
+				position: absolute;
+				top: 242px;
+				left: 92px;
+				display: none;
+				z-index: 10;
+			}
+			
+			#pointed2 {
+				left: 220px;
+			}
+			
+			#pointed3 {
+				left: 348px;
+			}
+			
+			.now_pointer {
+				width: 112px;
+				height: 115px;
+				position: absolute;
+				top: 239px;
+				left: 70px;
+				display: none;
+			}
+			
+			#pointer2 {
+				left: 198px;
+			}
+			
+			#pointer3 {
+				left: 326px;
+			}
+			
+			#footer {
+				margin-left: -104px;
+				padding-left: 104px;
+				height: 134px;
+				overflow: auto;
+				width: 577px;
+				background: #d2f2a5;
+				position: relative;
+				border: 1px solid #389904;
+				border-top: none;
+			}
+			
+			#footer input {
+				border-radius: 12px;
+				background: pink;
+			}
+			
+			#footer p span {
+				position: absolute;
+				top: 60px;
+				left: 132px;
+				color: #389904;
+				font-size: 12px;
+			}
+			
+			#footer #footer_span2 {
+				left: 276px;
+			}
+			
+			#footer #footer_span3 {
+				left: 434px;
+			}
+			
+			#title {
+				width: 320px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 24px;
+				font-family: "宋体", "微软雅黑";
+				font-weight: bold;
+				position: absolute;
+				top: 350px;
+				left: 80px;
+				color:#844131;
+				border: 15px solid transparent;
+				-moz-border-image: url(img/border.gif) 30 30 round;
+				/* Old Firefox */
+				-webkit-border-image: url(img/border.gif) 30 30 round;
+				/* Safari and Chrome */
+				-o-border-image: url(img/border.gif) 30 30 round;
+				/* Opera */
+				border-image: url(img/border.gif) 30 30 round;
+			}
+			
+			#longPole {
+				position: absolute;
+				top: 72px;
+				right: 0;
+				width: 64px;
+				height: 165px;
+			}
+			
+			#shortPole {
+				position: absolute;
+				right: 0;
+				width: 64px;
+				top: 152px;
+				height: 84px;
+				display: none;
+			}
+			
+			#autoPlay {
+				width: 16px;
+				height: 16px;
+				position: absolute;
+				top: 26px;
+				right: 10px;
+				background: url(img/musicON.gif);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<img src="img/start.gif" id="startBlink" />
+			<div id="Lottery">
+				<img src="img/pointed.gif" id="pointed1" class="pointed" />
+				<img src="img/pointed.gif" id="pointed2" class="pointed" />
+				<img src="img/pointed.gif" id="pointed3" class="pointed" />
+				<img src="img/now_pointer.gif" id="pointer1" class="now_pointer" />
+				<img src="img/now_pointer.gif" id="pointer2" class="now_pointer" />
+				<img src="img/now_pointer.gif" id="pointer3" class="now_pointer" />
+				<img src="img/longPole.gif" id="longPole" />
+				<img src="img/longPole.gif" id="shortPole" />
+				<div id="panel">
+					<div id="firstPanel" class="panelChild">
+						<div class="Person">
+							<div id="firstName" class="names">英雄路</div>
+						</div>
+					</div>
+					<div id="secondPanel" class="panelChild">
+						<div class="Person">
+							<div id="secPanelName" class="names">英雄路</div>
+						</div>
+					</div>
+					<div id="thirdPanel" class="panelChild">
+						<div id="Person3" class="Person">
+							<div id="thrPanelName" class="names">英雄路</div>
+						</div>
+					</div>
+				</div>
+				<div id="title">英雄路制作随机点名POS机</div>
+			</div>
+			<div id="footer">
+				<br/>&emsp;&emsp;<input type="button" name="" id="start1" value="开始" />
+				<input type="button" name="" id="end1" value="停止" />&emsp;&emsp;&emsp;
+				<input type="button" name="" id="start2" value="开始" />
+				<input type="button" name="" id="end2" value="停止" />&emsp;&emsp;&emsp;
+				<input type="button" name="" id="start3" value="开始" />
+				<input type="button" name="" id="end4" value="停止" />
+				<div id="autoPlay"></div>
+				<p>&emsp;&emsp;<span></span><span id="footer_span2"></span><span id="footer_span3"></span></p>
+			</div>
+			<audio src="music/雪人兄弟抽奖音乐.mp3" loop="-1" id="myMusic" />
+		</div>
+		<script src="js/myjs.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

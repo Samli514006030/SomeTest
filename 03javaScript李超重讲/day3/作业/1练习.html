@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+ul,li{ margin:0; padding:0; list-style:none;}
+div{ width:100px; height:auto; float:left; margin:10px;}
+span{ margin:10px; width:100px; height:30px; background:red; padding:10px;}
+ul{ display:none; margin-top:20px; border:1px #000 solid; width:90px;}
+</style>
+</head>
+
+<body>
+<div>
+	<span>菜单一</span>
+    <ul>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+    </ul>
+</div>
+
+<div>
+	<span>菜单二</span>
+    <ul>
+    	<li>22222</li>
+        <li>22222</li>
+        <li>22222</li>
+    </ul>
+</div>
+<div>
+	<span>菜单三</span>
+    <ul>
+    	<li>33333</li>
+        <li>33333</li>
+        <li>33333</li>
+    </ul>
+</div>
+<script>
+
+/*var aSpan = document.getElementsByTagName('span');
+var aUl = document.getElementsByTagName('ul');
+//var timer = null;
+
+for(var i=0;i<aSpan.length;i++){
+	aSpan[i].index = i;
+	aSpan[i].onmouseover = function(){
+		
+		clearTimeout( aUl[this.index].timer );
+		
+		aUl[this.index].style.display = 'block';
+		
+	};
+	aSpan[i].onmouseout = function(){
+		
+		var This = this;
+		
+		aUl[this.index].timer = setTimeout(function(){
+			
+			aUl[This.index].style.display = 'none';
+			
+		},200);
+		
+	};
+	
+	aUl[i].onmouseover = function(){
+		
+		clearTimeout( this.timer );
+		
+	};
+	
+	aUl[i].onmouseout = function(){
+		
+		var This = this;
+		
+		this.timer = setTimeout(function(){
+			
+			This.style.display = 'none';
+			
+		},200);
+		
+	};
+	
+}*/
+
+var aSpan = document.getElementsByTagName('span');
+var aUl = document.getElementsByTagName('ul');
+
+for(var i=0;i<aSpan.length;i++){
+	showHide( aSpan[i] , aUl[i] );
+}
+
+function showHide( span , ul ){
+	var timer = null;
+	span.onmouseover = function(){
+		clearTimeout( timer );
+		ul.style.display = 'block';
+	};
+	span.onmouseout = function(){
+		var This = this;
+		timer = setTimeout(function(){	
+			ul.style.display = 'none';	
+		},200);
+	};
+	ul.onmouseover = function(){
+		clearTimeout( timer );
+	};
+	ul.onmouseout = function(){
+		var This = this;
+		timer = setTimeout(function(){
+			This.style.display = 'none';
+		},200);
+	};
+}
+
+</script>
+</body>
+</html>

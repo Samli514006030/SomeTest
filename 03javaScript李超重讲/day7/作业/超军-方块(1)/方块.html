@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{width:100px;height:100px; position: absolute;}
+			#box1{background-color:red;left:0px;top:0px;}
+			#box2{background-color: green; left:100px;top:100px;}
+			#box3{background-color:blue; left:200px;top:200px;}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		<script>
+			var box=document.getElementsByTagName('div');
+			var x;
+			var y;
+			console.log(box[1].style.left);
+			document.onmousemove = function(ev)
+			{
+				var ev = ev || window.event;
+	
+				x = ev.clientX;
+				y = ev.clientY;
+				box[0].style.left=x+'px';
+				box[0].style.top=y+'px';
+				box[1].style.left=x+100+'px';
+				box[1].style.top=y+100+'px';
+				box[2].style.left=x+200+'px';
+				box[2].style.top=y+200+'px';
+				
+			
+				if(document.body.clientWidth-x==300)
+				{   Console.log(12);
+				box[1].style.left=x-200+'px';
+				box[1].style.top=y-200+'px';
+				box[2].style.left=x-400+'px';
+				box[2].style.top=y-400+'px';
+				
+				
+					
+					
+					
+					
+				}
+		
+				
+				
+			
+			
+			
+			
+			
+				
+				
+			}	
+		</script>
+	</body>
+</html>

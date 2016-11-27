@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style>
+		div{ font-size:24px; font-weight:bold; color:green;}
+	</style>
+</head>
+	
+<body>
+	<div id="box"></div>
+    
+    <script>
+		var box=document.getElementById('box');		
+		for(var i=1;i<=9;i++){
+			for(var j=1;j<=i;j++){
+				box.innerHTML+=i+'*'+j+'='+i*j+'&nbsp;';
+/*				if(i%2==0||j%2==0){
+					box.innerHTML+=i+'*'+j+'=<font style="color:red;">'+i*j+'</font>&nbsp;';
+				}else{
+					box.innerHTML+=i+'*'+j+'=<font style="color:blue;">'+i*j+'</font>&nbsp;';
+				}*/
+				if(i*j<10){
+					box.innerHTML+=' ';
+				}
+			}
+			box.innerHTML+='<br>';
+		}
+	</script>
+</body>
+</html>

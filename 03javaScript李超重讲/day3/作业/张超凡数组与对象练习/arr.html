@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 10px;}
+			div{min-height: 50px;max-height: 300px;width: 400px;border: 1px solid black;overflow: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<span>姓名：</span><input type="text" id="name"/><strong id="st" style="color: red;"></strong><br />
+		<span>性别：</span><input type="radio" name="gender" checked="true" value="男" />男<input type="radio" name="gender" value="女" />女<br />
+		<input type="button" id="add" value="添加" /><input type="button" id="del" value="删除最后一条" /><input type="button" id="dbk" value="删除所选项"/>
+		
+		<script type="text/javascript">
+			var oBox = document.getElementById('box');
+			var oAdd = document.getElementById('add');
+			var oDel = document.getElementById('del');
+			var oDeleteByKeyWord = document.getElementById('dbk');
+			var aGender = document.getElementsByName('gender');
+			var arr = [{name:'张超凡',gender:'男'}];
+			var st = document.getElementById('st');
+			var aP = document.getElementsByTagName('p');
+			
+			show();
+			checkName();
+			
+			//新增成员
+			oAdd.onclick = function(){
+				var name = document.getElementById('name').value;
+				var gender = aGender[0].checked;
+				var str;
+				if('' != name){
+					st.innerText = '';
+					if(gender){
+						str = '男';
+					}else{
+						str = '女';
+					}
+					var stu = {name:name,gender:str};
+					arr.push(stu);
+					document.getElementById('name').value = '';
+					show();
+				}else{
+					st.innerText = '请输入姓名';
+				}
+				checkName();
+			}
+			
+			//删除最后一位成员
+			oDel.onclick = function(){
+				if(arr.length!=0){
+					st.innerText = '';
+					arr.pop();
+					show();
+				}else{
+					st.innerText = '无可删除对象';
+				}
+				checkName();
+			}
+			
+			//删除指定成员的方法
+			function checkName(){
+				for(var i = 0; i < aP.length; i++){
+					aP[i].onclick = function(){//选定成员并获取待删除成员名字的点击事件
+						var value = this.innerText;
+						for (var x = 0; x < aP.length; x++) {
+							aP[x].style.backgroundColor = '';
+						}
+						this.style.backgroundColor = 'grey';
+						//document.getElementById('name').value = value;
+						oDeleteByKeyWord.onclick = function(){//选定完成员后点击删除所选项事件
+							if(arr.length != 0){
+								for(var j = 0; j < arr.length; j++){
+									if(value == arr[j].name){
+										arr.splice(j,1);
+										show();
+										checkName();
+									}
+								}
+							}else{
+								st.innerText = '无可删除对象';
+							}
+						}
+					}
+				}
+			}
+			
+			//未选定对象，点按姓名删除，则提示错误
+			oDeleteByKeyWord.onclick = function(){
+				st.innerText = '请选择要删除对象';
+			}
+			
+			//打印成员信息方法
+			function show(){
+				oBox.innerHTML = '';
+				for(x in arr){
+					var n = arr[x];
+					//console.log(n);
+					oBox.innerHTML += '<p>'+ n.name +'</p>'
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+  <style>
+     *{ margin:0; padding:0;}
+	 a{ text-decoration:none; color:#CCC;}
+	 #box{ border-left:1px solid #f1f1f1; border-right:3px solid #f1f1f1;}
+     #box1{ height:50px; width:100%; background:#fffeee; line-height:50px; display:block;}
+	  #oa1:hover{ text-decoration:underline;}
+	  #oa3:hover{ text-decoration:underline;}
+      #box2{ width:100%; height:60px; border-bottom:1px solid #f4f4f4; border-top: 1px solid #dddddd; background: #fdfdfd; line-height:80px;}
+      #box3{ width:100%; height:400px; background:#fcfcfc;}
+  </style>
+
+</head>
+
+<body>
+  <div id="box">
+  <div id="box1">
+     <div style=" position:relative; left:50px;">
+    <img src="img/1.png">
+    <a href="#" style=" color:#000;" id="oa3">更新提示：针对Windows 7系统进行优化，网页访问不卡不顿，<font style="color:#F00">上网提速5倍</font></a>
+    <a href="#"  style="width:90px; height:25px; border-radius:5px; background:#ededed; border:#999 1px solid; display:inline-block; color:#333; position:relative; top:15px; text-align:center;"><font style="position:relative; top:-13px;">立即更新</font></a>
+    
+    <a href="#" style="color:#F00; position:absolute; right:100px;" title="点我有惊喜" id="oa1">反馈有礼</a><a href="#" style=" position:absolute; right:80px;" id="chac"><img src="img/8.png"></a>
+  </div></div>
+  
+  
+   <div id="box2">
+       <div style="position:relative; left:50px; top:-20px">
+        <img src="img/未标题-1.png" style="position:relative; top:10px;">
+        <a href="#" style="position:relative; top:10px;"><img src="img/2.png"></a>
+        <span style=" font-size:10px">
+            <span id="szs" style="display:inline-block; width:40px;"><a href="#" id="oa2">深圳<img src="img/10.png"></a></span>
+            <span style="background:#999; color:#FFF;">优</span>
+            <span style="color:#999"><img src="img/3.png" style="position:relative; top:10px;">&nbsp;阵雨&nbsp; 32 - 25°C&nbsp;&nbsp;  9月12日&nbsp; 周一&nbsp; 八月十二&nbsp; 星座运势  
+        </span>
+          <span style="position:relative; left:70px;">
+            <img src="img/4.png" style="position:relative; top:5px;"><a href="#">li_chao7</a>&nbsp;&nbsp;<a href="#">云盘</a>&nbsp;<a href="#">邮箱</a>&nbsp;<a href="#">浏览器</a>&nbsp;<a href="#">换肤</a>&nbsp;<img src="img/5.png" style="position:relative; top:5px;"><a href="#">在家骑大马习惯了</a>
+           </span>
+          <a href="#"><img src="img/6.png" style=" position:relative; left:129px; top:20px;"></a>
+       </div>
+   
+   
+   </div>
+   <div id="box3">
+      <div style="position:relative; left:170px; top:33px;">
+          <img src="img/7.png">
+         <input type="text" id="inp" style=" width:572px; height:44px; position:relative; left:50px; top:-6px; font-size:18px; border:1px solid #666666;"><a href="#" style="position:relative; top:11px; left:-71px;"><img src="img/11.png"></a>
+         <a href="#" style="position: relative; left:-20px;"><span style="color:#F00; font-size:30px;">·</span><span style="position:relative; top:-5px; font-size:14px; color:#333;">世界最轻婴儿</span></a>
+      </div> 
+     
+   
+   </div>
+   </div>
+   
+   <script>
+      var chac=document.getElementById('chac');
+	  var box1=document.getElementById('box1');
+      var oa1=document.getElementById('oa2');
+	  var szs=document.getElementById('szs');
+	  
+	  chac.onclick=function(){
+		  CSS(box1,'display','none');
+		  }
+	   
+	  oa1.onmouseover=function(){
+		  
+		 szs.innerHTML+='<div>'+上海+'</div>'; 
+		  
+		  };
+	   
+	 
+	 
+	 function CSS(obj,attr,value){
+			if(value!=undefined){
+				obj.style[attr]=value;
+				}
+			if(window.getComputedStyle){return 
+			getComputedStyle(obj)[attr];}
+			else{return 
+			obj.currentStyle[attr];}	
+			}	
+   
+   </script>
+   
+</body>
+</html>

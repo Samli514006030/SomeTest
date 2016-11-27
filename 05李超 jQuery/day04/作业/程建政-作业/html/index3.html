@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/01.css" />
+	</head>
+	<body>
+		<div id="box3_1">
+		<img src="../img/01jian.png" id="img3_1" />
+		<img src="../img/01jian.png" id="img3_2" />
+		<img src="../img/01jian.png" id="img3_3" />
+		<img src="../img/01jian.png" id="img3_4" />
+		
+		</div>
+		<div class="box" id="odiv">
+			<img src="../img/未标题-2.jpg" class="img1" />
+			<span class="apn">android开发前景</span>
+
+			<div class="box1">
+				<div id="ind3_1">
+					<ul>
+						<li id="oli1"><img src="../img/jiant.png">  android市场份额 绝对领先地位</li>
+						<li id="oli2"><img src="../img/jiant.png">  人才招聘 供不应求</li>
+						<li id="oli3"><img src="../img/jiant.png">  就业现状 anroid开发人才急缺</li>
+						<li id="oli4"><img src="../img/jiant.png">  待遇优厚 机遇多 </li>
+					</ul>
+				</div>
+			</div>
+			<span class="spn1">www.zelininfo.com</span>
+		</div>
+		
+		<script type="text/javascript" src="../jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript">
+			 setTimeout(function() { 
+			 	setTimeout(function(){
+			 		$("#oli1").css({"left":"0px","top":"88px"});
+			 		$("#img3_1").show();
+			 		$("#img3_1").prop("src","../img/20.gif");
+			 	setTimeout(function() {
+			 		$("#img3_1").hide();
+			 	     },1000)
+			 	},500)
+			 	setTimeout(function(){
+			 		$("#oli2").css({"left":"0px","top":"150px"});
+			 		$("#img3_2").show();
+			 		$("#img3_2").prop("src","../img/20.gif");
+			 	setTimeout(function() {
+			 		$("#img3_2").hide();
+			 	     },1000)
+			 	},1500)
+			 	setTimeout(function(){
+			 		$("#oli3").css({"left":"0px","top":"210px"});
+			 		$("#img3_3").show();
+			 		$("#img3_3").prop("src","../img/20.gif");
+			 	setTimeout(function() {
+			 		$("#img3_3").hide();
+			 	     },1000)
+			 	},2500)
+			 	setTimeout(function(){
+			 		$("#oli4").css({"left":"0px","top":"267px"});
+			 		$("#img3_4").show();
+			 		$("#img3_4").prop("src","../img/20.gif");
+			 	setTimeout(function() {
+			 		$("#img3_4").hide();
+			 	     },1000)
+			 	},3500)
+			 	
+			 }, 100)
+			  $(document).click(function(){
+						window.location.href="index4.html";
+					})
+		</script>
+	</body>
+</html>

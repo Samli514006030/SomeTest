@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.my_c{
+				background: yellow;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<p>段落1</p>
+			<p>段落2</p>
+			<p class="active">段落3</p>
+			<p>段落4</p>
+			<p>段落5</p>
+			<p>段落6</p>
+			<p>段落7</p>
+			<p>段落8</p>
+			<p>段落9</p>
+		</div>
+
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+			
+			$('#box p').first().addClass('my_c');
+			$('#box p').last().css('background', 'blue');
+			$('#box p').eq(7).css('background', 'green');//eq 对应的是下标
+			$('#box p').filter('[class]').css('background','goldenrod'); // filter 属性过滤器 
+			$('#box p').not('[class]').css('background','gold');  //not 与filter相反
+		
+			
+			
+		</script>
+	</body>
+
+</html>

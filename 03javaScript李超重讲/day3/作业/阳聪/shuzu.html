@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1{width: 400px;height: 400px;border: 1px solid;margin: 0 auto;}
+			#d2{width: 400px;height: 200px;border: 1px solid red;margin: 0 auto;}
+			#p2{margin-left: 26px;}
+			#p3{margin-left:76px ;}
+		</style>
+	</head>
+	<body>
+		    <div id="d1">
+		    	<div id="d2">
+		    		
+		    	</div>
+		    	<input type="button" name="" id="" value="输入姓名" />
+		    		<input type="text" name="" id="p1" /><br /><br />
+		    <input type="button" name="" id="" value="性别" />
+		    		<input type="text" name="" id="p2" /><br /><br />
+		    		<input type="button" name="" id="p3" value="添加" />
+		    		<input type="button" name="" id="p4" value="删除" />
+		    		
+		    	
+		    </div>
+		    <script type="text/javascript">
+		    	  var val=document.getElementById("d2");
+		    	  var p1=document.getElementById("p1");
+		    	  var p2=document.getElementById("p2");
+		    	  var p3=document.getElementById("p3");
+		    	  var p4=document.getElementById("p4");
+		    	  var vv=true;
+		    	  var x=[];
+		    	  
+		    	
+		    	 
+		    	  for (var i=0;i<20;i++) {
+		    	  	 var y={}
+		    	  	 y.name="小名"+i
+		    	  	y.sex="男"
+		    	  	x.push(y)
+		    	  }
+		    	 
+		    	  for (var i=0;i<x.length;i++) {
+		    	  	 
+		    	  	 val.innerHTML+=x[i].name+"&nbsp&nbsp"
+		    	  }
+		    	  
+		    	 
+		    	  console.log(x.length)
+		    	 p3.onclick=function(){
+		    	 	var va1=p1.value;
+		    	 	var va2=p2.value;
+		    	 	if(va1==""){
+		    	 		alert("请输入姓名")
+		    	 		return;
+		    	 	}
+		    	 	var y={};
+		    	 	y.name=va1;
+		    	 	y.sex=va2	
+		    	 	x.push(y)
+		            console.log(x.length)
+		    	 	 val.innerHTML="";
+		    	 	 for (var i=0;i<x.length;i++) {
+		    	  	
+		    	  	 val.innerHTML+=x[i].name+"&nbsp&nbsp"
+		    	     }
+		    	 	 
+		    	 	p1.value="";
+		    	 	p2.value="";
+		    	 	 
+		    	 }
+		    	 
+		    	 p4.onclick=function(){
+		    	 
+		    	 	var va3=p1.value;
+		    	 	if(va3==""){
+		    	 		alert("请输入姓名")
+		    	 		return;
+		    	 	}
+		    	 console.log(x.length)
+		    	 	for (var i=0;i<x.length;i++) {
+		    	 		if(x[i].name==va3){
+	
+		    	 			x.splice(i,1)
+		    	 		}
+		    	 	}
+		    
+		    	 	 val.innerHTML="";
+		    	 for (var i=0;i<x.length;i++) {
+		    	  	
+		    	  	 val.innerHTML+=x[i].name+"&nbsp"
+		    	     }
+		    	  
+		    	 	p1.value="";
+		    	 	p2.value="";
+		    	 }
+		    	 
+		    </script>
+	</body>
+</html>

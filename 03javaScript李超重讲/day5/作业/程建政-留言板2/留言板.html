@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ #box{ margin:20px 300px;}
+ #txt{
+	  width:500px; height:50px; outline:none; word-break:break-all; overflow:auto;
+      }
+ #oa{
+	  text-decoration:none; position:relative; top:50px; left:-68px; width:60px; height:30px; background:#06F; display:inline-block; text-align:center; line-height:30px; font-weight:bold; color:#FFF;
+	  }
+ #img1{
+	  position:relative; top:18px; left:-15px;
+	 }
+ .box1{
+	  width:650px; height:60px; border-top:5px #333333 solid;
+ position:relative; left:-50px; top:100px; font-size:18px; font-weight:bold; line-height:60px; background:#CCC; text-indent:1em;      }	 
+ #box2{
+	  width:610px; min-height:300px;position:relative; left:250px; top:150px; padding:20px;
+      }
+ #box2 p{ display:inline-block; width:100%; border-bottom:#CCC 3px solid; font-size:26px; position:relative; top:-30px; text-indent:1em;
+	 } 
+ #box2 span{
+	  color:#F00; position:relative; left:-20px;
+        }	 	 
+ #box2 img{
+	    position:relative; top:12px;
+		}	
+ #box2 button{  float:right; clear:both; position:relative; top:10px;        }
+ #box2 div{ width:100%; height:60px; background:#CCC; position:relative; top:-52px; border:1px #00CCFF solid; display:none;}
+ #box2 div input{ width:300px; height:50px; position:relative; left:50px;}
+  #box2 div button{ width:70px; height:50px; position:relative; left:-100px; top:5px; }
+  	  
+</style>
+</head>
+
+<body>
+  <div id="box">
+    <img src="img/2.png" id="img1">
+    <input type="text" id="txt">
+    <a href="#" id="oa">提交</a> 
+    <div class="box1">回复置顶区</div>
+  </div>
+  <div id="box2"></div> 
+ <!-- <p style=" font-size:16px; color:#0F0; border-bottom:none; border-top:1px dotted #0000FF; position:relative; top:30px; padding-top:5px;"></p>-->
+
+   <script>
+     var oa=document.getElementById('oa');
+	 var txt=document.getElementById('txt');
+	 var box2=document.getElementById('box2');
+	 var i=1;
+	 var a=true;
+	
+	 oa.onclick=function(){
+		 if(txt.value==''){
+			 alert('请输入留言');
+			 }
+		  else{	 
+		   obut=document.createElement('button');
+		   otxt=document.createElement('input');
+		   bbut=document.createElement('button');
+		   bbut.innerHTML+='提交';
+		   bbut.id+='bbut';
+		  
+		  
+		   spa=document.createElement('span');
+		   p=document.createElement('p');
+		   odiv=document.createElement('div');
+		   odiv.appendChild(otxt);
+		   odiv.appendChild(bbut);
+		   obut.innerHTML+='追问';
+		   obut.id+='obut';
+		   spa.innerHTML+='<img src="img/1.png">'
+		   spa.innerHTML+= i+'楼';
+		   spa.innerHTML+=' ';
+		   spa.innerHTML+='匿名用户：<br><br>'
+		   p.innerHTML+=txt.value;
+		   obut.onclick=function(){
+			  if(a){ 
+			  odiv.style.display='block'; 
+			   }
+		       else{
+			   odiv.style.display='none';   
+				   };
+				a=!a;};  
+					 
+		  box2.appendChild(obut);  
+		  box2.appendChild(spa); 
+		  box2.appendChild(p);
+		  box2.appendChild(odiv); 
+		  
+		  bbut.onclick=function(){
+			  odiv.style.display='none'; 
+			  p.innerHTML+=' <p style=" font-size:16px; color:#0F0; border-bottom:none; border-top:1px dotted #0000FF; position:relative; top:10px;padding-top:5px; ">追问：'+otxt.value+'</p>'
+			   
+			   };
+		    i++;
+		  txt.value='';	
+		  }
+		 }
+  
+   </script>
+  
+</body>
+</html>

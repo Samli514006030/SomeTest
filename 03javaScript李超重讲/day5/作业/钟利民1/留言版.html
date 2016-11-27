@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		
+			#box{
+				position: relative;
+				margin: auto;
+				height: 500px;
+				width: 500px;
+			}		
+			#show{
+				width: 390px;
+				height:300px;
+				overflow: auto;
+				border: solid 1px #000000;
+				padding-left: 10px;
+				line-height: 25px;
+			}
+			#txt{
+				width: 396px;
+				height: 100px;
+				resize: none;
+				border: solid 1px #000000;
+				
+			}
+			#tj{
+				width: 402px;
+				height: 40px;
+				position: relative;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="show"></div>
+			<textarea id="txt"></textarea>
+			<input type="button" value="提交留言" id="tj" />
+		</div>
+		
+		<script>
+			var show = document.getElementById('show');
+			var txt = document.getElementById('txt');
+			var tj = document.getElementById('tj');
+			
+			i=1;
+			tj.onclick=function(){
+			 	show.innerHTML=i+'楼'+':'+txt.value+'<br/>'+show.innerHTML;
+				i++;		
+			};
+		</script>
+	</body>
+</html>

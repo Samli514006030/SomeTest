@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		    body{
+		    	background: black;
+		    }
+			#page1{
+				height: 578px;
+				width: 770px;
+				background: white;
+				margin: 20px auto;
+				position: relative;
+			}
+			#img{
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+			#contant{
+				height: 400px;
+				width: 700px;
+				border-top: solid 2px #336666;
+				border-bottom: solid 2px #336666;
+				position: absolute;
+				top: 120px;
+				left:35px;
+			}
+			#contant1{
+				height: 180px;
+				position: absolute;
+				left: 47px;
+				top: 30px;
+			}
+			#contant2{
+				height: 230px;
+				position: absolute;
+				left: 275px;
+				top: 16px;
+			}
+			#contant3{
+				height: 180px;
+				position: absolute;
+				left: 513px;
+				top: 30px;
+			}
+			#contant1 img{
+				height: 175px;
+			}
+			#contant2 img{
+				height: 225px;
+			}
+			#contant3 img{
+				height: 175px;
+			}
+			#box{
+				width:700px;
+				height: 120px;
+				position: absolute;
+				bottom: 0;
+				overflow: hidden;
+			}
+			#box p{
+				width: 100%;
+				margin:0 auto;
+				font-size: 40px;
+			    line-height:60px;
+				text-align: center;
+			}
+			#txt{
+				color: #d99694;
+			}
+			#foot{
+				width: 100%;
+				margin:0 auto;
+				line-height:60px;
+				text-align: center;
+				position: absolute;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="page1">
+			<div id="img">
+				<img src="img/zelin.png"/>
+			</div>
+			<div id="contant">
+				<div id="contant1">
+					<img src="img/page1图片1.png"/><br/>
+					<button>隐藏</button>
+				</div>
+				<div id="contant2">
+					<img src="img/page1图片2.png"/><br/>
+					<button>淡出</button>
+				</div>
+				<div id="contant3">
+					<img src="img/page1图片3.png"/><br/>
+					<button>隐藏</button>
+				</div>
+				<div id="box">
+					<p id="txt">Android技术沙龙</p>
+                    <p>李超</p>
+				</div>
+			</div>
+			<p id="foot">www.zelininfo.com</p>
+		</div>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+	    	$('#contant1 button').click(function(){
+	    		$('#contant1 img').toggle(1000,function(){
+	    			if (1==$('#contant1 img:visible').length) {
+	    			$('#contant1 button').html('隐藏');
+	    		} else{
+	    			$('#contant1 button').html('显示');
+	    		}
+	    		});
+	    		
+	    		
+	    	});
+	    	
+	    	$('#contant2 button').click(function(){
+	    		$('#contant2 img').fadeToggle(1000,function(){
+	    			if (1==$('#contant2 img:visible').length) {
+	    			$('#contant2 button').html('淡出');
+	    		} else{
+	    			$('#contant2 button').html('淡入');
+	    		}
+	    		});
+	    		
+	    		
+	    	});
+	    	
+	    	$('#contant3 button').click(function(){
+	    		$('#contant3 img').slideToggle(1000,function(){
+	    			if (1==$('#contant3 img:visible').length) {
+	    			$('#contant3 button').html('隐藏');
+	    		} else{
+	    			$('#contant3 button').html('显示');
+	    		}
+	    		});
+	    		
+	    		
+	    	});
+	    </script>
+	
+	</body>
+</html>

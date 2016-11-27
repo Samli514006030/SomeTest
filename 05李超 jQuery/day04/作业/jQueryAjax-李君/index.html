@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>hao123彩票导航</title>
+		<style type="text/css">
+			body {
+				margin: 0px;
+				padding: 0px;
+				font: 12px arial, SimSun, helvetica, sans-serif;
+				;
+			}
+			
+			div#infoHeader {
+				width: 100%;
+				min-width: 960px;
+				background: black;
+			}
+			
+			div#header {
+				width: 100%;
+				height: 60px;
+				background: gainsboro;
+				border-bottom: 1px solid gainsboro;
+			}
+			
+			div.header-container {
+				width: 960px;
+				height: 60px;
+				margin: 0px auto;
+				background: red;
+			}
+			
+			.clearfix {
+				zoom: 1;
+			}
+			
+			div.v1-logo,
+			div.v1-sitemap,
+			a#headerCom,
+			div.v1-form,
+			div.v1-tools {
+				float: left;
+			}
+			
+			div.v1-logo {
+				overflow: hidden;
+				height: 32px;
+				padding: 14px 0px;
+			}
+			
+			a {
+				text-decoration: none;
+				cursor: pointer;
+				color: inherit;
+			}
+			
+			div.v1-logo a.hao123 {
+				float: left;
+				width: 108px;
+				height: 32px;
+				background-image: url(img/hao-logo.png);
+				text-indent: -9999em;
+			}
+			
+			div.v1-logo a.channel {
+				float: left;
+				height: 26px;
+				line-height: 26px;
+				margin-top: 5px;
+				margin-left: 3px;
+			}
+			
+			div.v1-logo a.channel img {
+				vertical-align: middle;
+			}
+			
+			img {
+				vertical-align: middle;
+				border: 0px;
+			}
+			
+			div.v1-sitemap {
+				position: relative;
+				margin-left: 5px;
+			}
+			
+			div.v1-sitemap a.map {
+				float: left;
+				height: 54px;
+				line-height: 54px;
+				padding: 6px 15px 0px 25px;
+				padding-top: 6px;
+				opacity: 0.8;
+				position: relative;
+			}
+			
+			div.v1-sitemap a.map i.icon-grid {
+				position: absolute;
+				width: 14px;
+				height: 14px;
+				left: 10px;
+				top: 26px;
+				background: url(img/icon-grid.png) no-repeat 0 0;
+			}
+			
+			div.v1-sitemap a.map em {
+				margin: 0px 3px;
+				font-size: 18px;
+				color: #fff;
+				font-family: arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft Yahei", STHeiti, SimSun, helvetica, sans-serif;
+				vertical-align: baseline;
+			}
+			
+			em {
+				font-weight: 700;
+				font-style: normal;
+			}
+			
+			div.v1-sitemap a.map i.map-popup {
+				position: absolute;
+				height: 0px;
+				line-height: 0px;
+				right: 10px;
+				top: 32px;
+				border: 3px solid #76E2BC;
+				border-color: #f44;
+				border-top-color: #fff;
+			}
+			
+			a.v1-link {
+				width: 180px;
+				height: 40px;
+				position: relative;
+				top: 10px;
+				overflow: hidden;
+				margin-left: 10px;
+			}
+			
+			div.v1-form form.search-form {
+				position: relative;
+			}
+			
+			form.search-form input.text {
+				width: 130px;
+			}
+			
+			div.v1-form form.search-form input.text {
+				float: left;
+				border: 0px;
+				padding: 5px 10px;
+				font-size: 14px;
+				height: 22px;
+				line-height: 22px;
+				background-color: #fff;
+				color: #444;
+			}
+			
+			
+			div.v1-form form.search-form input.submit {
+				float: left;
+				border: 0px;
+				padding: 5px 10px;
+				font-size: 14px;
+				height: 22px;
+				line-height: 22px;
+				background-color: #e33;
+				color: #444;
+			}
+			
+			input {
+				text-rendering: auto;
+				color: initial;
+				letter-spacing: normal;
+				word-spacing: normal;
+				text-transform: none;
+				text-indent: 0px;
+				text-shadow: none;
+				display: inline-block;
+				text-align: start;
+				margin: 0em 0em 0em 0em;
+				font: 13.3333px Arial;
+			}
+			
+			div#nav {
+				width: 100%;
+				height: 40px;
+				background: gray;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="infoHeader">
+			<div id="header">
+				<div class="header-container clearfix">
+					<div class="v1-logo">
+						<a href="#" class="hao123" title="hao123网址导航" target="_blank">hao123</a>
+						<a href="#" class="channel" title="彩票">
+							<img src="img/caipiao.png" alt="彩票" id="channelTitle" />
+						</a>
+					</div>
+
+					<div class="v1-sitemap" data-hook="sitemap">
+						<a href="javascript:void(0)" class="map">
+							<i class="icon-grid"></i>
+							<em>导航</em>
+							<i class="map-popup" data-hook="map-popup"></i>
+						</a>
+					</div>
+
+					<a href="#" class="v1-link" target="_blank" title="66元宅家吃火锅" id="headerCom">
+						<img src="img/headerCom.jpg" alt="66元宅家吃火锅" width="180" height="40" />
+					</a>
+
+					<div class="v1-form">
+						<form class="search-form clearfix" target="_blank" data-hook="search-form" action="#" method="get">
+							<input type="text" class="text" data-hook="search-input" autocomplete="off" name="word" />
+							<input type="submit" class="submit" data-hook="search-submit" />
+						</form>
+					</div>
+
+					<div class="v1-tools"></div>
+				</div>
+			</div>
+
+			<div id="nav">
+
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js">
+		</script>
+	</body>
+
+</html>

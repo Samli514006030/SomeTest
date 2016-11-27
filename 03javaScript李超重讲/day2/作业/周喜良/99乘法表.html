@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 900px;height: 450px;border: solid 2px black; position: relative;}
+			#box1{width: 100px;height: 50px;position: absolute;border: solid 2px black;background: red; text-align: center;line-height:50px ;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+			
+		</div>
+		
+			
+		
+		<script type="text/javascript">
+		var odiv=document.getElementById('box');
+		
+		
+		
+			for (var i=1;i<=9;i++) {
+				
+				
+				for (var j=1;j<=i;j++) {
+//					console.log(i);
+//					console.log(j);
+					
+				
+					
+//	               console.log((i-1)*50);
+//	               console.log((j-1)*100);
+			odiv.innerHTML+='<div id="box1" style="top:'+(i-1)*50+'px; left: '+(j-1)*100+'px;">'+i+' X '+j+' = '+i*j+' </div>';
+			}
+		}
+		</script>
+	</body>
+</html>

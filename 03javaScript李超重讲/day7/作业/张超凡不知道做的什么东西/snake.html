@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;background-color: black;}
+			#box1{position: absolute;top: 0;left: 0;}
+			#box2{position: absolute;top: 100px;left: 100px;}
+			#box3{position: absolute;top: 200px;left: 200px;}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		
+		<script type="text/javascript">
+			var box1 = document.getElementById('box1');
+			var box2 = document.getElementById('box2');
+			var box3 = document.getElementById('box3');
+			var nowX = 0;
+			var nowY = 0;
+			document.onmousemove = function(){
+				var ev = ev || window.event;
+				var x = ev.clientX;
+				var y = ev.clientY;
+				var h = document.body.clientHeight || document.documentElement.clientHeight;
+				var w = document.body.clientWidth || document.documentElement.clientWidth;
+				if(x < w && x >= 0 && y < h && y >= 0){
+					if(x <= 300 && y <= 300){
+						fTwo(x,y);
+					}else if(x <= 300 && y <= h-400){
+						fThree(x,y);
+					}else if(y <= 300 && x <= w-400){
+						fOne(x,y);
+					}else if(x <= w-400 && y <= h-400){
+						fFour(x,y);
+					}else if(x >= nowX && y <= nowY){
+						fOne(x,y);
+					}else if(x >= nowX && y > nowY){
+						fThree(x,y);
+					}else if(x < nowX && y > nowY){
+						fFour(x,y);
+					}else{
+						fTwo(x,y);
+					}
+				}
+			}
+			function fOne(x,y){
+				box1.style.top = y + 'px';
+				box1.style.left = x + 'px';
+				box2.style.top = (100+y) + 'px';
+				box2.style.left = (x-100) + 'px';
+				box3.style.top = (200+y) + 'px';
+				box3.style.left = (x-200) + 'px';
+				nowX = x;
+				nowY = y;
+			}
+			function fTwo(x,y){
+				box1.style.top = y + 'px';
+				box1.style.left = x + 'px';
+				box2.style.top = (100+y) + 'px';
+				box2.style.left = (100+x) + 'px';
+				box3.style.top = (200+y) + 'px';
+				box3.style.left = (200+x) + 'px';
+				nowX = x;
+				nowY = y;
+			}
+			function fThree(x,y){
+				box1.style.top = y + 'px';
+				box1.style.left = x + 'px';
+				box2.style.top = (y-100) + 'px';
+				box2.style.left = (x-100) + 'px';
+				box3.style.top = (y-200) + 'px';
+				box3.style.left = (x-200) + 'px';
+				nowX = x;
+				nowY = y;
+			}
+			function fFour(x,y){
+				box1.style.top = y + 'px';
+				box1.style.left = x + 'px';
+				box2.style.top = (y-100) + 'px';
+				box2.style.left = (x+100) + 'px';
+				box3.style.top = (y-200) + 'px';
+				box3.style.left = (x+200) + 'px';
+				nowX = x;
+				nowY = y;
+			}
+		</script>
+	</body>
+</html>

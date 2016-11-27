@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/bigptr.jpg" alt="..."/>
+		<div id="msg"></div>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var msg = $('#msg');
+			
+			//hover(fn1,fn2) fn1含义：移动到元素上面触发事件  fn2含义：离开元素触发事件
+			//hover 鼠标移入移出  hover（参数一，参数二） 参数一：相当于mouseover，放一个function;参数二：相当于mouseout，也放一个function 
+			$('img').hover(function(){
+				msg.html('鼠标进入');
+			},function(){
+				msg.html('鼠标移出');
+			});
+
+		</script>
+	</body>
+</html>

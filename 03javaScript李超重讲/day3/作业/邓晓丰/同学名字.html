@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style>
+		#box{ width:600px; height:500px; border:1px solid black; margin:20px auto; text-align:center;}
+		#show{ width:560px; height:300px; border:1px solid black; margin:20px; text-align:left; overflow:auto;}
+		#show span{float:left; width:140px; margin:4px 0;}
+		.mail{ font-size:30px; font-weight:bold; color:green; }
+		.femail{ font-size:30px; font-weight:bold; color:red;}
+		#message{ font-size:24px; color:red; height:30px;}
+	</style>
+</head>
+
+<body>
+	<div id="box">
+    	<div id="show"></div>
+        <div id="message"></div> 
+        请输入姓名：<input type="text" id="name"><br>
+    	请选择性别：<input type="radio" name="sex" id="mail" checked>男
+   		<input type="radio" name="sex" id="femail">女<br>
+        <input type="button" value="添加最后" id="add">
+        <input type="button" value="删除最后" id="del1">
+        <input type="button" value="按名删除" id="del2"> 
+        
+    </div>
+    
+    <script>
+		var oShow=document.getElementById('show');
+		var add=document.getElementById('add');
+		var getName=document.getElementById('name');
+		var mail=document.getElementById('mail');
+		var del1=document.getElementById('del1');
+		var del2=document.getElementById('del2');
+		var message=document.getElementById('message');
+		var arr=new Array();
+		var person={};
+		var teacher={}
+		
+			teacher.initData = function (){
+			var str=['邓晓丰','刘世颖','陈建政','傅超军','李城','李为龙','周喜良','贾亚丽','张超凡','朱何优','俞钧龙','吴闻','马红亮','钟利民','钟伟伟'];
+			for( var i=0;i<str.length;i++){
+				if(str[i]=='贾亚丽'){
+					var person={name:str[i],sex:'女'}
+				}else{
+					var person={name:str[i],sex:'男'}
+				}
+				arr.push(person);
+			}
+		}
+		
+		
+		//初始化
+		
+		teacher.initData();
+		show();
+		
+		//添加
+		add.onclick=function(){
+			var na=getName.value;
+			if(na==''){
+				showMessage('名字不能为空');
+				return;
+			}else{
+				var s=mail.checked?'男':'女';
+				person={name:na,sex:s};
+				arr.push(person);
+				show();
+				showMessage('添加成功');
+			}
+		}
+		//删除1
+		del1.onclick=function(){
+			if(arr.length==0){
+				showMessage('没人了，散了吧');
+				return;
+			}
+			arr.pop();
+			show();	
+			showMessage('删除成功');
+		}
+
+		//删除2
+		del2.onclick=function(){
+			if(arr.length==0){
+				showMessage('没人了，散了吧');
+				return;
+			}
+			var na=getName.value;
+			if(na==''){
+				showMessage('输入不能为空');
+				return;
+			}
+			
+			for(var i=0;i<arr.length;i++){
+
+				if(arr[i].name==na){
+					arr.splice(i,1);
+					show();
+					showMessage('删除成功');
+					return;
+				}
+			}
+			showMessage('亲，没有这个人');
+		}
+
+		//显示
+		function show(){
+			oShow.innerHTML='';
+			for(var i=0;i<arr.length;i++){
+				if(arr[i].sex=='女'){
+					oShow.innerHTML+='<span class="femail">'+arr[i].name+'</span>'
+				}else{
+					oShow.innerHTML+='<span class="mail">'+arr[i].name+'</span>'
+				}
+			}
+		}
+		
+		//提示
+		function showMessage(str){
+			message.innerHTML=str;	
+			setTimeout(function(){
+				message.innerHTML='';
+			},1000);
+		}
+		
+	
+	</script>
+
+</body>
+</html>

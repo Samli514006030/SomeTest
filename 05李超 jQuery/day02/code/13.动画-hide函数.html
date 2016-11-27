@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/bigptr.jpg" alt="..."/>
+		<button id="b1">隐藏</button>
+		<button id="b3">隐藏(两个参数)</button>
+		<button id="b4">隐藏(三个参数)</button>
+		<button id="b2">显示</button>
+		
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#b1').click(function(){
+				$('img').hide('slow');
+			});
+			$('#b3').click(function(){
+				$('img').hide('slow',function(){
+//					alert('...');
+				});
+			});
+			$('#b4').click(function(){
+				$('img').hide(2000,'linear',function(){});
+			});
+			
+			$('#b2').click(function(){
+//				$('img').show('slow');
+				$('img').show(500);
+			});
+		</script>
+	</body>
+</html>

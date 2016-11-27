@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 300px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<img id="img1" />
+		<img id="img2" />
+		<img id="img3" src="img/bigptr.jpg"/>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#img1').attr('src','./img/bigptr.jpg');
+			//attr使用的几种方式
+			//1 attr('href')  获取属性
+			//2 attr({'':'','':''}) json数组设置多个属性
+			//3 attr('href','a.jpg');设置属性
+			//4 attr('href',function(){
+			//	 return '相对路径' 
+			// }) 函数的返回值作为属性的值
+			$('#img2').attr({'src':'./img/dfdf.png','alt':'奖杯'});
+			$('#img3').attr('src',function(i,ordValue){
+				console.log(i+"   "+ordValue);
+				return './img/dfdf.png';
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{ width: 500px;
+			      border: 1px solid black;
+			      padding: 10px;}
+			span{ width: 80px;
+			      align-content: center;
+			      margin: 20px 20px;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<button id="btn">点名</button>
+		<button id="btn1">清除</button>
+		
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			var btn = document.getElementById('btn');
+			var btn1 =document.getElementById('btn1');
+			var aSpan = document.getElementsByTagName('span');
+			var arr=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+			         21,22,23,24,25,26]
+			for (var i=0;i<27;i++) {
+				if(i%7==6){
+					box.innerHTML +='<span>'+arr[i]+'</span><br>';
+				}else{
+				   box.innerHTML +='<span>'+arr[i]+'</span>';
+				}
+				
+			}
+			
+			
+			btn.onclick=function(){
+			
+				 num=Math.ceil(((Math.random(0,1))*27));
+//				console.log(num-1);
+				i=num-1;
+//              var i = setInterval (function(){
+//					return  num-1;
+//				},500);
+//				console.log(num-1);
+				aSpan[i].style.backgroundColor='red';
+			}
+			
+			btn1.onclick=function(){
+				for (var i=0;i<27;i++) {
+					aSpan[i].style.backgroundColor='';
+				}
+				
+			}
+			
+		</script>
+	</body>
+	
+</html>

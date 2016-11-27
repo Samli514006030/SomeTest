@@ -1,0 +1,11 @@
+p{margin: 0;padding: 0;}
+h1{text-align: center;color: brown;}
+a{text-decoration: none;}
+#box{width: 100%;height: 400px;margin: 0 auto;position: relative;}
+#box a{text-align: center;line-height:80px;float: left;margin-left:20px;margin-bottom:20px;width:80px;height:80px;background: silver;border-radius: 40px;font-size: 14px;}
+#box a:hover{background: pink;}
+/*下面的active不加上#box a权重会比上面的#box a要小无法生效!*/
+#box a.active{background: pink;}
+#cold{position: relative;top: 25px;}
+#start{display: none;position: relative;top: -180px;}
+#action{position: absolute;width: 100%;top:280px;display: none;}

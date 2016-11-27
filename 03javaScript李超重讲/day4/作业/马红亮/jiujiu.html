@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>99</title>
+    <style type="text/css">
+        #box{
+            width: 820px;
+            height: 330px;
+            margin: 0 auto;
+           border: 5px solid black;
+        }
+        li{
+            list-style: none;
+            display: inline;
+            margin: 5px;
+        }
+        li{
+            width: 60px;
+            height: 20px;
+            font-weight: bold;
+            border: 2px solid black;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+        <div id="box">
+            <ul>
+            </ul>
+
+        </div>
+    <script>
+        var oBox=document.getElementById('box');
+        var oUl=oBox.getElementsByTagName('ul');
+
+        for(var i = 0;i<10;i++)
+        {
+            oBox.innerHTML+='<ul></ul>';
+            for(var j=1;j<i+1;j++)
+            {
+                oUl[i].innerHTML+="<li>"+j+" X "+i+"= "+i*j+"</li>";
+            }
+        }
+    </script>
+</body>
+</html>

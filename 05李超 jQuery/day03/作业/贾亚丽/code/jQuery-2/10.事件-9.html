@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form >
+			
+			<input type="submit" value=""/>
+		</form>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("form:first").submit(function(){
+				console.log('...');
+				
+				return false;
+			});
+		</script>
+	</body>
+</html>

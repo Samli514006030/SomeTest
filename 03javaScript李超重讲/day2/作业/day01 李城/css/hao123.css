@@ -1,0 +1,41 @@
+	body{height: 2000px;}
+	ul,li{list-style: none;}
+	*{padding:0;margin:0;}
+	a{text-decoration: none;color:black;}
+	.clear:after{content: '';clear:both;display: block;}
+	#top{width:100%-40;height:15px;background:#fffeee;font-size:12px;padding: 12px 20px 12px 39px;border-bottom:1px solid #dddddd;postion:relative;}
+	#top img{position: absolute;top:10px;left:37px;}
+	#top .spanColor{color:red;}
+	#top .update{position:absolute;left:60px;letter-spacing: 1px;}
+	#top a:hover{text-decoration: underline;color:red;}
+	#top .border-btn input{width:80px;height:22px;border-radius: 4px;background:#eeeeee;border:1px solid #fff;}
+	#top .border-btn{position:absolute;top:6px;left: 485px;border:1px solid #b7b7b7;border-radius: 4px;display: inline-block;}
+	#top .top-right{position: absolute;top:13px;right:19px;}
+	#top .top-right .fankui{padding-right:10px;letter-spacing: 1px;}
+	#top #close{color:#a7a5a5;font-weight: bold;}
+	
+	#center{width:100%;height:60px;background:#fdfdfd;border-bottom: 1px solid #f4f4f4;position: relative;overflow: hidden;}
+	#center .logo{position: absolute;top:0px;left:37px;}
+	#center .sheShouYe{width:30px;height:33px;position: absolute;top:13px;left:205px;background:#07ac72;color:white;font-size:12px;padding-top:3px;padding-left: 5px;line-height: 16px;border-radius: 1px;}
+	#center .weather{position: absolute;top:0;left:243px;}
+	#center .other{position: absolute;top:0;left:448px;}
+	#center .center-right{float:right;width:370px;height:60px;}
+	#center .center-right li{display: inline-block;}
+	#center .center-right a{color:#999999;line-height: 60px;font-size:10px;display: block;}
+	#center .center-right a:hover{background:#f7f7f7;}
+	#center .center-right .right-images{margin-top:20px;}
+	
+	#bottom {height:112px;background: #fcfcfc;border-bottom:1px solid gray;position:relative;}
+	#bottom .fu-logo{position: absolute;top:30px;left:200px;}
+	#bottom .content{width:585px;height:44px;border:1px solid black;margin:0 auto;position: absolute;top:30px;left:330px;}
+	#menu {float:left;cursor: pointer;}
+	#menu li {font-size:12px;text-align: center;display: none;}
+	#menu .menu-active{width:40px;height:44px;line-height: 44px;display: block;text-align: center;}
+	#bottom .content input{width:500px;height:100%;border:0px;outline: none;}
+	#keyWords{width:20px;height:20px;border-radius: 10px;background:gray;position: absolute;top:15px;left:560px;font-size:10px;text-align: center;line-height: 20px;}
+	#search{width:100px;height:44px;border:1px solid black;position: absolute;top:-1px;right:-101px;font-size:14px;font-weight: bold;line-height: 44px;text-align: center;background:lightgray;}
+	#bottom .tips{width:150px;height:44px;position: absolute;top:14px;left:710px;font-size:10px;}
+	#bottom .circle{width:6px;height:6px;border-radius: 3px;background:red;position: absolute;top:6px;}
+	#bottom .tips-content{margin-left:10px;}
+	#bottom .other-content{font-size:12px;position: absolute;top:50px;left:30px;color:gray;}
+	#bottom .other-content a:hover{text-decoration: underline;color:red;}
